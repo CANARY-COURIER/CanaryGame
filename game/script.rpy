@@ -4,7 +4,7 @@
 # name of the character.
 
 define e = Character("Eileen")
-
+image BlackBars = "BlackBars.png"
 
 # The game starts here.
 
@@ -15,6 +15,7 @@ label start:
     # images directory to show it.
 
     scene bg room
+    show BlackBars
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images

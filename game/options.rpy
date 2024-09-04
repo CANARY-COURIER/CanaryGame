@@ -14,13 +14,13 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("CANRAY")
+define config.name = _("Canary Courier")
 
 ## A short name for the game used for executables and directories in the built
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "CANRAY"
+define build.name = "Canary Courier"
 
 ## Save directory ##############################################################
 ##
@@ -37,7 +37,7 @@ define build.name = "CANRAY"
 ## literal string, not an expression.
 
 ## Note: a typical save_directory value looks like "FreshProject-1671818013"
-define config.save_directory = "CANRAY-1725422790"
+define config.save_directory = "CanaryCourier-1725422790"
 
 
 ## The version of the game.
