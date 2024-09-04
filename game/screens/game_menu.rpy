@@ -10,8 +10,7 @@
 ##
 
 screen game_menu(title):
-    
-    image BlackBars
+
     style_prefix "game_menu"
 
     vbox:
