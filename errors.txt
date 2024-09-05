@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/main_menu.rpy", line 9: invalid syntax
-    ""HBox(\
-       ^
+File "game/styles.rpy", line 58: expecting name after dot.
+    language gui.
+                 ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Wed Sep  4 22:23:15 2024
+Thu Sep  5 00:56:37 2024

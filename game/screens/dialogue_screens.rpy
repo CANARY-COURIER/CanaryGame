@@ -47,6 +47,8 @@ style window:
 style say_dialogue:
     adjust_spacing False
     ypos 60
+    color "#422E2D"
+    yoffset -20
 
 # The style for dialogue said by the narrator
 style say_thought:
@@ -54,10 +56,12 @@ style say_thought:
 
 # Style for the box containing the speaker's name
 style namebox:
-    xpos 20
-    xysize (None, None)
-    background Frame("gui/namebox.png", 5, 5, 5, 5, tile=False, xalign=0.0)
-    padding (5, 5, 5, 5)
+    xpos 10
+    ypos -70
+    #xysize (None, None)
+    background Frame("gui/namebox.png")
+    #background Frame("gui/namebox.png", 5, 5, 5, 5, tile=False, xalign=0.0)
+    padding (30, 20, 30, 20)
 
 # Style for the text with the speaker's name
 style say_label:
