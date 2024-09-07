@@ -9,12 +9,15 @@
 ## setting up containers for the contents of your menu screens.
 ##
 
+image BlackBars = "BlackBars.png"
+
 screen game_menu(title):
 
     style_prefix "game_menu"
+    add "BlackBars"
 
     vbox:
-        xpos 60 yalign 0.5
+        xpos 250 yalign 0.5
         spacing 6
 
         if main_menu:
@@ -59,29 +62,29 @@ screen game_menu(title):
     ## Remove this line if you don't want to show the screen
     ## title text as a label (for example, if it's baked into
     ## the background image.)
-    label title
+    #label title
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
 
 style return_button:
-    xpos 60
+    xpos 250
     yalign 1.0
     yoffset -45
 
 style game_menu_viewport:
     xsize config.screen_width-420
-    ysize config.screen_height-200
-    align (0.5, 0.5)
+    ysize config.screen_height-150
+    align (0.9, 0.8)
 
 style game_menu_side:
     yfill True
-    align (1.0, 0.5)
+    align (1.3, 1)
 
 style game_menu_vscrollbar:
     unscrollable "hide"
 
 style game_menu_label:
-    padding (10, 10)
+    padding (300, 10)
 style game_menu_label_text:
-    size 45
+    size 30

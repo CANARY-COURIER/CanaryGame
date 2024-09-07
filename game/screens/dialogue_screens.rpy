@@ -88,7 +88,15 @@ screen quick_menu():
         imagebutton auto "gui/MenuGUIbutton_%s.png" xpos 1503 ypos 738 focus_mask True action ShowMenu('save')
         imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1591 ypos 601 focus_mask True action Skip(fast=True, confirm=True)
 
+
+        ### BACKPACK ###
         imagebutton auto "gui/Backpack_%s.png" xpos 210 ypos 816 focus_mask True
+
+        ### MAP ###
+        imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
+
+        ### CHECKLIST ###
+        imagebutton auto "gui/ChecklistGUIbutton_%s.png" xpos 380 ypos 18 focus_mask True
 
         hbox:
             style_prefix "quick"
