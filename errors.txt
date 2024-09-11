@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/styles.rpy", line 58: expecting name after dot.
-    language gui.
-                 ^
+File "game/screens/game_menu.rpy", line 82: The text statement is not a valid child of the imagebutton statement.
+    text _("Return") xpos 80 ypos -65
+        ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Thu Sep  5 00:56:37 2024
+Wed Sep 11 00:52:16 2024

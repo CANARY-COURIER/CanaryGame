@@ -15,24 +15,46 @@ screen game_menu(title):
 
     style_prefix "game_menu"
     add "BlackBars"
+    #add "gui/MenuBackground.png"
 
     vbox:
         xpos 250 yalign 0.5
-        spacing 6
+        spacing -8
 
         if main_menu:
 
             textbutton _("Start") action Start()
+            textbutton _("Load") action ShowMenu("load")
+            textbutton _("Preferences") action ShowMenu("preferences")
+            textbutton _("About") action ShowMenu("about")
+
+            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+                textbutton _("Help") action ShowMenu("help")
 
         else:
 
-            textbutton _("History") action ShowMenu("history")
+            ## HISTORY ##
+            #textbutton _("History") action ShowMenu("history")
+            imagebutton auto "gui/BlankButton_%s.png" focus_mask True action ShowMenu("history")
+            text _("History") xpos 80 ypos -55
 
-            textbutton _("Save") action ShowMenu("save")
+            ## SAVE ##
+            #textbutton _("Save") action ShowMenu("save")
+            imagebutton auto "gui/BlankButton_%s.png" focus_mask True action ShowMenu("save")
+            text _("Save") xpos 95 ypos -55
 
-        textbutton _("Load") action ShowMenu("load")
+            ## LOAD ##
+            imagebutton auto "gui/BlankButton_%s.png" focus_mask True action ShowMenu("load")
+            text _("Load") xpos 95 ypos -55
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+            ## SETTINGS ##
+            imagebutton auto "gui/BlankButton_%s.png" focus_mask True action ShowMenu("preferences")
+            text _("Settings") xpos 70 ypos -55
+
+            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+                imagebutton auto "gui/BlankButton_%s.png" focus_mask True action ShowMenu("help")
+                text _("Help") xpos 95 ypos -55
+
 
         if _in_replay:
 
@@ -40,24 +62,26 @@ screen game_menu(title):
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
-
-        textbutton _("About") action ShowMenu("about")
-
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            ## MAIN MENU ##
+            #textbutton _("Main Menu") action MainMenu()
+            imagebutton auto "gui/BlankButton_%s.png" focus_mask True action MainMenu()
+            text _("Main Menu") xpos 50 ypos -55
 
         if renpy.variant("pc"):
 
-            ## The quit button is banned on iOS and
-            ## unnecessary on Android and Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            #textbutton _("Quit") action Quit(confirm=not main_menu)
+            imagebutton auto "gui/BlankButton_%s.png" focus_mask True action Quit(confirm=not main_menu)
+            text _("Quit") xpos 95 ypos -55
 
-    textbutton _("Return"):
+    imagebutton auto "gui/BlankButton_%s.png":
+        focus_mask True
         style "return_button"
         action Return()
+    text _("Return") xpos 335 ypos 975
+    #textbutton _("Return"):
+        #style "return_button"
+        #action Return()
+        
 
     ## Remove this line if you don't want to show the screen
     ## title text as a label (for example, if it's baked into
