@@ -84,10 +84,15 @@ screen quick_menu():
 
     if quick_menu:
 
+        #################################################
+        ####### INVENTORY ###############################
+        add "gui/Inventory.png" xalign 0.49 ypos 820
+        add "gui/BackPackText.png" xalign 0.49 ypos 720
+        #################################################
+
         imagebutton auto "gui/SettingsGUIbutton_%s.png" xpos 1506 ypos 905 focus_mask True action ShowMenu('preferences')
         imagebutton auto "gui/MenuGUIbutton_%s.png" xpos 1503 ypos 738 focus_mask True action ShowMenu('save')
         imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1591 ypos 601 focus_mask True action Skip(fast=True, confirm=True)
-
 
         ### BACKPACK ###
         imagebutton auto "gui/Backpack_%s.png" xpos 210 ypos 816 focus_mask True
