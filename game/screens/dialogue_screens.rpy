@@ -45,10 +45,12 @@ style window:
 
 # Style for the dialogue
 style say_dialogue:
+    
     adjust_spacing False
     ypos 60
     color "#422E2D"
     yoffset -20
+    outlines gui.dialogue_text_outlines
 
 # The style for dialogue said by the narrator
 style say_thought:
@@ -86,8 +88,8 @@ screen quick_menu():
 
         #################################################
         ####### INVENTORY ###############################
-        add "gui/Inventory.png" xalign 0.49 ypos 820
-        add "gui/BackPackText.png" xalign 0.49 ypos 720
+        #add "gui/Inventory.png" xalign 0.49 ypos 820
+        #add "gui/BackPackText.png" xalign 0.49 ypos 720
         #################################################
 
         imagebutton auto "gui/SettingsGUIbutton_%s.png" xpos 1506 ypos 905 focus_mask True action ShowMenu('preferences')

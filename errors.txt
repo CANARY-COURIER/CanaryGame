@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/game_menu.rpy", line 82: The text statement is not a valid child of the imagebutton statement.
-    text _("Return") xpos 80 ypos -65
-        ^
+File "game/screens/dialogue_screens.rpy", line 48: expected 'simple_expression' not found.
+    outlines = (1, color"#fff", 0, 0) 
+             ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Wed Sep 11 00:52:16 2024
+Fri Sep 13 16:08:41 2024
