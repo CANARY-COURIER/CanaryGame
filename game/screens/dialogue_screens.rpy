@@ -40,7 +40,7 @@ style window:
     xalign 0.5
     yalign 1.0
     xysize (1231, 277)
-    padding (40, 10, 40, 40)
+    padding (40, 10, 100, 40)
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 # Style for the dialogue
@@ -61,8 +61,8 @@ style namebox:
     xpos 10
     ypos -70
     #xysize (None, None)
-    background Frame("gui/namebox.png")
-    #background Frame("gui/namebox.png", 5, 5, 5, 5, tile=False, xalign=0.0)
+    #background Frame("gui/namebox.png")
+    background Frame("gui/namebox.png", 5, 5, 5, 5, tile=False, xalign=0.0)
     padding (30, 20, 30, 20)
 
 # Style for the text with the speaker's name
@@ -104,6 +104,10 @@ screen quick_menu():
 
         ### CHECKLIST ###
         imagebutton auto "gui/ChecklistGUIbutton_%s.png" xpos 380 ypos 18 focus_mask True
+
+        ### CLOCK ###
+        add "gui/ClockBottom.png" xpos 1446 ypos 27
+        add "gui/ClockTop.png" xpos 1446 ypos 27
 
         hbox:
             style_prefix "quick"
