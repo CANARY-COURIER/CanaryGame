@@ -7,9 +7,10 @@
 
 ## Replace this with your background image, if you like
 image main_menu_background = HBox(
-    Solid("#292835", xsize=350),
+    Solid("#292835", xsize=500),
     Solid("#21212d")
 )
+image BlackBars = "BlackBars.png"
 
 screen main_menu():
 
@@ -17,9 +18,10 @@ screen main_menu():
     tag menu
 
     add "main_menu_background"
+    add "BlackBars"
 
     vbox:
-        xpos 60
+        xpos 250
         yalign 0.5
         spacing 6
 

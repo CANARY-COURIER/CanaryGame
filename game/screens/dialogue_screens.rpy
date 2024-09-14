@@ -40,13 +40,17 @@ style window:
     xalign 0.5
     yalign 1.0
     xysize (1231, 277)
-    padding (40, 10, 40, 40)
+    padding (40, 10, 100, 40)
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 # Style for the dialogue
 style say_dialogue:
+    
     adjust_spacing False
     ypos 60
+    color "#422E2D"
+    yoffset -20
+    outlines gui.dialogue_text_outlines
 
 # The style for dialogue said by the narrator
 style say_thought:
@@ -54,10 +58,12 @@ style say_thought:
 
 # Style for the box containing the speaker's name
 style namebox:
-    xpos 20
-    xysize (None, None)
+    xpos 10
+    ypos -70
+    #xysize (None, None)
+    #background Frame("gui/namebox.png")
     background Frame("gui/namebox.png", 5, 5, 5, 5, tile=False, xalign=0.0)
-    padding (5, 5, 5, 5)
+    padding (30, 20, 30, 20)
 
 # Style for the text with the speaker's name
 style say_label:
@@ -80,15 +86,38 @@ screen quick_menu():
 
     if quick_menu:
 
+        #################################################
+        ####### INVENTORY ###############################
+        #add "gui/Inventory.png" xalign 0.49 ypos 820
+        #add "gui/BackPackText.png" xalign 0.49 ypos 720
+        #################################################
+
+        imagebutton auto "gui/SettingsGUIbutton_%s.png" xpos 1506 ypos 905 focus_mask True action ShowMenu('preferences')
+        imagebutton auto "gui/MenuGUIbutton_%s.png" xpos 1503 ypos 738 focus_mask True action ShowMenu('save')
+        imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1591 ypos 601 focus_mask True action Skip(fast=True, confirm=True)
+
+        ### BACKPACK ###
+        imagebutton auto "gui/Backpack_%s.png" xpos 210 ypos 816 focus_mask True
+
+        ### MAP ###
+        imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
+
+        ### CHECKLIST ###
+        imagebutton auto "gui/ChecklistGUIbutton_%s.png" xpos 380 ypos 18 focus_mask True
+
+        ### CLOCK ###
+        add "gui/ClockBottom.png" xpos 1446 ypos 27
+        add "gui/ClockTop.png" xpos 1446 ypos 27
+
         hbox:
             style_prefix "quick"
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Prefs") action ShowMenu('preferences')
+            #textbutton _("Back") action Rollback()
+            #textbutton _("History") action ShowMenu('history')
+            #textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+            #textbutton _("Auto") action Preference("auto-forward", "toggle")
+            #textbutton _("Save") action ShowMenu('save')
+            #textbutton _("Prefs") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
