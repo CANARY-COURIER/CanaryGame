@@ -78,6 +78,18 @@ style say_label:
 ##
 ## The quick menu is displayed in-game to provide easy access to the out-of-game
 ## menus.
+image clock_img_dark:
+    'gui/ClockBottom.png'
+    rotate 0 xanchor 0.5 yanchor 0.5
+    linear 2.0 rotate 180
+
+image clock_img_light:
+    'gui/ClockBottom.png' 
+    rotate 180 xanchor 0.5 yanchor 0.5
+    linear 2.0 rotate 360
+
+default is_daytime = False
+image clock_current = ConditionSwitch("is_daytime==True", 'clock_img_light', "is_daytime==False", 'clock_img_dark')
 
 screen quick_menu():
 
@@ -97,7 +109,19 @@ screen quick_menu():
         imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1591 ypos 601 focus_mask True action Skip(fast=True, confirm=True)
 
         ### BACKPACK ###
-        imagebutton auto "gui/Backpack_%s.png" xpos 210 ypos 816 focus_mask True
+        imagebutton:
+            auto 'gui/Backpack_%s.png'
+            pos(210, 816)
+            focus_mask True
+            at transform:
+                outline_transform(3, "#fff", 3.0)
+                on idle:
+                    ## This animates the outline increasing/decreasing in size,
+                    ## but you can omit the `ease 0.1` part also for no animation.
+                    drop_shadow(offset=(5.0, 5.0))
+                on hover:
+                    ease 0.3 outline_transform(3, "#fff", 4.0)
+            action ToggleVariable('is_daytime', true_value=True, false_value=False)
 
         ### MAP ###
         imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
@@ -106,8 +130,13 @@ screen quick_menu():
         imagebutton auto "gui/ChecklistGUIbutton_%s.png" xpos 380 ypos 18 focus_mask True
 
         ### CLOCK ###
-        add "gui/ClockBottom.png" xpos 1446 ypos 27
-        add "gui/ClockTop.png" xpos 1446 ypos 27
+        fixed:
+            pos (1580, 130)
+            image 'clock_current'
+        fixed:
+            pos (1446, 27)
+            image 'gui/ClockTop.png'
+
 
         hbox:
             style_prefix "quick"
@@ -118,8 +147,7 @@ screen quick_menu():
             #textbutton _("Auto") action Preference("auto-forward", "toggle")
             #textbutton _("Save") action ShowMenu('save')
             #textbutton _("Prefs") action ShowMenu('preferences')
-
-
+            
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.
 init python:
