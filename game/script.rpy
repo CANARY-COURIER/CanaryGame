@@ -6,7 +6,6 @@ define e = Character('Elio')
 define c = Character('Catcher')
 
 label start:
-
     #############################################
     #FUNCTIONALITY HERE
     "{color=#f00}The game opens with the AVANE STUDIOS logo cutscene, transitioning to the main menu screen.{/color}"
