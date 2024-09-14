@@ -4,6 +4,11 @@ game/**/*.rpyc
 .DS_Store
 game/**/*.DS_Store
 
+game/cache/*
+game/saves/*
+
+.vscode/settings.json
+
+errors.txt
 traceback.txt
 log.txt
-

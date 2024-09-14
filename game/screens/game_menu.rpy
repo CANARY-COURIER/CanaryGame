@@ -14,9 +14,12 @@ image BlackBars = "BlackBars.png"
 screen game_menu(title):
 
     style_prefix "game_menu"
-    add "BlackBars"
-    #add "gui/MenuBackground.png"
-
+    fixed:
+        fixed:
+            image 'gui/MenuBackground.png' align (0.5, 0.5)
+        fixed:
+            image 'BlackBars.png'
+        
     vbox:
         xpos 250 yalign 0.5
         spacing -8
