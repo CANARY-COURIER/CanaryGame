@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/game_menu.rpy", line 22: expected a keyword argument, colon, or end of line.
-    text title font size 32 color 
-                         ^
+File "game/mechanics/test.rpy", line 52: 'Checklists' is not a keyword argument or valid child of the screen statement.
+    Checklists(items)  
+              ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sat Sep 14 22:30:15 2024
+Sun Sep 15 20:09:19 2024
