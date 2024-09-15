@@ -6,6 +6,12 @@ define e = Character('Elio')
 define c = Character('Catcher')
 
 label start:
+    jump inventory_test_script
+    
+    #jump mechanism_testing
+    # jump start_screen
+
+label start_scene:
     #############################################
     #FUNCTIONALITY HERE
     "{color=#f00}The game opens with the AVANE STUDIOS logo cutscene, transitioning to the main menu screen.{/color}"
@@ -27,7 +33,6 @@ label start:
     #############################################
     
     jump opening_sequence
-
 label opening_sequence:
 
     scene bg placeholder
