@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/mechanics/test.rpy", line 52: 'Checklists' is not a keyword argument or valid child of the screen statement.
-    Checklists(items)  
-              ^
+File "game/example/test_splash.rpy", line 7: Line is indented, but the preceding ATL statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    yalign 0.0
+    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Sep 15 20:09:19 2024
+Sun Sep 15 22:36:56 2024

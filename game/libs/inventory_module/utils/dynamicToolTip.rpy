@@ -31,7 +31,7 @@ init python:
 
         """
         
-        def __init__(self, text_size: int = 36, text_style: str = "default", padding: int = 20, spacing: int = 5, bg: str = "images/main_ui/rounded_dt_frame.png", text_xmax: int = 700, img_xmax: int = 150, **kwargs):
+        def __init__(self, text_size: int = 36, text_style: str = "default", padding: int = 20, spacing: int = 5, bg: str = "./libs/inventory_module/images/main_ui/rounded_dt_frame.png", text_xmax: int = 700, img_xmax: int = 150, **kwargs):
 
             super().__init__(**kwargs)
             self.titlesize = text_size
