@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/game_menu.rpy", line 22: expected a keyword argument, colon, or end of line.
-    text title font size 32 color 
-                         ^
+File "game/example/test_splash.rpy", line 7: Line is indented, but the preceding ATL statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    yalign 0.0
+    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sat Sep 14 22:30:15 2024
+Sun Sep 15 22:36:56 2024

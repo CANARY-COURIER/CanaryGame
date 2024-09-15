@@ -6,11 +6,18 @@ define e = Character('Elio')
 define c = Character('Catcher')
 
 label start:
+    #jump inventory_test_script
+    # jump mechanism_testing
+    jump start_scene
+
+label start_scene:
+    call screen sample_screen
     #############################################
     #FUNCTIONALITY HERE
     "{color=#f00}The game opens with the AVANE STUDIOS logo cutscene, transitioning to the main menu screen.{/color}"
     "{color=#f00}Upon starting the game, the screen transitions into a white screen, wherein a short introduction is introduced in the form of scribbled drawings with a short voice over.{/color}"
     #############################################
+    # splash screens?
     
     nl "Welcome! This is Narrator Louis, pleasure to be guiding you in Avane Studio's first ever- Canary Courier! Alpha Build- of course!"
     
@@ -27,7 +34,6 @@ label start:
     #############################################
     
     jump opening_sequence
-
 label opening_sequence:
 
     scene bg placeholder
