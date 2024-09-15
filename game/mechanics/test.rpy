@@ -2,6 +2,7 @@ init 999 python:
     import pygame
 
     class Checklists(renpy.Displayable):
+        # UI / code mehchanics
         def __init__(self, items, **kwargs):
             super(Checklists, self).__init__(**kwargs)
             # self.paper = Fixed(Solid("#f0f8ff", xysize=(800, 1000)), align=(0.5, 0.5))
@@ -10,6 +11,7 @@ init 999 python:
             self.items = [{'text' : 'samletest1', 'completed':'True'}, {'text' : 'samletest222', 'completed':'False'}]
             self.width = config.screen_width  # 너비 설정
             self.height = config.screen_height   # 높이 설정
+            # self.text = Button()
             self.modal = True
 
         def render(self, width, height, st, at):
@@ -43,14 +45,22 @@ init 999 python:
             renpy.redraw(self, 0)
             return None
 
+
 ################################################################################
 ## SCREENS
 ################################################################################
 
 # 체크리스트 화면
+default check_lists = ['samletest1', 'samletest2']
 screen checklist_screen(items):
     modal True
-    add Checklists(items)  # Checklists 클래스에서 생성된 체크리스트 추가
+    # add Checklists(items)  # Checklists 클래스에서 생성된 체크리스트 추가
+    frame:
+        background './gui/frame.png' xysize (1000, 800)
+        vbox:
+            for i in check_lists:
+                textbutton i 
+    
 
 # 체크리스트를 표시하는 버튼을 포함한 UI
 screen checklist_ui():
