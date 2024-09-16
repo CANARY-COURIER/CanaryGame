@@ -59,7 +59,7 @@ define gui.history_allow_tags = { "alt", "noalt", "rt", "rb", "art" }
 
 
 style history_frame:
-    xsize 1400
+    xsize 1100
     ysize None
     background None
 

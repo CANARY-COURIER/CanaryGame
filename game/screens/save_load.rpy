@@ -132,8 +132,9 @@ style slot_vbox:
     spacing 12
 
 style slot_button:
+    xpos -70
     xysize (300, 309)
-    padding (15, 15, 15, 15)
+    #padding (15, 15, 15, 15)
     background Solid('#000000', width=80, height=100)
     # background "gui/button/slot_[prefix_]background.png"
 
