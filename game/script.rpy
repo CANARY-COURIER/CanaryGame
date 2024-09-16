@@ -11,7 +11,7 @@ label start:
     jump start_scene
 
 label start_scene:
-    call screen sample_screen
+    #call screen sample_screen
     #############################################
     #FUNCTIONALITY HERE
     "{color=#f00}The game opens with the AVANE STUDIOS logo cutscene, transitioning to the main menu screen.{/color}"
@@ -34,6 +34,8 @@ label start_scene:
     #############################################
     
     jump opening_sequence
+
+
 label opening_sequence:
 
     scene bg placeholder
