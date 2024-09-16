@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/example/test_splash.rpy", line 7: Line is indented, but the preceding ATL statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    yalign 0.0
-    ^
+File "game/screens/save_load.rpy", line 62: 'width' is not a keyword argument or valid child of the grid statement.
+    width 1000
+         ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Sep 15 22:36:56 2024
+Mon Sep 16 22:09:16 2024
