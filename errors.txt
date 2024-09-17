@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/preferences.rpy", line 160: style property left_margin appears twice.
-    left_margin 15
-               ^
+File "game/special_labels.rpy", line 23: Line is indented, but the preceding return statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    with fade
+    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Mon Sep 16 15:28:50 2024
+Tue Sep 17 15:44:19 2024
