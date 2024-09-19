@@ -111,7 +111,7 @@ screen quick_menu():
         ### BACKPACK ###
         imagebutton:
             auto 'gui/Backpack_%s.png'
-            pos(210, 816)
+            pos(210, 806)
             focus_mask True
             at transform:
                 outline_transform(3, "#fff", 3.0)

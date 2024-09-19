@@ -5,12 +5,9 @@
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
-## Replace this with your background image, if you like
-image main_menu_background = HBox(
-    Solid("#292835", xsize=500),
-    Solid("#21212d")
-)
+image main_menu_background = "Backgrounds/key art background.png"
 image BlackBars = "BlackBars.png"
+image Louis = "louis key art.png"
 
 screen main_menu():
 
@@ -19,6 +16,7 @@ screen main_menu():
 
     add "main_menu_background"
     add "BlackBars"
+    add "Louis"
 
     vbox:
         xpos 250
@@ -29,9 +27,9 @@ screen main_menu():
 
         textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("Settings") action ShowMenu("preferences")
 
-        textbutton _("About") action ShowMenu("about")
+        #textbutton _("About") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
