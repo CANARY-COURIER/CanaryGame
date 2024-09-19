@@ -5,12 +5,11 @@
 ## https://www.renpy.org/doc/html/label.html#special-labels
 ##
 
-define introPlay = True
 define dissolve = Dissolve(2.0)
 define fade = Fade(2.0)
 
 label splashscreen:
-    
+
     scene white
     show BlackBars
     show avane studios logo at truecenter
@@ -18,7 +17,12 @@ label splashscreen:
 
     $ renpy.pause(2.0)
 
-    show black with dissolve
+    scene white
+    show BlackBars
+    show spooktober at truecenter:
+        xsize 1200 ysize 461
+
+    $ renpy.pause(2.0)
 
     return
 

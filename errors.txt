@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/special_labels.rpy", line 23: Line is indented, but the preceding return statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    with fade
-    ^
+File "game/screens/game_menu.rpy", line 86: The text statement is not a valid child of the textbutton statement.
+    text.color = "#422E2D"
+        ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Tue Sep 17 15:44:19 2024
+Thu Sep 19 20:15:21 2024
