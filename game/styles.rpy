@@ -67,7 +67,7 @@ style input:
 
 style hyperlink_text:
     hover_underline True
-    color "#f93c3e"
+    color "#422E2D"
 
 style gui_text:
     color '#ffffff'
@@ -94,7 +94,7 @@ style button_text:
 style label_text:
     is gui_text
     size 36
-    color '#f93c3e'
+    color "#422E2D"
 
 
 style bar:

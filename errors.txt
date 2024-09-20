@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/game_menu.rpy", line 86: The text statement is not a valid child of the textbutton statement.
-    text.color = "#422E2D"
+File "game/screens/other_screens.rpy", line 41: 'xpos' is not a keyword argument or valid child of the screen statement.
+    xpos 500
         ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Thu Sep 19 20:15:21 2024
+Fri Sep 20 16:22:38 2024

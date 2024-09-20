@@ -26,20 +26,20 @@ screen about():
         style_prefix 'game_menu'
         mousewheel True draggable True pagekeys True
         scrollbars "vertical"
+        vbox:
+            label "[config.name!t]"
+            text _("Version [config.version!t]\n")
 
-        has vbox
-        style_prefix "about"
+            if gui.about:
+                text "[gui.about!t]\n"
 
-        label "[config.name!t]"
-        text _("Version [config.version!t]\n")
+            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
-        if gui.about:
-            text "[gui.about!t]\n"
-
-        text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
-
+            style_prefix "about"
+            style "about_label_text" 
 
 style about_label_text:
+    xsize 900
     size 36
 
 
@@ -55,7 +55,7 @@ screen help():
 
     default device = "keyboard"
 
-    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
+    #add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
     use game_menu(_("Help"))
 
@@ -192,9 +192,11 @@ style help_button:
     xmargin 12
 
 style help_label:
-    xsize 375
-    right_padding 30
+    xpos 120
+    right_padding 200
 
 style help_label_text:
+    #xpos 200
+    right_padding 200
     xalign 1.0
     textalign 1.0
