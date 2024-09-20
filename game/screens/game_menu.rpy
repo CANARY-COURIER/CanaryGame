@@ -26,13 +26,29 @@ screen game_menu(title):
 
         if main_menu:
 
-            textbutton _("Start") action Start()
-            textbutton _("Load") action ShowMenu("load")
-            textbutton _("Preferences") action ShowMenu("preferences")
-            textbutton _("About") action ShowMenu("about")
+            ## LOAD ##
+            imagebutton auto "gui/BlankButton_%s.png" focus_mask True action ShowMenu("load")
+            text _("Load") xpos 95 ypos -55
 
-            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-                textbutton _("Help") action ShowMenu("help")
+            ## SETTINGS ##
+            imagebutton auto "gui/BlankButton_%s.png" focus_mask True action ShowMenu("preferences")
+            text _("Settings") xpos 70 ypos -55
+
+            ## CREDITS ##
+            imagebutton auto "gui/BlankButton_%s.png" focus_mask True action ShowMenu("about")
+            text _("Credits") xpos 70 ypos -55
+
+            # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            #     imagebutton auto "gui/BlankButton_%s.png" focus_mask True action ShowMenu("help")
+            #     text _("Help") xpos 95 ypos -55
+
+            # textbutton _("Start") action Start()
+            # textbutton _("Load") action ShowMenu("load")
+            # textbutton _("Preferences") action ShowMenu("preferences")
+            # textbutton _("About") action ShowMenu("about")
+
+            # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            #     textbutton _("Help") action ShowMenu("help")
 
         else:
 
