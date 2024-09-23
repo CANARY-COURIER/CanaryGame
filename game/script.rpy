@@ -8,7 +8,9 @@ define az = Character('Aziel')
 
 label start:
 
-    scene bg placeholder
+    $quick_menu = False
+
+    scene white
     show BlackBars
 
     show louis happy
@@ -32,6 +34,8 @@ label start:
 
 
 label opening_sequence:
+
+    $quick_menu = True
 
     l "Aves Courier Center, this is where all the magic happens..."
     
