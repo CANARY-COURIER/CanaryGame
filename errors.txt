@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/other_screens.rpy", line 41: 'xpos' is not a keyword argument or valid child of the screen statement.
-    xpos 500
+File "game/script.rpy", line 11: expected 'label_name' not found.
+    call(quick_menu)
         ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Fri Sep 20 16:22:38 2024
+Mon Sep 23 15:31:39 2024
