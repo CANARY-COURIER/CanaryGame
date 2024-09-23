@@ -1,0 +1,29 @@
+{
+    "items": [
+      {
+        "title": "Pear",
+        "description": "A sweet pear.",
+        "image_path": "./images/inventory/item1.png",
+        "quantity": 5,
+        "xpos": 250,
+        "ypos": 200
+      },
+      {
+        "title": "Grapes",
+        "description": "A bunch of fresh grapes.",
+        "image_path": "./images/inventory/item2.png",
+        "quantity": 3,
+        "xpos": 450,
+        "ypos": 200
+      },
+      {
+        "title": "Pineapple",
+        "description": "A tropical pineapple.",
+        "image_path": "./images/inventory/item3.png",
+        "quantity": 2,
+        "xpos": 650,
+        "ypos": 200
+      }
+    ]
+  }
+  

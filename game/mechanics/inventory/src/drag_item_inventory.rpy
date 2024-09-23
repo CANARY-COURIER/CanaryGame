@@ -1,5 +1,5 @@
-init 999 python:
-    # Base class: Draggable items are abstracted and managed
+init 998 python:
+        # Base class: Draggable items are abstracted and managed
     class DragItem:
         def __init__(self, group, title, description=None, image_path=None, init_xpos=400, init_ypos=400):
             self.group = group
@@ -22,7 +22,7 @@ init 999 python:
 
         def create_drag_widget(self):
             """Creates a draggable widget."""
-            self.img = Image('./images/inventory/'+str(image_path)+'.png', Transform(Null(), zoom=0.5))
+            self.img = Image(image_path, Transform(Null(), zoom=0.5))
             self.drag_widget = Drag(d=self.img, drag_name="dragged_" + str(self.index), draggable=True, dragged=self.drag_placed, pos=(self.x, self.y))
 
         def drag_placed(self, drags, drop):
@@ -56,8 +56,6 @@ init 999 python:
             self.items = items  # List of all items in the group
             self.slots = slots  # List of slots in the group
             self.vertical_align = vertical_align  # Whether to align vertically
-            # self.slot_spacing = 300  # Spacing between items
-            # self.allow_overlap = allow_overlap
             self.identical_overlap = identical_overlap
             self.slot_eject_behavior = 'bounce'  # Default behavior
 
@@ -121,10 +119,19 @@ init 999 python:
                     last_filled_slot += 1
             # Redraw to reflect the updated arrangement
             renpy.redraw(self.slots, 0)
+
+        def get_items_and_quantity(self):
+            """Returns a list of item titles and their quantities."""
+            item_quantities = {}
+            for slot in self.slots:
+                if slot.item_title and (slot.item_title not in item_quantities):
+                    item_quantities[slot.item_title] = slot.quantity
+            return item_quantities
+
     
     # Slot class: Represents a slot for placing items
     class DragSlot:
-        def __init__(self, group, init_xpos, init_ypos, image_path="empty"):
+        def __init__(self, group, init_xpos, init_ypos, image_path="./images/inventory/default/slot1.png"):
             self.group = group
             self.index = len(group.slots)
             self.x = init_xpos
@@ -134,7 +141,7 @@ init 999 python:
             self.item_title = None
             self.group.add_slot(self)
             self.image_path = image_path
-            self.img = At(Image('./images/inventory/'+str(image_path)+'.png'), Transform(Null(), zoom=0.5))
+            self.img = At(Image(image_path), Transform(Null(), zoom=0.5))
             self.drag_widget = Drag(d=self.img, drag_name="slot_" + str(self.index), \
                                 droppable=True, draggable=False, pos=(self.x, self.y))
 
@@ -162,9 +169,7 @@ init 999 python:
             if self.cards == []:
                 self.quantity = 0
                 self.item_title = None
-            # if self.card and self.card.quantity > 1:
-            #     self.quantity_display = Text(f"Qty: {self.card.quantity}", size=20, xpos=self.x, ypos=self.y + 100)
-    
+
         # def on_hover(self):
         #     """Function triggered when hovering over the slot."""
         #     print(f"Hovering over slot {self.index}")
@@ -176,96 +181,3 @@ init 999 python:
         #     print(f"Hover ended for slot {self.index}")
         #     # Pull items back when unhovered
         #     self.group.pull_items_back(self)
-
-    # Base class: Draggable items are abstracted and managed
-    class InventoryItem(DragItem):
-        def __init__(self, group, title, description=None, image_path=None, init_xpos=500, init_ypos=500):
-            super().__init__(group, title, description, image_path, init_xpos, init_ypos)
-            self.index = len(group.items)  # Unique index for the item
-            self.in_slot = False  # Track if the item is in inventory or not
-            self.create_drag_widget()
-
-        def create_drag_widget(self):
-            """Creates a draggable widget for InventoryItem."""
-            trans = glow_outline(12, "#cfb760", num_passes=30, power=0.8)
-            self.img_idle = At(Image('./images/inventory/' + str(self.image_path) + ".png"), Transform(Null(), zoom=0.5))
-            self.img_hover = At(self.img_idle, trans)
-            self.drag_widget = Drag(
-                d=self.img_idle, \
-                drag_name="item_"+str(self.index), \
-                idle_child=self.img_idle, \
-                hover_child=self.img_hover, \
-                draggable=True, \
-                droppable=False, \
-                dragged=self.drag_placed, \
-                pos=(self.x, self.y)
-            )
-    
-    # Group class for inventory logic
-    class InventoryGroup(DragItemsGroup):
-        def assign_item_to_slot(self, item, slot):
-            """Assigns an item to a slot."""
-            super().assign_item_to_slot(item, slot)
-
-    # Slot class for inventory
-    class InventorySlot(DragSlot):
-        def __init__(self, group, init_xpos, init_ypos, image_path='empty'):
-            super().__init__(group, init_xpos, init_ypos, image_path)
-            self.drag_widget = Drag(d=self.img, drag_name="inventorySlot_" + str(self.index), \
-                                droppable=True, draggable=False, pos=(self.x, self.y))
-        # def on_hover(self):
-        #     """Shift items right on hover."""
-        #     print(f"Hovering over slot {self.index}")
-        #     self.group.shift_items(self, direction="right")
-
-        # def on_unhover(self):
-        #     """Pull items back after hover ends."""
-        #     print(f"Hover ended for slot {self.index}")
-        #     self.group.pull_items_back(self)
-
-    # Inventory class that manages both shop and inventory items
-    class InventoryNew:
-        def __init__(self):
-            self.slots = []
-            self.items = []
-            self.inventory_group = InventoryGroup(self.items, self.slots, vertical_align=False, identical_overlap=True)
-
-            # Create slots for inventory
-            self.slots.append(InventorySlot(self.inventory_group, init_xpos=200, init_ypos=200))
-            self.slots.append(InventorySlot(self.inventory_group, init_xpos=400, init_ypos=200))
-            self.slots.append(InventorySlot(self.inventory_group, init_xpos=600, init_ypos=200))
-            self.slots.append(InventorySlot(self.inventory_group, init_xpos=800, init_ypos=200))
-            # Add individual items based on quantity for each type of product
-            self.add_items_to_shop("Apple", "item1", 200, 600, 3)
-            self.add_items_to_shop("Orange", "item2", 400, 600, 2)
-            self.add_items_to_shop("Banana", "item3", 600, 600, 4)
-            
-        def add_items_to_shop(self, title, image_path, init_xpos, init_ypos, quantity):
-            """Adds individual items based on quantity to the shop."""
-            for i in range(quantity):
-                # Spread items vertically to avoid overlap (increment y position for each item)
-                new_xpos = init_xpos + (i * 100)  # Adjust 50 based on your desired spacing
-                item = InventoryItem(self.inventory_group, title, image_path=image_path, init_xpos=new_xpos, init_ypos=init_ypos)
-                self.items.append(item)
-                # self.shop_items.append(item)
-
-# Initialization for creating inventory and shop slots
-init 1000 python:
-    renpy.store.inventory = InventoryNew()
-
-# Screen for displaying drag-and-drop functionality
-init:
-    screen drag_and_drop_inventory():
-        modal True
-        vbox:
-            frame:
-                hbox:
-                    xfill True
-                    align (0.0, 0.5)
-                    draggroup:
-                        # Display inventory slots
-                        for slot in renpy.store.inventory.slots:
-                            add slot.drag_widget
-                        # Display shop items
-                        for item in renpy.store.inventory.items:
-                            add item.drag_widget

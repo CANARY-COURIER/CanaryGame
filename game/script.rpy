@@ -7,7 +7,7 @@ define c = Character('Catcher')
 
 label start:
     # jump test_parallax_vp
-    jump inventory_test_script
+    jump inventory_test
     # jump mechanism_testing
     jump start_scene
 
