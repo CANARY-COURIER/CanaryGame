@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/dialogue_screens.rpy", line 95: 'background' is not a keyword argument or valid child of the screen statement.
-    background "#FFFF00"
-              ^
+File "game/screens/dialogue_screens.rpy", line 100: expected '=' not found.
+    default UI_activated            
+                                    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Sep 22 22:52:41 2024
+Tue Sep 24 02:48:00 2024
