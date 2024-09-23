@@ -91,6 +91,14 @@ image clock_img_light:
 default is_daytime = False
 image clock_current = ConditionSwitch("is_daytime==True", 'clock_img_light', "is_daytime==False", 'clock_img_dark')
 
+# screen inventory_screen:
+#     frame:
+#         xysize (500, 800)
+#         background "#FFFF00"
+#         vbox:
+#             text "hahahaha inventory"
+            
+
 screen quick_menu():
 
     ## Ensure this appears on top of other screens.
@@ -121,7 +129,7 @@ screen quick_menu():
                     drop_shadow(offset=(5.0, 5.0))
                 on hover:
                     ease 0.3 outline_transform(3, "#fff", 4.0)
-            action ToggleVariable('is_daytime', true_value=True, false_value=False)
+            action [ToggleVariable('is_daytime', true_value=True, false_value=False), ToggleScreen("drag_and_drop_inventory")]
 
         ### MAP ###
         imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
