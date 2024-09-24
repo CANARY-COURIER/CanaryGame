@@ -27,7 +27,7 @@ screen main_menu():
 
         ## START ##
         # textbutton _("Start") action Start()
-        imagebutton auto "gui/menu start button_%s.png" focus_mask True action Start()
+        imagebutton auto "gui/menu start button_%s.png" focus_mask True action Dissolve(Start())
         
         ## OPTIONS ##
         # textbutton _("Settings") action ShowMenu("preferences")

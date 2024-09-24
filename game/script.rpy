@@ -6,36 +6,65 @@ define c = Character('Catcher')
 define i = Character('Ivory')
 define az = Character('Aziel')
 
+define dissolve3 = Dissolve(3.0)
+image streetview = "/Backgrounds/Street View Dialogue.png"
+image achievement = "/gui/AchievementBackground.png"
+image achievementivory = "/gui/AchievementIvory.png"
+
 label start:
 
+    stop music fadeout 2.0
     $quick_menu = False
-
+    
     scene white
     show BlackBars
 
-    show louis happy
+    voice "voice/nl1.wav"    
+    nl "Welcome! This is Narrator Louis, pleasure to be guiding you in Avane Studio's first ever- {i}Canary Courier{/i}! Alpha Build- of course!"
     
-    nl "Welcome! This is Narrator Louis, pleasure to be guiding you in Avane Studio's first ever- Canary Courier! Alpha Build- of course!"
-    
+    voice "voice/nl2.wav"
     nl "Now, to catch you up to speed if you weren't present for our forum dev logs- here's a quick rundown!"
     
-    nl "You, the player, will be controlling me- Louis, the canary bird- throughout the whole game and in my stead- deliver and fulfill customer orders to get me that sweet 3 star rating!"
+    voice "voice/nl3.wav"
+    nl "You, the player, will be controlling me- Louis, the canary bird throughout the whole game,"
+    
+    scene tutorial 1
+    with dissolve3
+    scene tutorial 2
+    with dissolve3
 
+    voice "voice/nl4.wav"
+    nl "And in my stead- deliver and fulfill customer orders to get me that sweet 3 star rating!"
+
+    voice "voice/nl5.wav"
     nl "That's the gist of it- the name of the game basically!"
-    
-    nl "You must be wondering, now what's all this for, right? All of this is with cause, of course, but I'll tell you that a bit later on, let's first proceed- to your first task of the day!"
-    
+
+    scene tutorial 3
+    with dissolve3
+
     #############################################
     #FUNCTIONALITY HERE
     "{color=#f00}The game transitions into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Aves Courier Center{/color}"
     #############################################
     
+    voice "voice/nl6.wav"
+    nl "You must be wondering, now what's all this for, right?"
+    voice "voice/nl7.wav"
+    nl "All of this is with cause, of course, but I'll tell you that a bit later on, let's first proceed- to your first task of the day!"
+    
     jump opening_sequence
+    with dissolve3
 
 
 label opening_sequence:
 
+    play music "music/CC Main Story Dialogue Theme.wav" fadein 3 fadeout 3
+
     $quick_menu = True
+
+    scene streetview
+    show BlackBars
+    show louis happy
 
     l "Aves Courier Center, this is where all the magic happens..."
     
@@ -776,10 +805,12 @@ label continue_dialogue_tut:
     
     "Ivory returns Louis' farewell bow, watching Louis take off, shutting the door behind her."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}★ ACHIEVEMENT UNLOCKED: 1 STAR FROM IVORY ★{/color}"
-    #############################################
+    scene achievement
+    with dissolve3
+    show achievementivory
+    with zoomin
+
+    pause 4
     
     jump day_1_concluded
 
