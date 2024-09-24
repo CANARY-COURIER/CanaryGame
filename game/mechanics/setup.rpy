@@ -9,7 +9,12 @@ define my_inv_slots = [
 ]
 default my_inventory = InventoryManager(total_events=3, slot_info=my_inv_slots, data_path=inv_data_path)
 default inv_state = None
-    
+
+# transform auto_scaling_item:
+#     function apply_distance_scaling
+#     pause 0.1
+#     repeat
+
 # Screen for displaying drag-and-drop functionality
 init:
     screen drag_and_drop_inventory():
@@ -18,8 +23,8 @@ init:
         fixed:
             draggroup:
                 # Display inventory slots
-                for slot in my_inventory.slots:
+                for slot in my_inventory.group.slots:
                     add slot.drag_widget
                 # Display shop items
-                for item in my_inventory.items:
+                for item in my_inventory.group.items:
                     add item.drag_widget

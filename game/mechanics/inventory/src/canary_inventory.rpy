@@ -2,27 +2,27 @@ init 999 python:
     import json
 
     class InventoryItem(DragItem):
-        def __init__(self, group, title, description=None, image_path=None, init_xpos=500, init_ypos=500):
-            super().__init__(group, title, description, image_path, init_xpos, init_ypos)
-            self.index = len(group.items)  # Unique index for the item
-            self.in_slot = False  # Track if the item is in inventory or not
-            self.create_drag_widget()
-
+        def __init__(self, group, title, description=None, image_path=None, init_xpos=500, init_ypos=500, default_scale=1.0):
+            super().__init__(group, title, description, image_path, init_xpos, init_ypos, default_scale=default_scale)
+            self.hover_trans = glow_outline(12, "#cfb760", num_passes=30, power=0.8)
+            
         def create_drag_widget(self):
             """Creates a draggable widget for InventoryItem."""
-            trans = glow_outline(12, "#cfb760", num_passes=30, power=0.8)
-            self.img_idle = At(Image(self.image_path), Transform(Null(), zoom=0.5))
-            self.img_hover = At(self.img_idle, trans)
+            # Auto-scaling transform
+            self.img_idle =  self.img
+            self.img_hover = At(self.img, self.hover_trans)
             self.drag_widget = Drag(
-                d=self.img_idle, \
+                d=self.img, \
                 drag_name="item_"+str(self.index), \
                 idle_child=self.img_idle, \
                 hover_child=self.img_hover, \
                 draggable=True, \
                 droppable=False, \
+                dragging=self.on_dragging_start, \
                 dragged=self.drag_placed, \
                 pos=(self.x, self.y)
             )
+        
         def show_description(self):
             """Displays the description of the item."""
             return self.description
@@ -35,8 +35,11 @@ init 999 python:
 
     # Slot class for inventory
     class InventorySlot(DragSlot):
-        def __init__(self, group, init_xpos, init_ypos, image_path='./images/inventory/default/slot1.png'):
-            super().__init__(group, init_xpos, init_ypos, image_path)
+        def __init__(self, group, init_xpos, init_ypos, image_path='./images/inventory/default/slot1.png', default_scale=1.0):
+            super().__init__(group, init_xpos, init_ypos, image_path, default_scale=default_scale)
+
+        def create_drag_widget(self):
+            self.img = At(Image(self.image_path), Transform(Null(), zoom=self.default_scale))
             self.drag_widget = Drag(d=self.img, drag_name="inventorySlot_" + str(self.index), \
                                 droppable=True, draggable=False, pos=(self.x, self.y))
 
@@ -44,9 +47,7 @@ init 999 python:
     class InventoryManager:
         def __init__(self, total_events=3, slot_info=None, data_path=None):
             """Initialize the inventory manager and prepare for events."""
-            self.slots = []
-            self.items = []
-            self.group = InventoryGroup(self.items, self.slots, identical_overlap=True)
+            self.group = InventoryGroup(identical_overlap=True)
             self.current_event = 0  # Track current event number
             self.total_events = total_events  # Total number of events
             self.data_path = data_path
@@ -73,7 +74,7 @@ init 999 python:
             # Initialize slots based on slot_info
             for slot_data in self.slot_info:
                 new_slot = InventorySlot(self.group, slot_data['pos'][0], slot_data['pos'][1], slot_data['image_path'])
-                self.slots.append(new_slot)
+                self.group.add_slot(new_slot)
         
         def load_inventory_from_json(self, json_file_path):
             """Loads inventory data from a JSON file using renpy's loader."""
@@ -105,9 +106,9 @@ init 999 python:
         def add_items_to_inventory(self, title, description, image_path, init_xpos, init_ypos, quantity):
             """Adds multiple items to the inventory."""
             for i in range(quantity):
-                item = InventoryItem(self.group, title, description, image_path, init_xpos + (i * 50), init_ypos)
-                self.items.append(item)
-
+                new_item = InventoryItem(self.group, title, description, image_path, init_xpos + (i * 50), init_ypos)
+                self.group.add_item(new_item)
+                
         def remove_item(self, item):
             """Removes a specific item from the inventory."""
             if item in self.items:
@@ -132,6 +133,6 @@ init 999 python:
             """Clears the entire inventory by setting items and slots to None."""
             self.items = []
             self.slots = []
-            self.group = InventoryGroup(self.items, self.slots, identical_overlap=True)
+            self.group = InventoryGroup(identical_overlap=True)
 
             

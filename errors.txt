@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/dialogue_screens.rpy", line 100: expected '=' not found.
-    default UI_activated            
-                                    ^
+File "game/mechanics/inventory/src/drag_item_inventory.rpy", line 286: unexpected indent
+            scale = compute_scale_factor(slot, item)
+            ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Tue Sep 24 02:48:00 2024
+Tue Sep 24 22:30:27 2024

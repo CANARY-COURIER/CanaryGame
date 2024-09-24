@@ -24,7 +24,7 @@ init 998 python:
             self.snap_duration = 0.2  # Snap duration in seconds
             self.scale_intervals = 0.05
             self.scale_threshold = 0.1
-            self.auto_scaled_value = self.default_scale
+            self.auto_scaled_value = 1.0
             self.auto_scaling = Transform(function=self.apply_distance_scaling, delay=self.scale_intervals)
             self.img = At(Image(self.image_path), self.auto_scaling)
         
@@ -67,20 +67,14 @@ init 998 python:
         def apply_distance_scaling(self, trans, st, at):
             """Applies dynamic scaling based on distance to the closest slot and adjusts for size."""
             # Resize item while dragging
-            if self.is_dragging:
-                # Rescaling on drag
-                distance, origin_dist, closest_slot = self.get_closest_slot_distance()
+            if self.is_dragging or self.drag_widget.snapping:
+                distance, origin_dist, closest_slot = find_closest_object(self.drag_widget.last_x, self.drag_widget.last_y, self.group.slots)
                 print("closest slot : " + str(closest_slot.index))
-                if distance is not None and closest_slot is not None:
-                    zoom_factor = compute_zoom_based_on_distance(
-                        distance,
-                        self,
-                        closest_slot,
-                        min_scale=0.5, max_scale=1.0,
-                        max_distance=origin_dist
-                    )
+                if distance:
+                    zoom_factor = compute_zoom_based_on_distance(distance, self, closest_slot, max_distance=origin_dist)
                     trans.zoom = zoom_factor
                     self.auto_scaled_value = zoom_factor
+                    print("distance : " + str(distance), "  zoom_factor : ",zoom_factor)
             # Gradually resize back to original scale when snapping is complete
             elif self.should_resize_to_origin:
                 if not self.drag_widget.snapping or abs(trans.zoom - self.default_scale) < self.scale_threshold:
