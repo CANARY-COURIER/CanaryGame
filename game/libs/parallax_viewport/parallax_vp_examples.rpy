@@ -76,61 +76,61 @@ screen test_parallax_screen():
 
     default auto_scroll_forest = False
 
-    vbox:
-        align (1.0, 0.5) spacing 10
-        textbutton "Click me to auto scroll to the top":
-            xalign 0.5 text_hover_color "#FFF" text_idle_color "#c3a5fa"
-            action AnimateScroll("parallax_vp_ex1", "vertical decrease",
-                ## Scrolls it to the start
-                "min", 15.0, "linear")
+    # vbox:
+    #     align (1.0, 0.5) spacing 10
+    #     textbutton "Click me to auto scroll to the top":
+    #         xalign 0.5 text_hover_color "#FFF" text_idle_color "#c3a5fa"
+    #         action AnimateScroll("parallax_vp_ex1", "vertical decrease",
+    #             ## Scrolls it to the start
+    #             "min", 15.0, "linear")
 
-        ## Here's how you can declare a parallax viewport in screen language.
-        parallax_viewport:
-            ## Here you can put regular viewport properties. Anything you'd use
-            ## for a regular viewport works here, like draggable, mousewheel,
-            ## edgescroll, etc. I suggest you also set the size of the viewport.
-            ## Notably, edgescroll and dragging tend to look nicer than
-            ## mousewheel, which jumps the scrolling in chunks.
-            mousewheel True draggable True
-            edgescroll (100, 600)
-            xysize (700, int(config.screen_height*0.8))
-            ## This is used for the AnimatedScroll action later.
-            id 'parallax_vp_ex1'
-            ########################################
-            ## IMPORTANT!!!
-            ## Your parallax viewport MUST have this line in order to work.
-            has fixed style "vparallax_fixed"
-            ## End of Important
-            ########################################
+    #     ## Here's how you can declare a parallax viewport in screen language.
+    #     parallax_viewport:
+    #         ## Here you can put regular viewport properties. Anything you'd use
+    #         ## for a regular viewport works here, like draggable, mousewheel,
+    #         ## edgescroll, etc. I suggest you also set the size of the viewport.
+    #         ## Notably, edgescroll and dragging tend to look nicer than
+    #         ## mousewheel, which jumps the scrolling in chunks.
+    #         mousewheel True draggable True
+    #         edgescroll (100, 600)
+    #         xysize (700, int(config.screen_height*0.8))
+    #         ## This is used for the AnimatedScroll action later.
+    #         id 'parallax_vp_ex1'
+    #         ########################################
+    #         ## IMPORTANT!!!
+    #         ## Your parallax viewport MUST have this line in order to work.
+    #         has fixed style "vparallax_fixed"
+    #         ## End of Important
+    #         ########################################
 
-            ## Here is where your parallax layers will go. They must go in
-            ## back-to-front order, and should typically go from smallest to
-            ## largest for a proper parallax effect.
-            add "chunky_background"
-            add "stars_back"
-            add "stars_mid"
-            ## You can also include screen language elements in the parallax. Note
-            ## that for them to work properly, anything that moves as a group must
-            ## be in a container of some kind, typically with `xfit True yfit True`
-            ## if it's a fixed container.
-            frame:
-                background None
-                xsize 700 xalign 0.5 xpadding 10
-                has vbox
-                spacing 50 xalign 0.5
-                text "This looks nicest when clicking and dragging or using edgescroll":
-                    xalign 0.5 text_align 0.5 color "#fff"
-                for i in range(60):
-                    text "{} You could put credits\nor something here".format(i):
-                        xalign 0.5 text_align 0.5 color "#fff"
+    #         ## Here is where your parallax layers will go. They must go in
+    #         ## back-to-front order, and should typically go from smallest to
+    #         ## largest for a proper parallax effect.
+    #         add "chunky_background"
+    #         add "stars_back"
+    #         add "stars_mid"
+    #         ## You can also include screen language elements in the parallax. Note
+    #         ## that for them to work properly, anything that moves as a group must
+    #         ## be in a container of some kind, typically with `xfit True yfit True`
+    #         ## if it's a fixed container.
+    #         frame:
+    #             background None
+    #             xsize 700 xalign 0.5 xpadding 10
+    #             has vbox
+    #             spacing 50 xalign 0.5
+    #             text "This looks nicest when clicking and dragging or using edgescroll":
+    #                 xalign 0.5 text_align 0.5 color "#fff"
+    #             for i in range(60):
+    #                 text "{} You could put credits\nor something here".format(i):
+    #                     xalign 0.5 text_align 0.5 color "#fff"
 
-        textbutton "Click me to auto scroll to the bottom":
-            xalign 0.5 text_hover_color "#FFF" text_idle_color "#c3a5fa"
-            ## This is a custom Scroll action which takes a warper and
-            ## special arguments "max" or "min" for the amount to scroll.
-            action AnimateScroll("parallax_vp_ex1", "vertical increase",
-                ## Scrolls it to the end
-                "max", 15.0, "linear")
+    #     textbutton "Click me to auto scroll to the bottom":
+    #         xalign 0.5 text_hover_color "#FFF" text_idle_color "#c3a5fa"
+    #         ## This is a custom Scroll action which takes a warper and
+    #         ## special arguments "max" or "min" for the amount to scroll.
+    #         action AnimateScroll("parallax_vp_ex1", "vertical increase",
+    #             ## Scrolls it to the end
+    #             "max", 15.0, "linear")
 
     vbox:
         align (0.0, 0.5)

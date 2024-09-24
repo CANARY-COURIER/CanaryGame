@@ -14,21 +14,21 @@
 
 screen say(who, what):
     style_prefix "say"
+    if inventory_opened is not True:
+        window:
+            id "window"
 
-    window:
-        id "window"
+            if who is not None:
 
-        if who is not None:
+                window:
+                    id "namebox"
+                    style "namebox"
+                    text who id "who"
 
-            window:
-                id "namebox"
-                style "namebox"
-                text who id "who"
+            text what id "what"
 
-        text what id "what"
-
-    ## If there's a side image, display it in front of the text.
-    add SideImage() xalign 0.0 yalign 1.0
+        ## If there's a side image, display it in front of the text.
+        add SideImage() xalign 0.0 yalign 1.0
 
 
 ## Make the namebox available for styling through the Character object.
@@ -92,6 +92,8 @@ image clock_img_light:
 default is_daytime = False
 image clock_current = ConditionSwitch("is_daytime==True", 'clock_img_light', "is_daytime==False", 'clock_img_dark')
 
+default inventory_opened = False
+
 screen quick_menu():
 
     ## Ensure this appears on top of other screens.
@@ -117,12 +119,10 @@ screen quick_menu():
             at transform:
                 outline_transform(3, "#fff", 3.0)
                 on idle:
-                    ## This animates the outline increasing/decreasing in size,
-                    ## but you can omit the `ease 0.1` part also for no animation.
                     drop_shadow(offset=(5.0, 5.0))
                 on hover:
                     ease 0.3 outline_transform(3, "#fff", 4.0)
-            action ToggleVariable('is_daytime', true_value=True, false_value=False)
+            action [ToggleVariable('is_daytime', true_value=True, false_value=False), ToggleScreen("drag_and_drop_inventory"), ToggleVariable('inventory_opened')]
 
         ### MAP ###
         imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True

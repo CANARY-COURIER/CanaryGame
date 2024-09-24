@@ -15,6 +15,14 @@ label start:
 
     stop music fadeout 2.0
     $quick_menu = False
+
+    # jump test_parallax_vp
+    # jump inventory_test
+    # jump mechanism_testing
+    jump start_scene
+
+label start_scene:
+    # call screen drag_and_drop_inventory
     
     scene white
     show BlackBars
