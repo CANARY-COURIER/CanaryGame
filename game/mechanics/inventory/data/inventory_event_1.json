@@ -1,0 +1,29 @@
+{
+    "items": [
+      {
+        "title": "Apple",
+        "description": "A fresh apple.",
+        "image_path": "./images/inventory/item1.png",
+        "quantity": 3,
+        "xpos": 200,
+        "ypos": 200
+      },
+      {
+        "title": "Orange",
+        "description": "A juicy orange.",
+        "image_path": "./images/inventory/item2.png",
+        "quantity": 2,
+        "xpos": 400,
+        "ypos": 200
+      },
+      {
+        "title": "Banana",
+        "description": "A ripe banana.",
+        "image_path": "./images/inventory/item3.png",
+        "quantity": 4,
+        "xpos": 600,
+        "ypos": 200
+      }
+    ]
+  }
+  

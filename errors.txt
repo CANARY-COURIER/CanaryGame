@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/game_menu.rpy", line 16: 'play' is not a keyword argument or valid child of the screen statement.
-    play(main_menu_music)
-        ^
+File "game/mechanics/inventory/src/back_1.rpy", line 1: python block expects a non-empty block.
+    init 998 python:
+                    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Tue Sep 24 02:36:10 2024
+Tue Sep 24 23:57:32 2024
