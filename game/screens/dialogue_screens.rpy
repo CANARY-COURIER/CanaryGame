@@ -63,15 +63,16 @@ style namebox:
     #xysize (None, None)
     #background Frame("gui/namebox.png")
     background Frame("gui/namebox.png", 5, 5, 5, 5, tile=False, xalign=0.0)
-    padding (30, 20, 30, 20)
+    padding (10, 10, 10, 10)
 
 # Style for the text with the speaker's name
 style say_label:
-    color '#f93c3e'
+    color "#d3bd75"
     xalign 0.0
     yalign 0.5
     size gui.name_text_size
     font gui.name_text_font
+    outlines gui.name_text_outlines
 
 
 ## Quick Menu screen ###########################################################

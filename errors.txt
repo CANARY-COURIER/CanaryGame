@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 11: expected 'label_name' not found.
-    call(quick_menu)
+File "game/screens/game_menu.rpy", line 16: 'play' is not a keyword argument or valid child of the screen statement.
+    play(main_menu_music)
         ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Mon Sep 23 15:31:39 2024
+Tue Sep 24 02:36:10 2024
