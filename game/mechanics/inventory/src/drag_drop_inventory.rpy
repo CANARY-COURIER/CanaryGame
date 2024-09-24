@@ -17,16 +17,13 @@ init 998 python:
             # Images
             self.image_path = image_path
             self.default_scale = default_scale
-            self.width, self.height = get_image_size(self.image_path, self.default_scale)
+            self.width, self.height = renpy.image_size(self.image_path)
             self.width *= self.default_scale
             self.height *= self.default_scale
             # Auto-scaling transform
-            self.snap_duration = 0.2  # Snap duration in seconds
-            self.scale_intervals = 0.05
-            self.scale_threshold = 0.1
-            self.auto_scaled_value = self.default_scale
-            self.auto_scaling = Transform(function=self.apply_distance_scaling, delay=self.scale_intervals)
+            self.auto_scaling = Transform(function=self.apply_distance_scaling, delay=0.1)
             self.img = At(Image(self.image_path), self.auto_scaling)
+            self.auto_scaled_value = 1.0
         
         def create_drag_widget(self):
             """Creates a draggable widget."""
@@ -47,10 +44,12 @@ init 998 python:
             # Case: Dropped outside a slot
             if drop is None and dragged_item.in_slot == True:
                 self.draggable_to_origin()
+                return
             # Case: Dropped inside a slot
-            elif drop:
+            if drop:
                 drop_slot_idx = int(drop.drag_name.split("_")[1])
                 drop_slot = self.group.slots[drop_slot_idx]
+                # Snap to the slot position
                 self.group.assign_item_to_slot(dragged_item, drop_slot)
             else:
                 self.draggable_to_origin()  
@@ -60,19 +59,19 @@ init 998 python:
             if self.slot_index is not None: # if dropped out of slot
                 previous_slot = self.group.slots[self.slot_index]
                 previous_slot.remove_card(self)
-            self.drag_widget.snap(self.x, self.y, self.snap_duration)
-            self.group.shift_items_left()
-            self.should_resize_to_origin = True    
-            
+                self.drag_widget.snap(self.x, self.y, 0.2)
+            else: 
+                self.drag_widget.snap(self.x, self.y, 0.2)
+            self.should_resize_to_origin = True  # Mark to resize the item back to its original scale
+        
         def apply_distance_scaling(self, trans, st, at):
             """Applies dynamic scaling based on distance to the closest slot and adjusts for size."""
-            # Resize item while dragging
             if self.is_dragging:
                 # Rescaling on drag
                 distance, origin_dist, closest_slot = self.get_closest_slot_distance()
                 print("closest slot : " + str(closest_slot.index))
                 if distance is not None and closest_slot is not None:
-                    zoom_factor = compute_zoom_based_on_distance(
+                    zoom_factor = distance_zoom_with_size(
                         distance,
                         self,
                         closest_slot,
@@ -81,27 +80,41 @@ init 998 python:
                     )
                     trans.zoom = zoom_factor
                     self.auto_scaled_value = zoom_factor
-            # Gradually resize back to original scale when snapping is complete
             elif self.should_resize_to_origin:
-                if not self.drag_widget.snapping or abs(trans.zoom - self.default_scale) < self.scale_threshold:
-                    trans.zoom = self.default_scale
-                    self.auto_scaled_value = self.default_scale
-                    self.should_resize_to_origin = False
+                # Smoothly turn back to the original size using smooth_resize
+                self.auto_scaled_value = smooth_resize(current_scale=trans.zoom, target_scale=self.default_scale)
+                trans.zoom = self.auto_scaled_value
+                if trans.zoom == self.default_scale:
+                    self.should_resize_to_origin = False  # Stop resizing when original scale is reached
             else:
                 trans.zoom = self.auto_scaled_value
             return None
         
         def get_closest_slot_distance(self):
-            """
-            Finds the closest slot to the current mouse position using the external distance calculation function.
-            """
-            if self.drag_widget.last_x is None or self.drag_widget.last_x is None:
-                xpos, ypos = self.x, self.y
-            else:
-                xpos, ypos = self.drag_widget.last_x, self.drag_widget.last_y
-            # xpos, ypos = self.drag_widget.last_x or self.x, self.drag_widget.last_y or self.y
-            # Call the external function for distance calculation
-            return find_closest_object(xpos, ypos, self.group.slots)
+            """Finds the closest slot to the current mouse position."""
+            closest_slot = None
+            closest_distance = float('inf')
+            origin_distance = None
+            distance = None
+            xpos, ypos = self.drag_widget.last_x or self.x, self.drag_widget.last_y or self.y
+            # print("Position value:", xpos, ypos)
+            for slot in self.group.slots:
+                distance = ((xpos - slot.x) ** 2 + (ypos - slot.y) ** 2) ** 0.5
+                if distance < closest_distance:
+                    closest_distance = distance
+                    closest_slot = slot
+            # Calculate origin distance between slot and item
+            if closest_slot:
+                origin_distance = ((self.x - closest_slot.x) ** 2 + (self.y - closest_slot.y) ** 2) ** 0.5
+                return closest_distance, origin_distance, closest_slot
+            return None
+        
+        def resize_to_slot(self, slot):
+            """Resizes the item to fit within the slot's dimensions and retains the auto-scaling."""
+            self.auto_scaled_value = calculate_scale_factor(slot, self)
+        
+        def resize_to_origin(self):
+            self.auto_scaled_value = self.default_scale
             
     # Group class to manage draggable items and slots
     class DragItemsGroup:
@@ -157,6 +170,7 @@ init 998 python:
                         #     slot.remove_card(item)
                         #     slot.assign_card(item)
             slot.assign_card(item)
+            # Shift the items to the left to fill any gaps in the inventory
 
         def shift_items_left(self):
             """Shift all items in the inventory to the left to fill empty slots."""
@@ -171,7 +185,7 @@ init 998 python:
                         # Update the position of the cards to the new slot
                         for card in self.slots[last_filled_slot].cards:
                             card.slot_index = last_filled_slot
-                            card.drag_widget.snap(self.slots[last_filled_slot].x, self.slots[last_filled_slot].y, card.snap_duration)
+                            card.drag_widget.snap(self.slots[last_filled_slot].x, self.slots[last_filled_slot].y, 0.2)
                     last_filled_slot += 1
             # Redraw to reflect the updated arrangement
             renpy.redraw(self.slots, 0)
@@ -198,7 +212,7 @@ init 998 python:
             # Images 
             self.image_path = image_path
             self.default_scale = default_scale
-            self.width, self.height = get_image_size(self.image_path, self.default_scale)
+            self.width, self.height = renpy.image_size(self.image_path)
             self.width *= self.default_scale
             self.height *= self.default_scale
 
@@ -216,7 +230,8 @@ init 998 python:
             self.cards.append(card)
             card.in_slot = True
             card.slot_index = self.index
-            card.drag_widget.snap(self.x, self.y, card.snap_duration)
+            card.drag_widget.snap(self.x, self.y, 0.2)
+            card.resize_to_slot(self)
             self.group.shift_items_left()
             
         def remove_card(self, card):
@@ -224,7 +239,8 @@ init 998 python:
             if card in self.cards:
                 card.in_slot = False
                 card.slot_index = None
-                card.drag_widget.snap(card.x, card.y, card.snap_duration)
+                card.drag_widget.snap(card.x, card.y, 0.2)
+                card.resize_to_slot(self)
                 self.cards.remove(card)
                 self.group.shift_items_left()
             self.update_quantity_display()
@@ -247,50 +263,41 @@ init 998 python:
         #     # Pull items back when unhovered
         #     self.group.pull_items_back(self)
 
-    ##################### UTILITIES ######################
-
-    def get_image_size(image_path, scale):
-        """Helper function to get and cache image size with scale."""
-        width, height = renpy.image_size(image_path)
-        return width * scale, height * scale
-    
-    def find_closest_object(xpos, ypos, objects):
+    def calculate_scale_factor(slot, item, padding_factor=0.9):
         """
-        Finds the closest item (e.g., slot) to the current position (xpos, ypos) from a list of items.
-        Returns the closest distance, origin distance, and the closest item.
+        Calculates the scale factor to resize the item to fit within the slot,
+        while maintaining the aspect ratio. Optionally applies padding.
         """
-        closest_obj = None
-        closest_distance = float('inf')
-        for obj in objects:
-            distance = ((xpos - obj.x) ** 2 + (ypos - obj.y) ** 2) ** 0.5
-            if distance < closest_distance:
-                closest_distance = distance
-                closest_obj = obj
-        if closest_obj:
-            # Calculate origin distance (obj's original position to current position)
-            origin_distance = ((xpos - closest_obj.x) ** 2 + (ypos - closest_obj.y) ** 2) ** 0.5
-            return closest_distance, origin_distance, closest_obj
-        return None, None, None
-
-    def compute_scale_factor(slot, item, padding_factor=0.9):
-        """
-        Computes the scale factor needed to fit the item within the slot,
-        maintaining the aspect ratio and applying an optional padding factor.
-        """
-        # Get the dimensions of the slot and the item
-        slot_width, slot_height = slot.default_scale * slot.width, slot.default_scale * slot.height
-        item_width, item_height = item.default_scale * item.width, item.default_scale * item.height
+        # Get the size of the slot image considering slot's scale factor
+        slot_width, slot_height = renpy.image_size(slot.image_path)
+        slot_width *= slot.default_scale
+        slot_height *= slot.default_scale
+        # Get the size of the item image considering the item's scale factor
+        item_width, item_height = renpy.image_size(item.image_path)
+        item_width *= item.default_scale
+        item_height *= item.default_scale
         # Calculate the scaling factors to fit the item into the slot while preserving aspect ratio
         scale_x = slot_width / item_width
         scale_y = slot_height / item_height
-        scale_factor = min(scale_x, scale_y)  # Choose the smaller scale to maintain the aspect ratio
-        # Apply optional padding factor
-        return scale_factor * padding_factor
+        scale_factor = min(scale_x, scale_y)  # Ensure aspect ratio is maintained
+        # Apply padding factor to create a "loose fit" effect
+        scale_factor *= padding_factor
+        return scale_factor
 
-    def compute_zoom_based_on_distance(distance, item, slot, min_scale=0.5, max_scale=1.0, max_distance=300):
-        """Calculates zoom factor based on the distance and size comparison between the item and the slot."""
+    def distance_zoom_with_size(distance, item, slot, min_scale=0.5, max_scale=1.0, max_distance=300):
+        """Calculates zoom factor based on the distance and size comparison between the card and the slot."""
         # scale benchmark is the one with smaller scale (item or slot)
-        new_scale = compute_scale_factor(slot, item)
+        new_scale = calculate_scale_factor(slot, item)
         if distance >= max_distance:
-            return item.default_scale
-        return 1.0 + (new_scale - 1.0) * (1 - (distance / max_distance))
+            return 1.0
+        else:
+            return 1.0 + (new_scale - 1.0) * (1 - (distance / max_distance))
+        
+    def smooth_resize(current_scale=0.5, target_scale=1.0, step=0.05):
+        """Smoothly transitions from current_scale to target_scale."""
+        step_size = (target_scale - current_scale) * step  # Adjust step for smooth transition
+        new_scale = current_scale + step_size
+        # Prevent overshooting the target scale
+        if abs(new_scale - target_scale) < 10:
+            return target_scale
+        return new_scale

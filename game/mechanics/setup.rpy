@@ -10,11 +10,6 @@ define my_inv_slots = [
 default my_inventory = InventoryManager(total_events=3, slot_info=my_inv_slots, data_path=inv_data_path)
 default inv_state = None
 
-# transform auto_scaling_item:
-#     function apply_distance_scaling
-#     pause 0.1
-#     repeat
-
 # Screen for displaying drag-and-drop functionality
 init:
     screen drag_and_drop_inventory():
