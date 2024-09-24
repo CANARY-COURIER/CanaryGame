@@ -62,7 +62,7 @@ style namebox:
     ypos -70
     #xysize (None, None)
     #background Frame("gui/namebox.png")
-    background Frame("gui/namebox.png", 5, 5, 5, 5, tile=False, xalign=0.0)
+    background Frame("gui/nameboxframe.png", 12, 12)
     padding (10, 10, 10, 10)
 
 # Style for the text with the speaker's name
@@ -107,9 +107,9 @@ screen quick_menu():
         #add "gui/BackPackText.png" xalign 0.49 ypos 720
         #################################################
 
-        imagebutton auto "gui/SettingsGUIbutton_%s.png" xpos 1506 ypos 905 focus_mask True action ShowMenu('preferences')
-        imagebutton auto "gui/MenuGUIbutton_%s.png" xpos 1503 ypos 738 focus_mask True action ShowMenu('save')
-        imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1591 ypos 601 focus_mask True action Skip(fast=True, confirm=True)
+        imagebutton auto "gui/SettingsGUIbutton_%s.png" xpos 1507 ypos 842 focus_mask True action ShowMenu('preferences')
+        imagebutton auto "gui/MenuGUIbutton_%s.png" xpos 1468 ypos 695 focus_mask True action ShowMenu('save')
+        imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1586 ypos 564 focus_mask True action Skip(fast=True, confirm=True)
 
         ### BACKPACK ###
         imagebutton:
