@@ -6,6 +6,8 @@ define c = Character('Catcher')
 define i = Character('Ivory')
 define az = Character('Aziel')
 
+default half = 1
+
 define dissolve3 = Dissolve(3.0)
 image streetview = "/Backgrounds/Street View Dialogue.png"
 image achievement = "/gui/AchievementBackground.png"
