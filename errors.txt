@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/dialogue_screens.rpy", line 22: 'style' is not a keyword argument or valid child of the screen statement.
-    style "say_dialogue1"
-         ^
+File "game/screens/dialogue_screens.rpy", line 181: expected a keyword argument, colon, or end of line.
+    imagebutton "gui/creepybutton4.png" xpos 1532 ypos 1004 focus_mask True action pass
+                ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Wed Sep 25 01:51:06 2024
+Wed Sep 25 14:35:25 2024

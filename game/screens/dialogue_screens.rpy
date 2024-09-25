@@ -79,14 +79,6 @@ style say_dialogue:
     yoffset -20
     outlines gui.dialogue_text_outlines
 
-style say_dialogue2:
-    font "fonts/Kcora.ttf"
-    adjust_spacing False
-    ypos 60
-    color "#000000"
-    yoffset -20
-    outlines gui.dialogue_text_outlines
-
 # The style for dialogue said by the narrator
 style say_thought:
     is say_dialogue
@@ -150,37 +142,70 @@ screen quick_menu():
         #add "gui/BackPackText.png" xalign 0.49 ypos 720
         #################################################
 
-        imagebutton auto "gui/SettingsGUIbutton_%s.png" xpos 1507 ypos 842 focus_mask True action ShowMenu('preferences')
-        imagebutton auto "gui/MenuGUIbutton_%s.png" xpos 1468 ypos 695 focus_mask True action ShowMenu('save')
-        imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1586 ypos 564 focus_mask True action Skip(fast=True, confirm=True)
+        if half == 1:
+            imagebutton auto "gui/SettingsGUIbutton_%s.png" xpos 1507 ypos 842 focus_mask True action ShowMenu('preferences')
+            imagebutton auto "gui/MenuGUIbutton_%s.png" xpos 1468 ypos 695 focus_mask True action ShowMenu('save')
+            imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1586 ypos 564 focus_mask True action Skip(fast=True, confirm=True)
 
-        ### BACKPACK ###
-        imagebutton:
-            auto 'gui/Backpack_%s.png'
-            pos(210, 806)
-            focus_mask True
-            at transform:
-                outline_transform(3, "#fff", 3.0)
-                on idle:
-                    drop_shadow(offset=(5.0, 5.0))
-                on hover:
-                    ease 0.3 outline_transform(3, "#fff", 4.0)
-            action [ToggleVariable('is_daytime', true_value=True, false_value=False), ToggleScreen("drag_and_drop_inventory"), ToggleVariable('inventory_opened')]
+            ### BACKPACK ###
+            imagebutton:
+                auto 'gui/Backpack_%s.png'
+                pos(210, 806)
+                focus_mask True
+                at transform:
+                    outline_transform(3, "#fff", 3.0)
+                    on idle:
+                        drop_shadow(offset=(5.0, 5.0))
+                    on hover:
+                        ease 0.3 outline_transform(3, "#fff", 4.0)
+                action [ToggleVariable('is_daytime', true_value=True, false_value=False), ToggleScreen("drag_and_drop_inventory"), ToggleVariable('inventory_opened')]
 
-        ### MAP ###
-        imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
+            ### MAP ###
+            imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
 
-        ### CHECKLIST ###
-        imagebutton auto "gui/ChecklistGUIbutton_%s.png" xpos 380 ypos 18 focus_mask True
+            ### CHECKLIST ###
+            imagebutton auto "gui/ChecklistGUIbutton_%s.png" xpos 380 ypos 18 focus_mask True
 
-        ### CLOCK ###
-        fixed:
-            pos (1580, 130)
-            image 'clock_current'
-        fixed:
-            pos (1446, 27)
-            image 'gui/ClockTop.png'
+            ### CLOCK ###
+            fixed:
+                pos (1580, 130)
+                image 'clock_current'
+            fixed:
+                pos (1446, 27)
+                image 'gui/ClockTop.png'
+        
+        else:
+            imagebutton auto "gui/creepymenubutton_%s.png" xpos 1208 ypos 1004 focus_mask True action ShowMenu('save')
+            imagebutton auto "gui/creepysettingsbutton_%s.png" xpos 1317 ypos 1004 focus_mask True action ShowMenu('preferences')
+            imagebutton auto "gui/creepyskipbutton_%s.png" xpos 1424 ypos 1004 focus_mask True action Skip(fast=True, confirm=True)
+            add "gui/creepybutton4.png" xpos 1532 ypos 1004
 
+            ### BACKPACK ###
+            imagebutton:
+                auto 'gui/Backpack_%s.png'
+                pos(210, 806)
+                focus_mask True
+                at transform:
+                    outline_transform(3, "#fff", 3.0)
+                    on idle:
+                        drop_shadow(offset=(5.0, 5.0))
+                    on hover:
+                        ease 0.3 outline_transform(3, "#fff", 4.0)
+                action [ToggleVariable('is_daytime', true_value=True, false_value=False), ToggleScreen("drag_and_drop_inventory"), ToggleVariable('inventory_opened')]
+
+            ### MAP ###
+            imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
+
+            ### CHECKLIST ###
+            imagebutton auto "gui/ChecklistGUIbutton_%s.png" xpos 380 ypos 18 focus_mask True
+
+            ### CLOCK ###
+            fixed:
+                pos (1580, 130)
+                image 'clock_current'
+            fixed:
+                pos (1446, 27)
+                image 'gui/ClockTop.png'
 
         hbox:
             style_prefix "quick"

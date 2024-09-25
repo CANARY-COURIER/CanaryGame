@@ -24,6 +24,7 @@ label start:
     jump start_scene
 
 label start_scene:
+
     # call screen drag_and_drop_inventory
     
     scene white
