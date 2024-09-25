@@ -12,20 +12,41 @@
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
+image Creepynamebox = "gui/creepynamebox.png"
+
 screen say(who, what):
+    
     style_prefix "say"
+
     if inventory_opened is not True:
-        window:
-            id "window"
+        if half == 1:
+            window:
+                id "window1"
+                style "window1"
 
-            if who is not None:
+                if who is not None:
 
-                window:
-                    id "namebox"
-                    style "namebox"
-                    text who id "who"
+                    window:
+                        id "namebox1"
+                        style "namebox1"
+                        text who id "who"
 
-            text what id "what"
+                text what id "what"
+        else:
+            window:
+                id "window2"
+                style "window2"
+
+                if who is not None:
+
+                    add "Creepynamebox" xpos -174 ypos -65
+
+                    window:
+                        id "namebox2"
+                        style "namebox2"
+                        text who id "who"
+
+                text what id "what"
 
         ## If there's a side image, display it in front of the text.
         add SideImage() xalign 0.0 yalign 1.0
@@ -36,19 +57,33 @@ init python:
     config.character_id_prefixes.append('namebox')
 
 # Style for the dialogue window
-style window:
+style window1:
     xalign 0.5
     yalign 1.0
     xysize (1231, 277)
     padding (40, 10, 100, 40)
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
+style window2:
+    xalign 0.5
+    yalign 1.0
+    xysize (1231, 277)
+    padding (40, 10, 100, 40)
+    background Image("gui/Creepyframe.png", xalign=0.5, yalign=1.0)
+
 # Style for the dialogue
 style say_dialogue:
-    
     adjust_spacing False
     ypos 60
     color "#422E2D"
+    yoffset -20
+    outlines gui.dialogue_text_outlines
+
+style say_dialogue2:
+    font "fonts/Kcora.ttf"
+    adjust_spacing False
+    ypos 60
+    color "#000000"
     yoffset -20
     outlines gui.dialogue_text_outlines
 
@@ -57,13 +92,21 @@ style say_thought:
     is say_dialogue
 
 # Style for the box containing the speaker's name
-style namebox:
+style namebox1:
     xpos 10
     ypos -70
     #xysize (None, None)
     #background Frame("gui/namebox.png")
     background Frame("gui/nameboxframe.png", 12, 12)
     padding (10, 10, 10, 10)
+
+style namebox2:
+    xpos -20
+    ypos -70
+    #xysize (None, None)
+    #background Frame("gui/namebox.png")
+    #background image("gui/creepynamebox.png")
+    #padding (10, 10, 10, 10)
 
 # Style for the text with the speaker's name
 style say_label:
