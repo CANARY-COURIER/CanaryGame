@@ -193,37 +193,30 @@ screen quick_menu():
             imagebutton auto "gui/creepyskipbutton_%s.png" xpos 1424 ypos 1004 focus_mask True action Skip(fast=True, confirm=True)
             add "gui/creepybutton4.png" xpos 1532 ypos 1004
 
-            ### BACKPACK ###
-            imagebutton:
-                auto 'gui/Backpack_%s.png'
-                pos(210, 806)
-                focus_mask True
-                at transform:
-                    outline_transform(3, "#fff", 3.0)
-                    on idle:
-                        drop_shadow(offset=(5.0, 5.0))
-                    on hover:
-                        ease 0.3 outline_transform(3, "#fff", 4.0)
-                action [ToggleVariable('is_daytime', true_value=True, false_value=False), ToggleScreen("drag_and_drop_inventory"), ToggleVariable('inventory_opened')]
-
             ### MAP ###
             imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
 
-            ### CHECKLIST ###
-            imagebutton auto "gui/ChecklistGUIbutton_%s.png" xpos 380 ypos 18 focus_mask True
-
             ### CLOCK ###
-            fixed:
-                pos (1580, 130)
-                image 'clock_current'
-            fixed:
-                pos (1478, 27)
-                image 'gui/ClockBase.png'
 
             if day == 1:
                 fixed:
-                    pos (1447, 57)
-                    image 'gui/Day1.png'
+                    pos (1300, 20)
+                    xsize 200
+                    ysize 74
+                    image 'gui/Day1creepy.png'
+            elif day == 2:
+                fixed:
+                    pos (1300, 20)
+                    xsize 200
+                    ysize 74
+                    image 'gui/Day2creepy.png'
+            elif day == 3:
+                fixed:
+                    pos (1300, 20)
+                    xsize 200
+                    ysize 74
+                    image 'gui/Day3creepy.png'
+                    
 
         hbox:
             style_prefix "quick"

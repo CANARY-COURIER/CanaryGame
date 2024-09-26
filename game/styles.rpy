@@ -37,6 +37,7 @@ define gui.name_text_size = gui.preference("name_size", 45)
 
 define gui.dialogue_text_outlines = [ (3, "#ffffff", 0, 0) ]
 define gui.name_text_outlines = [ (4, "#422E2D", 0, 0) ]
+define gui.black_text_outlines = [ (3, "#000000", 0, 0) ]
 
 ## Localization ################################################################
 
