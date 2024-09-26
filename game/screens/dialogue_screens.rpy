@@ -12,20 +12,41 @@
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
+image Creepynamebox = "gui/creepynamebox.png"
+
 screen say(who, what):
+    
     style_prefix "say"
+
     if inventory_opened is not True:
-        window:
-            id "window"
+        if half == 1:
+            window:
+                id "window1"
+                style "window1"
 
-            if who is not None:
+                if who is not None:
 
-                window:
-                    id "namebox"
-                    style "namebox"
-                    text who id "who"
+                    window:
+                        id "namebox1"
+                        style "namebox1"
+                        text who id "who"
 
-            text what id "what"
+                text what id "what"
+        else:
+            window:
+                id "window2"
+                style "window2"
+
+                if who is not None:
+
+                    add "Creepynamebox" xpos -174 ypos -65
+
+                    window:
+                        id "namebox2"
+                        style "namebox2"
+                        text who id "who"
+
+                text what id "what"
 
         ## If there's a side image, display it in front of the text.
         add SideImage() xalign 0.0 yalign 1.0
@@ -36,16 +57,22 @@ init python:
     config.character_id_prefixes.append('namebox')
 
 # Style for the dialogue window
-style window:
+style window1:
     xalign 0.5
     yalign 1.0
     xysize (1231, 277)
     padding (40, 10, 100, 40)
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
+style window2:
+    xalign 0.5
+    yalign 1.0
+    xysize (1231, 277)
+    padding (40, 10, 100, 40)
+    background Image("gui/Creepyframe.png", xalign=0.5, yalign=1.0)
+
 # Style for the dialogue
 style say_dialogue:
-    
     adjust_spacing False
     ypos 60
     color "#422E2D"
@@ -57,21 +84,30 @@ style say_thought:
     is say_dialogue
 
 # Style for the box containing the speaker's name
-style namebox:
+style namebox1:
     xpos 10
     ypos -70
     #xysize (None, None)
     #background Frame("gui/namebox.png")
-    background Frame("gui/namebox.png", 5, 5, 5, 5, tile=False, xalign=0.0)
-    padding (30, 20, 30, 20)
+    background Frame("gui/nameboxframe.png", 12, 12)
+    padding (10, 10, 10, 10)
+
+style namebox2:
+    xpos -20
+    ypos -70
+    #xysize (None, None)
+    #background Frame("gui/namebox.png")
+    #background image("gui/creepynamebox.png")
+    #padding (10, 10, 10, 10)
 
 # Style for the text with the speaker's name
 style say_label:
-    color '#f93c3e'
+    color "#d3bd75"
     xalign 0.0
     yalign 0.5
     size gui.name_text_size
     font gui.name_text_font
+    outlines gui.name_text_outlines
 
 
 ## Quick Menu screen ###########################################################
@@ -106,37 +142,70 @@ screen quick_menu():
         #add "gui/BackPackText.png" xalign 0.49 ypos 720
         #################################################
 
-        imagebutton auto "gui/SettingsGUIbutton_%s.png" xpos 1506 ypos 905 focus_mask True action ShowMenu('preferences')
-        imagebutton auto "gui/MenuGUIbutton_%s.png" xpos 1503 ypos 738 focus_mask True action ShowMenu('save')
-        imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1591 ypos 601 focus_mask True action Skip(fast=True, confirm=True)
+        if half == 1:
+            imagebutton auto "gui/SettingsGUIbutton_%s.png" xpos 1507 ypos 842 focus_mask True action ShowMenu('preferences')
+            imagebutton auto "gui/MenuGUIbutton_%s.png" xpos 1468 ypos 695 focus_mask True action ShowMenu('save')
+            imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1586 ypos 564 focus_mask True action Skip(fast=True, confirm=True)
 
-        ### BACKPACK ###
-        imagebutton:
-            auto 'gui/Backpack_%s.png'
-            pos(210, 816)
-            focus_mask True
-            at transform:
-                outline_transform(3, "#fff", 3.0)
-                on idle:
-                    drop_shadow(offset=(5.0, 5.0))
-                on hover:
-                    ease 0.3 outline_transform(3, "#fff", 4.0)
-            action [ToggleVariable('is_daytime', true_value=True, false_value=False), ToggleScreen("drag_and_drop_inventory"), ToggleVariable('inventory_opened')]
+            ### BACKPACK ###
+            imagebutton:
+                auto 'gui/Backpack_%s.png'
+                pos(210, 806)
+                focus_mask True
+                at transform:
+                    outline_transform(3, "#fff", 3.0)
+                    on idle:
+                        drop_shadow(offset=(5.0, 5.0))
+                    on hover:
+                        ease 0.3 outline_transform(3, "#fff", 4.0)
+                action [ToggleVariable('is_daytime', true_value=True, false_value=False), ToggleScreen("drag_and_drop_inventory"), ToggleVariable('inventory_opened')]
 
-        ### MAP ###
-        imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
+            ### MAP ###
+            imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
 
-        ### CHECKLIST ###
-        imagebutton auto "gui/ChecklistGUIbutton_%s.png" xpos 380 ypos 18 focus_mask True
+            ### CHECKLIST ###
+            imagebutton auto "gui/ChecklistGUIbutton_%s.png" xpos 380 ypos 18 focus_mask True
 
-        ### CLOCK ###
-        fixed:
-            pos (1580, 130)
-            image 'clock_current'
-        fixed:
-            pos (1446, 27)
-            image 'gui/ClockTop.png'
+            ### CLOCK ###
+            fixed:
+                pos (1580, 130)
+                image 'clock_current'
+            fixed:
+                pos (1446, 27)
+                image 'gui/ClockTop.png'
+        
+        else:
+            imagebutton auto "gui/creepymenubutton_%s.png" xpos 1208 ypos 1004 focus_mask True action ShowMenu('save')
+            imagebutton auto "gui/creepysettingsbutton_%s.png" xpos 1317 ypos 1004 focus_mask True action ShowMenu('preferences')
+            imagebutton auto "gui/creepyskipbutton_%s.png" xpos 1424 ypos 1004 focus_mask True action Skip(fast=True, confirm=True)
+            add "gui/creepybutton4.png" xpos 1532 ypos 1004
 
+            ### BACKPACK ###
+            imagebutton:
+                auto 'gui/Backpack_%s.png'
+                pos(210, 806)
+                focus_mask True
+                at transform:
+                    outline_transform(3, "#fff", 3.0)
+                    on idle:
+                        drop_shadow(offset=(5.0, 5.0))
+                    on hover:
+                        ease 0.3 outline_transform(3, "#fff", 4.0)
+                action [ToggleVariable('is_daytime', true_value=True, false_value=False), ToggleScreen("drag_and_drop_inventory"), ToggleVariable('inventory_opened')]
+
+            ### MAP ###
+            imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
+
+            ### CHECKLIST ###
+            imagebutton auto "gui/ChecklistGUIbutton_%s.png" xpos 380 ypos 18 focus_mask True
+
+            ### CLOCK ###
+            fixed:
+                pos (1580, 130)
+                image 'clock_current'
+            fixed:
+                pos (1446, 27)
+                image 'gui/ClockTop.png'
 
         hbox:
             style_prefix "quick"

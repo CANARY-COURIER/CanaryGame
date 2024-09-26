@@ -36,6 +36,7 @@ define gui.name_text_font = gui.preference("name_font", "fonts/WalterTurncoat.tt
 define gui.name_text_size = gui.preference("name_size", 45)
 
 define gui.dialogue_text_outlines = [ (4, "#ffffff", 0, 0) ]
+define gui.name_text_outlines = [ (4, "#422E2D", 0, 0) ]
 
 ## Localization ################################################################
 
@@ -67,7 +68,7 @@ style input:
 
 style hyperlink_text:
     hover_underline True
-    color "#f93c3e"
+    color "#422E2D"
 
 style gui_text:
     color '#ffffff'
@@ -83,9 +84,8 @@ style button_text:
     yalign 0.5
     xalign 0.0
     ## The color used for a text button when it is neither selected nor hovered.
-    idle_color '#888888'
-    ## The color that is used for buttons and bars that are hovered.
-    hover_color '#ff8335'
+    idle_color "#422E2D"
+    hover_color "#cecece"
     ## The color used for a text button when it is selected but not focused. A
     ## button is selected if it is the current screen or preference value.
     selected_color '#ffffff'
@@ -95,7 +95,7 @@ style button_text:
 style label_text:
     is gui_text
     size 36
-    color '#f93c3e'
+    color "#422E2D"
 
 
 style bar:

@@ -5,12 +5,10 @@
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
-## Replace this with your background image, if you like
-image main_menu_background = HBox(
-    Solid("#292835", xsize=500),
-    Solid("#21212d")
-)
+image main_menu_background = "Backgrounds/key art background.png"
+image main_menu_logo = "logos/menu logo.png"
 image BlackBars = "BlackBars.png"
+image Louis = "louis key art.png"
 
 screen main_menu():
 
@@ -18,29 +16,37 @@ screen main_menu():
     tag menu
 
     add "main_menu_background"
+    add "main_menu_logo"
     add "BlackBars"
+    add "Louis"
 
     vbox:
-        xpos 250
-        yalign 0.5
+        xpos 520
+        ypos 632
         spacing 6
 
-        textbutton _("Start") action Start()
+        ## START ##
+        # textbutton _("Start") action Start()
+        imagebutton auto "gui/menu start button_%s.png" focus_mask True action Dissolve(Start())
+        
+        ## OPTIONS ##
+        # textbutton _("Settings") action ShowMenu("preferences")
+        imagebutton auto "gui/menu options button_%s.png" focus_mask True action ShowMenu("preferences")
+        
+        ## LOAD ##
+        #textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Load") action ShowMenu("load")
+        ## ABOUT ##
+        #textbutton _("About") action ShowMenu("about")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-        textbutton _("About") action ShowMenu("about")
-
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+        #     ## Help isn't necessary or relevant to mobile devices.
+        #     textbutton _("Help") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
-            ## The quit button is banned on iOS and unnecessary on Android and
-            ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            ## QUIT ##
+            # textbutton _("Quit") action Quit(confirm=not main_menu)
+            imagebutton auto "gui/menu quit button_%s.png" focus_mask True action Quit(confirm=not main_menu)
 

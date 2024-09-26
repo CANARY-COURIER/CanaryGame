@@ -149,6 +149,8 @@ define config.default_music_volume = 0.5
 define config.default_sfx_volume = 0.5
 define config.default_voice_volume = 0.5
 
+define config.main_menu_music = "music/CC Title Screen Theme Full.wav"
+
 ## Optional; this reverts the behaviour of the volume sliders back to pre-8.1,
 ## so muting the game shows the volume sliders all at 0
 # define config.preserve_volume_when_muted = False
