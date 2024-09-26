@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/mechanics/inventory/src/drag_drop_inventory.rpy", line 236: duplicate argument 'self' in function definition
-        def remove_from_slot(self, self):
-         ^
+File "game/mechanics/inventory/src/back_1.rpy", line 1: python block expects a non-empty block.
+    init 998 python:
+                    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Thu Sep 26 00:10:25 2024
+Tue Sep 24 23:57:32 2024
