@@ -94,58 +94,74 @@ screen preferences():
 
 ### PREF
 style pref_label:
+    left_margin 90
     top_margin 15
     bottom_margin 3
 
 style pref_label_text:
+    left_margin 90
     yalign 1.0
 
 style pref_vbox:
+    left_margin 90
     xsize 338
 
 ## RADIO
 style radio_label:
+    left_margin 90
     is pref_label
 
 style radio_label_text:
+    left_margin 90
     is pref_label_text
 
 style radio_vbox:
+    left_margin 90
     is pref_vbox
     spacing 0
 
 style radio_button:
+    left_margin 90
     foreground "gui/button/radio_[prefix_]foreground.png"
     padding (35, 6, 6, 6)
 
 ## CHECK
 style check_label:
+    left_margin 90
     is pref_label
 style check_label_text:
+    left_margin 90
     is pref_label_text
 
 style check_vbox:
+    left_margin 90
     is pref_vbox
     spacing 0
 
 style check_button:
+    left_margin 90
     foreground "gui/button/check_[prefix_]foreground.png"
     padding (35, 6, 6, 6)
 
 ## SLIDER
 style slider_label:
+    left_margin 90
     is pref_label
 style slider_label_text:
+    left_margin 90
     is pref_label_text
 
 style slider_slider:
-    xsize 525
+    left_margin 90
+    xsize 400
+    xpos 90
 
 style slider_button:
+    left_margin 90
     yalign 0.5
-    left_margin 15
 
 style slider_vbox:
+    left_margin 90
     is pref_vbox
-    xsize 675
+    xsize 550
 
