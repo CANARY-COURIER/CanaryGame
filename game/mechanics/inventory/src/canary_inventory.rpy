@@ -1,47 +1,20 @@
 init 999 python:
     import json
 
+    # DragItem class for inventory items
     class InventoryItem(DragItem):
-        def __init__(self, group, title, description=None, image_path=None, init_xpos=500, init_ypos=500, default_scale=1.0):
-            super().__init__(group, title, description, image_path, init_xpos, init_ypos, default_scale=default_scale)
-            self.hover_trans = glow_outline(12, "#cfb760", num_passes=30, power=0.8)
-            
-        def create_drag_widget(self):
-            """Creates a draggable widget for InventoryItem."""
-            # Auto-scaling transform
-            self.img_idle =  self.img
-            self.img_hover = At(self.img, self.hover_trans)
-            self.drag_widget = Drag(
-                d=self.img, \
-                drag_name="item_"+str(self.index), \
-                idle_child=self.img_idle, \
-                hover_child=self.img_hover, \
-                draggable=True, \
-                droppable=False, \
-                dragging=self.on_dragging_start, \
-                dragged=self.drag_placed, \
-                pos=(self.x, self.y)
-            )
-        
-        def show_description(self):
-            """Displays the description of the item."""
-            return self.description
-    
+        name_tag="InventoryItem_"
+        hover_trans = glow_outline(12, "#cfb760", num_passes=30, power=0.8) 
+        pass
+
     # Group class for inventory logic
     class InventoryGroup(DragItemsGroup):
-        def assign_item_to_slot(self, item, slot):
-            """Assigns an item to a slot."""
-            super().assign_item_to_slot(item, slot)
+        pass
 
     # Slot class for inventory
     class InventorySlot(DragSlot):
-        def __init__(self, group, init_xpos, init_ypos, image_path='./images/inventory/default/slot1.png', default_scale=1.0):
-            super().__init__(group, init_xpos, init_ypos, image_path, default_scale=default_scale)
-
-        def create_drag_widget(self):
-            self.img = At(Image(self.image_path), Transform(Null(), zoom=self.default_scale))
-            self.drag_widget = Drag(d=self.img, drag_name="inventorySlot_" + str(self.index), \
-                                droppable=True, draggable=False, pos=(self.x, self.y))
+        name_tag="InventorySlot_"
+        pass
 
     # Inventory management class
     class InventoryManager:
@@ -98,6 +71,7 @@ init 999 python:
                 title = data.get("title")
                 description = data.get("description", "No description available")  # Default description
                 image_path = data.get("image_path")
+                print("image_path : ", image_path)
                 quantity = data.get("quantity", 1)  # Default quantity is 1
                 init_xpos = data.get("xpos", 0)
                 init_ypos = data.get("ypos", 0)
