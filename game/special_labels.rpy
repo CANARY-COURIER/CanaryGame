@@ -5,26 +5,37 @@
 ## https://www.renpy.org/doc/html/label.html#special-labels
 ##
 
+image White = "White.png"
+define dissolve1 = Dissolve(1.0)
 define dissolve2 = Dissolve(2.0)
+define dissolve3 = Dissolve(3.0)
 define fade = Fade(2.0)
 
 label splashscreen:
+
     $_dismiss_pause = False
 
-    scene white
-    show BlackBars
-    show avane studios logo at truecenter
-    with dissolve2
-
-    $ renpy.pause(2.0)
-
-    scene white
-    show BlackBars
+    scene White
     show spooktober at truecenter:
         xsize 1200 ysize 461
-    with dissolve2
+    with dissolve1
 
-    $ renpy.pause(2.0)
+    $ renpy.pause(1.0)
+
+    play music "music/CC Title Screen Theme Jingle.wav" noloop
+
+    scene White
+    show qnl logo at truecenter
+    with dissolve1
+
+    $ renpy.pause(1.0)
+
+    scene White
+    show avane studios logo at truecenter:
+        xsize 400 ysize 513
+    with Dissolve(1.5)
+
+    $ renpy.pause(1.5)
 
     return
 

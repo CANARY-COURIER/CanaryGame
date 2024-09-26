@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 117: end of line expected.
-    show louis happy at xpos 227
-                             ^
-
-File "game/script.rpy", line 120: end of line expected.
-    show aven angry at xpos 852
-                            ^
+File "game/special_labels.rpy", line 16: expected end of line
+    play music "music/CC Title Screen Theme Jingle.wav" loop = False
+                                                             ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Wed Sep 25 23:33:48 2024
+Thu Sep 26 16:53:39 2024

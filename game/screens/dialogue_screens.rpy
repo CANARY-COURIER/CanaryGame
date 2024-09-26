@@ -171,8 +171,21 @@ screen quick_menu():
                 pos (1580, 130)
                 image 'clock_current'
             fixed:
-                pos (1446, 27)
-                image 'gui/ClockTop.png'
+                pos (1478, 27)
+                image 'gui/ClockBase.png'
+
+            if day == 1:
+                fixed:
+                    pos (1447, 140)
+                    image 'gui/Day1.png'
+            elif day == 2:
+                fixed:
+                    pos (1447, 140)
+                    image 'gui/Day2.png'
+            elif day == 3:
+                fixed:
+                    pos (1447, 140)
+                    image 'gui/Day3.png'
         
         else:
             imagebutton auto "gui/creepymenubutton_%s.png" xpos 1208 ypos 1004 focus_mask True action ShowMenu('save')
@@ -204,8 +217,13 @@ screen quick_menu():
                 pos (1580, 130)
                 image 'clock_current'
             fixed:
-                pos (1446, 27)
-                image 'gui/ClockTop.png'
+                pos (1478, 27)
+                image 'gui/ClockBase.png'
+
+            if day == 1:
+                fixed:
+                    pos (1447, 57)
+                    image 'gui/Day1.png'
 
         hbox:
             style_prefix "quick"

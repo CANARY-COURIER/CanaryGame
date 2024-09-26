@@ -96,6 +96,8 @@ define config.after_load_transition = None
 
 define config.end_game_transition = None
 
+define config.end_splash_transition = Dissolve(3.0)
+
 ## Window management ###########################################################
 ##
 ## This controls when the dialogue window is displayed. If "show", it is always
@@ -149,7 +151,7 @@ define config.default_music_volume = 0.5
 define config.default_sfx_volume = 0.5
 define config.default_voice_volume = 0.5
 
-define config.main_menu_music = "music/CC Title Screen Theme Full.wav"
+define config.main_menu_music = "music/CC Title Screen Theme No Intro.wav"
 
 ## Optional; this reverts the behaviour of the volume sliders back to pre-8.1,
 ## so muting the game shows the volume sliders all at 0
