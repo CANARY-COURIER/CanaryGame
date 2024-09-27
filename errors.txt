@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/special_labels.rpy", line 16: expected end of line
-    play music "music/CC Title Screen Theme Jingle.wav" loop = False
-                                                             ^
+File "game/screens/game_menu.rpy", line 105: 'size' is not a keyword argument or valid child of the label statement.
+    label title xpos 400 ypos 100 size 2.0
+                                      ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Thu Sep 26 16:53:39 2024
+Fri Sep 27 17:48:41 2024

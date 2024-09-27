@@ -9,8 +9,8 @@
 
 
 ## The width and height of thumbnails used by the save slots.
-define config.thumbnail_width = 384
-define config.thumbnail_height = 216
+define config.thumbnail_width = 300
+define config.thumbnail_height = 132
 
 
 screen save():
@@ -86,6 +86,7 @@ screen file_slots(title):
         vbox:
             style_prefix "page"
             hbox:
+                ypos -90
                 textbutton _("<") action FilePagePrevious()
 
                 if config.has_autosave:
@@ -100,13 +101,13 @@ screen file_slots(title):
 
                 textbutton _(">") action FilePageNext()
 
-            if config.has_sync:
-                if CurrentScreenName() == "save":
-                    textbutton _("Upload Sync"):
-                        action UploadSync()
-                else:
-                    textbutton _("Download Sync"):
-                        action DownloadSync()
+            # if config.has_sync:
+            #     if CurrentScreenName() == "save":
+            #         textbutton _("Upload Sync"):
+            #             action UploadSync()
+            #     else:
+            #         textbutton _("Download Sync"):
+            #             action DownloadSync()
 
 
 style page_label:

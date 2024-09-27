@@ -168,23 +168,23 @@ screen quick_menu():
 
             ### CLOCK ###
             fixed:
-                pos (1580, 130)
+                pos (1585, 115)
                 image 'clock_current'
             fixed:
-                pos (1478, 27)
+                pos (1488, 17)
                 image 'gui/ClockBase.png'
 
             if day == 1:
                 fixed:
-                    pos (1447, 140)
+                    pos (1435, 140)
                     image 'gui/Day1.png'
             elif day == 2:
                 fixed:
-                    pos (1447, 140)
+                    pos (1435, 140)
                     image 'gui/Day2.png'
             elif day == 3:
                 fixed:
-                    pos (1447, 140)
+                    pos (1435, 140)
                     image 'gui/Day3.png'
         
         else:

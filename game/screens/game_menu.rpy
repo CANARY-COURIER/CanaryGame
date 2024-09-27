@@ -92,27 +92,24 @@ screen game_menu(title):
             imagebutton auto "gui/BlankButton_%s.png" focus_mask True action Quit(confirm=not main_menu)
             text _("Quit") xpos 95 ypos -55
 
-    # imagebutton auto "gui/BlankButton_%s.png":
+    imagebutton auto "gui/BlankButton_%s.png" action Return() xpos 250 ypos 960
     #     focus_mask True
     #     style "return_button"
     #     action Return()
-    # text _("Return") xpos 335 ypos 975
-    textbutton _("Return"):
-        style "return_button"
-        action Return()
-        
+    text _("Return") xpos 335 ypos 975
+    #textbutton _("Return") style "return_button" action Return()
 
     ## Remove this line if you don't want to show the screen
     ## title text as a label (for example, if it's baked into
     ## the background image.)
-    #label title
+    label title xpos 400 ypos 100
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
 
 style return_button:
-    idle_color "#422E2D"
-    hover_color "#cecece"
+    idle_color "#332221"
+    hover_color "#a5a5a5"
     xpos 320
     yalign 1.0
     yoffset -55
