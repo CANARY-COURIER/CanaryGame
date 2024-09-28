@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/game_menu.rpy", line 105: 'size' is not a keyword argument or valid child of the label statement.
-    label title xpos 400 ypos 100 size 2.0
-                                      ^
+File "game/script.rpy", line 1763: end of line expected.
+    show deadanim zorder 10 at xpos(1710) onend
+                                          ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Fri Sep 27 17:48:41 2024
+Sat Sep 28 21:30:25 2024

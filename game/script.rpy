@@ -13,10 +13,17 @@ default day = 1
 
 image streetview = "/Backgrounds/Street View.png"
 image acorn street = "/Backgrounds/Acorn Street Day Closed Doors.png"
+image acorn street no houses = "/Backgrounds/Acorn Street Day No Houses.png"
 image acorn street night = "/Backgrounds/Acorn Street Night No Houses.png"
 image acorn street night houses = "/Backgrounds/Acorn Street Night.png"
+image acorn street day 3 = "/Backgrounds/Day 3 Concluded BG.png"
 image aves courier center = "/Backgrounds/Aves Courier Center.png"
 image daily delights = "/Backgrounds/Daily Delights No Bread.png"
+image cornfield mail post = "/Backgrounds/Cornfield Mail Post.png"
+image feathered fixer = "/Backgrounds/Feathered Fixer Side View.png"
+image flyaway superstore = "/Backgrounds/Flyaway Superstore.png"
+image avian care hallway = "/Backgrounds/Avian Care Hallway.png"
+image avian care room = "/Backgrounds/Avian Care Patient Room.png"
 
 image magic trick 1 = "/magic trick/001.png"
 image magic trick 2 = "/magic trick/002.png"
@@ -30,11 +37,15 @@ image magic trick 9 = "/magic trick/009.png"
 
 image hospital = "/Backgrounds/hospital hall.jpg"
 image basement = "/Backgrounds/basement.png"
+image basement = "/Backgrounds/basement2.png"
+image attic = "/Backgrounds/attic.png"
 
 image achievement = "/gui/AchievementBackground.png"
 image achievementivory = "/gui/AchievementIvory.png"
 image achievementlily = "/gui/AchievementLily.png"
 image achievementaven = "/gui/AchievementAven.png"
+
+image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (215,190), image="/images/last_frame.png")
 
 transform slightleft:
     xalign 0.18
@@ -44,6 +55,10 @@ transform slightright:
     xpos 852
     yalign 1.0
 
+transform scarypos:
+    xpos 1700
+    ypos 895
+
 label start:
 
     stop music fadeout 2.0
@@ -51,9 +66,10 @@ label start:
 
     # jump test_parallax_vp
     # jump inventory_test
-    # jump mechanism_testing
 
-    jump start_scene
+    jump _lily_task_conclusion
+
+    #jump start_scene
 
 label start_scene:
 
@@ -1739,9 +1755,15 @@ label _lily_task_conclusion:
         "DELIVER TO LILY":
             jump deliver_to_lily
 
-
 label investigate_the_figure:
 
+    stop music fadeout 1.0
+
+    show BlackBars zorder 9
+
+    show deadanim zorder 10 at scarypos
+    #show dead2 onlayer effect at truecenter
+    #with { "effect": dissolve2 }
     "Louis approached the figure cautiously, unsure of what to expect but he always had the curious spirit in him that told him what he shouldn't be doing." 
     
     "Yet he proceeded anyway, the figure came more into view as he walked."
@@ -1831,6 +1853,8 @@ label investigate_the_figure:
     
     "Louis looks back at the Crow that admired its handiwork, its stare blank but its smile big and proud."
     
+    hide deadanim
+
     scene acorn street
     with dissolve3
     
@@ -1870,6 +1894,8 @@ label investigate_the_figure:
     "{color=#f00}The 'INVESTIGATE THE FIGURE' option approach will still be available if the player chooses the 'DELIVER TO LILY' interaction first, the only difference?{/color}"
     "{color=#f00}'Louis' won't be able to mention it to Lily and have extra dialogue accessed.{/color}"
     #############################################
+
+    play music "music/CC Main Story Dialogue Theme.wav" fadein 3 fadeout 3
     
     menu:
         "LILY TASK CONCLUSION":
