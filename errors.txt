@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/screens/game_menu.rpy", line 105: 'size' is not a keyword argument or valid child of the label statement.
-    label title xpos 400 ypos 100 size 2.0
-                                      ^
+File "game/script.rpy", line 337: expected 'image_name_component' not found.
+    show  hide lightoverlay
+        ^
+
+File "game/script.rpy", line 409: expected 'image_name_component' not found.
+    show  hide lightoverlay
+        ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Fri Sep 27 17:48:41 2024
+Sat Sep 28 21:00:46 2024
