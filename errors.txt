@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1763: end of line expected.
-    show deadanim zorder 10 at xpos(1710) onend
-                                          ^
+File "game/script.rpy", line 337: expected 'image_name_component' not found.
+    show  hide lightoverlay
+        ^
+
+File "game/script.rpy", line 409: expected 'image_name_component' not found.
+    show  hide lightoverlay
+        ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sat Sep 28 21:30:25 2024
+Sat Sep 28 21:00:46 2024

@@ -46,6 +46,7 @@ image achievementlily = "/gui/AchievementLily.png"
 image achievementaven = "/gui/AchievementAven.png"
 
 image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (215,190), image="/images/last_frame.png")
+image lightoverlay = "/gui/Light_Overlay.png"
 
 transform slightleft:
     xalign 0.18
@@ -60,7 +61,57 @@ transform scarypos:
     ypos 895
 
 label start:
+transform tint1:
+    matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
+    truecenter
 
+transform tint2:
+    matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
+    slightright
+
+transform tint3:
+    matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
+    slightleft
+
+transform tint4:
+    matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
+    truecenter
+
+transform tint5:
+    matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
+    slightright
+
+transform tint6:
+    matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
+    slightleft
+
+transform tinthospital:
+    matrixcolor TintMatrix("#adb2bb")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
+    truecenter
+
+transform tinthospital2:
+    matrixcolor TintMatrix("#adb2bb")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
+    slightright
+
+transform tinthospital3:
+    matrixcolor TintMatrix("#adb2bb")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
+    slightleft
+    
+transform shadow1:
+    matrixcolor TintMatrix("#eccdae")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
+    truecenter
+
+transform shadow2:
+    matrixcolor TintMatrix("#eccdae")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
+    slightright
+
+transform shadow3:
+    matrixcolor TintMatrix("#eccdae")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
+    slightleft
+    
+
+label start:
+    show screen toolbox # <<< important
     stop music fadeout 2.0
     $quick_menu = False
 
@@ -131,7 +182,9 @@ label opening_sequence:
     $quick_menu = True
 
     scene acorn street
+    show lightoverlay
     show BlackBars
+    show screen toolbox
 
     #############################################
     #FUNCTIONALITY HERE
@@ -140,7 +193,7 @@ label opening_sequence:
 
     #INTRODUCTION (DAY 1)
     
-    show louis happy
+    show louis happy at tint1
     with dissolve2
     l "Aves Courier Center, this is where all the magic happens..."
     
@@ -168,7 +221,7 @@ label avoid_the_bellbird:
     "Louis' bright, yellow feather coating easily drew eyes with the heavy contrast from the more darker interior made the Bellbird's neck crane to follow the yellow that swiftly evaded his view."
     
     show louis anxious at slightleft
-    show aven angry at slightright
+    show aven angry at tint2
     a "If that Canary is who I think it is- then you'd stop running away and face me like a Condor!"
     
     "Louis stops dead on his tracks, his eyes darting around the room in hopes some other Canary was in the room with him."
@@ -197,7 +250,7 @@ label approach_the_bellbird:
     show louis happy at slightleft
     "Louis waves his wing as he walks towards the Bellbird, a smile on his face. The Bellbird notices the approaching Canary."
     
-    show aven angry at slightright
+    show aven angry at tint2
     a "Louis, son, what in Phoenix's name has been holding you up? You're an hour past your clock-in time!"
     
     show louis anxious
@@ -268,7 +321,8 @@ label _bellbird_interaction:
     "Leaving Louis on his own by the front of the center to tend to other matters, Aven gives Louis the dose of motivation he needed to start off his job."
     
     "Louis is faced with the printed paper in his talons, skimming through the contents of the task, he huffs his chest in ease."
-    
+
+       
     #############################################
     #FUNCTIONALITY HERE
     "{color=#f00}///proceed to pastry pieces mini-game.///{/color}"
@@ -276,6 +330,7 @@ label _bellbird_interaction:
     #############################################
     
     scene acorn street
+    show lightoverlay
 
     voice "voice/nl8.wav"
     nl "That should be a good introduction for you to start with!"
@@ -288,12 +343,14 @@ label _bellbird_interaction:
     
     voice "voice/nl11.wav"
     nl "From this point on, I'll no longer be joining you as Narrator, but I'll be with you for the rest of the game! :D"
+
+    hide lightoverlay
     
     jump _new_task_pastry_pieces_tutorial_task
 
 
 label _new_task_pastry_pieces_tutorial_task:
-    
+    show  lightoverlay
     "Louis looks to his checklist again. 'Bakery Delivery' greets him in bold, red scribbles as he reads on, taking note of the simple instructions listed."
     
     #############################################
@@ -320,6 +377,7 @@ label _new_task_pastry_pieces_tutorial_task:
     ############################################# 
     
     scene acorn street
+    show lightoverlay
 
     "Louis steps in front of the open bakery wall-store, the letters above him on the sign reads: 'Daily Delights'."
     
@@ -331,15 +389,15 @@ label _new_task_pastry_pieces_tutorial_task:
     
     "Light, gray smoke began pouring out of the doorway, causing a worried look to quickly dawn on Louis' face as he watches the scene, calling out to whoever may be in there."
     
-    show louis normal at center
+    show louis normal at tint1
     l "Hello??? Does anyone there need help?"
     
     "???" "Everything is fine, YES! D-Don't worry now! I'll be with you in a second!"
     
     "The sound of clanking of metal joined the smoke billowing from the doorway, Louis' concern growing by the minute the more he waited when suddenly..."
     
-    show louis normal at slightleft
-    show elio happy at slightright
+    show louis normal at tint3
+    show elio happy at tint2
     "???" "Dear, PHOENIX, that was a disaster now, wasn't it!"
     
     "The owner of the chirping voice belonged to a Nightingale bird, one covered in black dust and debris, as he coughed."
@@ -364,7 +422,8 @@ label _new_task_pastry_pieces_tutorial_task:
             jump _how_long_have_you_been_working_here
 
 label _fulfill_pastry_pieces_task:
-    
+    show  lightoverlay
+
     "Louis returns the smile  as he focuses on the task at hand, amused by the Baker's display."
     
     show louis happy
@@ -611,17 +670,18 @@ label _peregrine_interaction_1:
     #############################################
     
     scene acorn street
+    show lightoverlay
     
     "The Peregrine Falcon watched the Canary bird with an observant gaze."
     
     "As Louis approached casually, he greeted the Falcon with a familiar chirpy gesture and tone, his movements showing that the two already knew each other prior."
     
-    show louis happy at slightleft
+    show louis happy at tint3
     l "Catcher! I didn't think I'd well, 'catch' you earlier at HR, where've you been?"
     
     "Louis softly chuckled at his own unexpected joke, finding it rather silly."
     
-    show catcher neutral at slightright
+    show catcher neutral at tint2
     "Catcher had an amused look on his face with the Canary's wording, he had a light smirk plastered on his beak because of it."
     
     show catcher confused
@@ -773,10 +833,11 @@ label _tutorial_conclusion:
     #############################################
     
     scene acorn street
+    show  lightoverlay
 
     "Louis stands idly on the main street of the town, reminded again of the task in hand as he pulls out his check-list from his pocket, marking the finished ones so far."
     
-    show louis normal
+    show louis normal at tint1
     l "I better get these to Ivory's doorstep before the afternoon comes around..."
     
     "Louis noted mentally as he prepared to take flight again."
@@ -788,13 +849,13 @@ label _tutorial_conclusion:
     "{color=#f00}The player will be transported in front of rows of tree houses - indicating local bird's houses.{/color}"
     #############################################
     
-    scene streetview 
+    scene streetview
 
     "Louis arrives at his final destination shortly, the rows of bird houses filling his view as the familiar area is felt under his talons."
     
     "He strolled casually, his eyes peeled finding the 'red house' on the main street."
     
-    show louis anxious
+    show louis anxious at tint4
     l "It should be around here...better get these to Miss Ivory before I run out of time and she cancels on me."
     
     "The player will be able to hover their mouse and walk around the area to choose which house they will be able to go to- for this section, only the red house's door is available for access."
@@ -826,17 +887,17 @@ label _tutorial_conclusion:
     
     "The sudden opening of the door Louis stood in front of brought him immediate ease, soothing his worries gone while he wore the practiced smile for his customer."
     
-    show ivory neutral at slightright
+    show ivory neutral at tint5
     "The Canary bird is greeted by a Blue Mockingbird, a passerine bird serene to its surroundings as she smiles warmly back to him in greeting."
     
-    show louis normal
+    show louis normal at tint6
     l "It's quite alright, Miss, I was a little worried you weren't home to receive them."
     
     "Louis voices out his thoughts to her."
     
     "The pink robin flaps her wing dismissively as she laughs softly."
     
-    show ivory happy
+    show ivory happy at tint5
     i "No worries, I would've felt the same if I was in your talons." 
     
     show ivory happy
@@ -939,7 +1000,7 @@ label day_1_concluded:
     
     "Louis holds a fond look as he gazes briefly onto the patient who is nestled quietly in their slumber."
     
-    show louis happy
+    show louis happy at tinthospital
     l "I met a lovely customer today, you may be familiar with them- since you're always browsing around in the supermarket."
 
     show louis normal    
@@ -986,8 +1047,8 @@ label day_1_concluded:
     
     "???" "Mister Louis? Is that you I see there?"
 
-    show louis normal at slightleft
-    show aziel neutral at slightright
+    show louis normal at tinthospital3
+    show aziel neutral at tinthospital2
     "Louis takes in the sight of him, a large- Great Horned Owl stands before him- greeting him in passing with a bow, his piercing gaze keeps Louis' attention on him."
     
     l "Yes...Yes that would be me."
@@ -1051,8 +1112,8 @@ label day_2:
     scene aves courier center
     with dissolve3
 
-    show louis normal at slightleft
-    show aven neutral at slightright
+    show louis normal at shadow3
+    show aven neutral at shadow2
     
     "Louis finds himself trailing behind his boss, Aven, once again before the day starts- but in contrast to being in Aves Courier Center..."
 
@@ -1169,7 +1230,7 @@ label _bellbirds_suspicion:
     
     "Aven subtly raises a brow at Louis' rather jittery movements, slinging a wing around his shoulders, the bellbird spoke to him with concern in his voice."
     
-    show aven questioning at slightright
+    show aven questioning at shadow2
     a "You alright, son? Anything happen while I was gone?"
     
     "Aven asks Louis with a slight furrow on his brow muscle as his attention was trained on the Canary."
@@ -1187,14 +1248,14 @@ label admit_the_truth:
     
     "He breathes in, before exhaling as Louis turns to face Aven directly into his gaze, the strong stare sending a bit of nervous jitters down to his tail."
     
-    show louis anxious at slightleft 
+    show louis anxious at shadow3
     l "I think I saw some things I wasn't supposed to see..."
     
     "Louis smiles awkwardly as he rubs the nape of his neck with his wing, averting his gaze."
     
     "Aven stares at him with a tilted head."
     
-    show aven questioning
+    show aven questioning at shadow2
     a "And what exactly did you see-?"
     
     "Louis feels Aven probe at him as he asked, he could feel the bellbird's intense gaze at him."
@@ -1210,7 +1271,7 @@ label deny_anythings_wrong:
     
     "Louis shakes his head promptly, almost insistently."
     
-    show louis anxious at slightleft
+    show louis anxious at shadow3
     l "I-I just knocked over some stuff-"
     
     "Louis' laughs come out a bit loud- an awkward edge to it as his laughs trails off with a sudden stop."
@@ -1223,7 +1284,7 @@ label deny_anythings_wrong:
     
     "Aven squints his eyes at Louis, his suspicion growing under Louis' unusual behavior."
     
-    show aven neutral
+    show aven neutral at shadow2
     a "Nobody's gonna burn you alive if you tell the truth, son."
     
     "Louis could feel Aven's reassuring wing on his shoulder, glancing up at him- meeting his gaze, the bellbird's smile reassuringly."
@@ -1239,8 +1300,8 @@ label deny_anythings_wrong:
 
 label the_truth:
     
-    show louis scared
-    show aven questioning
+    show louis scared at shadow3
+    show aven questioning at shadow2
     l "It's... stuff addressed to you, I just skimmed over it by accident- curiosity killed the cat, and all that...I-I'm sorry, sir."
     
     "Louis' evident stammer betrays his cool and calm act as his anxiousness was basically radiating off of him."
@@ -1281,7 +1342,7 @@ label deny_deny_deny:
     
     "He lightly shrugs off Aven's hold on him with an apologetic smile- masked to be reaffirming."
     
-    show louis anxious
+    show louis anxious at shadow3
     l "I-It's fine, sir- it was really just that."
     
     "Louis persists, repeating his words of certainty to Aven."
@@ -1296,7 +1357,7 @@ label deny_deny_deny:
     
     "Eyes that were already boring back at him, without a sight of a blink."
     
-    show aven thinking
+    show aven thinking at shadow2
     a "...if that's your truth, Louis."
     
     "Louis winces lightly at the change of tone, the sound of his name."
@@ -1306,14 +1367,14 @@ label deny_deny_deny:
 
 label day_2_continuation:
     
-    show aven neutral
+    show aven neutral at shadow2
     a "I won't keep you too long, son, I know you've got deliveries to tend to, now off you go."
     
     "Aven says as he prepares to send Louis off, handing him the familiar paper checklist midway."
     
     "Louis graciously accepts the checklist, glancing at it briefly- he realized it would be his task for today."
     
-    show louis normal
+    show louis normal at shadow3
     l "Thank you, sir, I should be one call away whenever you need me again."
     
     "Louis returns Aven's bow as they both part ways."
@@ -1357,6 +1418,7 @@ label _new_task_shopping_spree_:
     #############################################
     
     scene acorn street
+    show lightoverlay
     
     menu:
         "PEREGRINE INTERACTION 2":
@@ -1366,7 +1428,7 @@ label _new_task_shopping_spree_:
 
 label peregrine_interaction_2:
     
-    show louis happy at slightleft
+    show louis happy at tint3
 
     "Louis finds himself in the sight of the familiar Falcon once again, this time- he does not hesitate to approach."
     
@@ -1377,7 +1439,7 @@ label peregrine_interaction_2:
     
     "Catcher bows to Louis in greeting, tilting his head at his chirpy attitude."
     
-    show catcher confused at slightright
+    show catcher confused at tint2
     c "You look way too smiley to see me."
     
     show catcher neutral
@@ -1435,15 +1497,15 @@ label flyway_superstore:
     
     "Louis hums satisfied as he begins to walk towards the cashier after getting all the stuff he needed to get for his customer."
     
-    show louis normal
+    show louis normal at tint4
     l "This should be all Miss Lily needs..."
     
     "Louis rummages through the items, double-checking just in case he missed anything-"
     
     "A chirping call catches the attention of the Canary, his gaze landing on the familiar mockingbird from the day before."
     
-    show louis normal at slightleft
-    show ivory happy at slightright
+    show louis normal at tint6
+    show ivory happy at tint5
     i "Louis! It's so good to see you again!"
     
     "As Louis approached the cashier, placing down the goods he was tasked to get towards the mockingbird, he bowed in greeting- as Ivory gracefully returned."
@@ -1735,6 +1797,7 @@ label _lily_task_conclusion:
     #############################################
     
     scene acorn street
+    show lightoverlay
 
     "As Louis arrives at his destination, the familiar- warm sunlit Acorn street, he glances briefly at his checklist just to make sure he knows which house he has to go to."
     
@@ -1768,7 +1831,7 @@ label investigate_the_figure:
     
     "Yet he proceeded anyway, the figure came more into view as he walked."
     
-    show louis normal at slightleft
+    show louis normal at tint6
     l "Hello?"
     
     "Louis' voice came off more of a whisper, peeking at his side as if his body lingered just in case anything happened."
@@ -1856,10 +1919,11 @@ label investigate_the_figure:
     hide deadanim
 
     scene acorn street
+    show lightoverlay
     with dissolve3
     
-    show louis normal at slightleft
-    show crow default at slightright
+    show louis normal at tint3
+    show crow default at tint2
     l "So you're like... some sort of magician?"
     
     "Louis asks bluntly while the Crow finally meets his gaze, its look lost and confused."
@@ -1915,6 +1979,7 @@ label deliver_to_lily:
 label _deliver_to_lily_01:
     
     scene acorn street
+    show lightoverlay
     with dissolve3
 
     "Louis recollects himself first before continuing, after that interaction with the Crow- he needed a moment to breath and refocus."
@@ -1929,10 +1994,10 @@ label _deliver_to_lily_01:
     
     "???" "Ah, you must be the courier I've been expecting?"
     
-    show lily happy at slightright
+    show lily happy at tint2
     "The budgie extends a wing in which Louis happily takes with a firm graze."
     
-    show louis normal at slightleft
+    show louis normal at tint3
     l "Yes! That would be me, I'll assume you are Miss Lily, then?"
     
     show louis happy
@@ -2071,7 +2136,8 @@ label _deliver_to_lily_02:
     #FUNCTIONALITY HERE - Ale (me) can take care of this
     "{color=#f00}This is the written segment wherein IF the player DID NOT choose to do the 'INVESTIGATE THE FIGURE' option before the 'DELIVER TO LILY' option{/color}"
     #############################################
-    
+    show lightoverlay
+
     "Louis recollects himself first before continuing, after that interaction with the Crow- he needed a moment to breath and refocus."
     
     "Standing at the front door of the blue house, Louis raised his wing and knocked, softly at the wood."
@@ -2082,12 +2148,12 @@ label _deliver_to_lily_02:
     
     "The Canary is greeted by a beautiful shade of blue, a Lovebird specifically a Cerulean Budgie, who welcomes him with a loving smile."
     
-    show lily neutral
+    show lily neutral at tint2
     "???" "Ah, you must be the courier I've been expecting?"
     
     "The budgie extends a wing in which Louis happily takes with a firm graze."
     
-    show louis normal
+    show louis normal at tint3
     l "Yes! That would be me- I'll assume you are Miss Lily, then?"
     
     show louis happy
@@ -2185,7 +2251,7 @@ label day_2_concluded:
     
     "As the Canary stays perched on the side of his resting loved-one, reading out to them as a sort of way to keep the liveliness, well, alive despite the silence and tranquility."
     
-    show louis normal
+    show louis normal at tinthospital
     l "Oh, this part is good."
     
     "Louis scoots over, showing his resting mother the book he's reading out to her."
@@ -2214,12 +2280,12 @@ label day_2_concluded:
     
     "Louis chirps up happily upon realization."
     
-    show louis normal at slightleft
+    show louis normal at tinthospital3
     l "While it's not the colors you would've wanted...it's still your favorite."
     
     "Louis goes to perch beside the sleeping figure once again, idling about with a light sway until he hears the door to the room open."
     
-    show aziel confused at slightright
+    show aziel confused at tinthospital2
     az "Sir Louis?"
     
     "Louis turns around to meet the Owl's eyes, a hint of surprise but not unwelcome."
@@ -2294,6 +2360,7 @@ label day_3:
     play music "music/CC Main Story Dialogue Theme.wav" fadein 3 fadeout 3
 
     scene acorn street
+    show lightoverlay
     with dissolve3
     
     "Louis is perched quietly at the side next to the wall, away from the rest of the bustling birds of Aves Courier Center, no... he was waiting."
@@ -2306,14 +2373,14 @@ label day_3:
     
     "Louis was fond of all the flocks of colors the birds gave the morning; it gave him the burst of energy to get him through the day."
     
-    show aven neutral at slightright
+    show aven neutral at tint2
     a "Louis! Son! There you are."
     
     "The booming sound of the bearded bellbird's voice rang through the room, sounding the alarm of every bird's attention on the Canary bird."
     
     "Louis laughs awkwardly at the amount of eyes on him, regardless- he clears his throat, the familiar smile on his beak as he meets his boss."
     
-    show louis anxious at slightleft
+    show louis anxious at tint3
     l "Sir Aven! I'm here early, just as you asked."
     
     "Louis could feel the bellbird's wing around his shoulder as Aven approached."
@@ -2457,6 +2524,7 @@ label _the_fix_the_recorder:
     #############################################
     
     scene acorn street
+    show lightoverlay
 
     "Louis' eyes gazes offer the familiar pavement he finds himself standing on almost everyday on his job."
     
@@ -2473,7 +2541,7 @@ label _the_fix_the_recorder:
     
     "Louis enters the Feathered Fixer Hardware with the box of the broken recorder in his wing, glancing around the store, searching for someone who might be named Maverick."
     
-    show louis normal at slightleft
+    show louis normal at tint3
     l "...Hello?"
     
     "Louis calls out softly under his beak, pensively approaching on his talons as he approaches the counter."
@@ -2500,7 +2568,7 @@ label _the_fix_the_recorder:
     
     "The sudden movement of the Eagle, standing on his talons and flapping his big, brown wings defensively made Louis step back a few with a startling stance."
 
-    show maverick neutral at slightright
+    show maverick neutral at tint2
     "He was faced with a bird twice his size."
     
     show louis normal
@@ -2812,14 +2880,14 @@ label _peregrine_interaction_3:
     
     "Louis jolts at the sound of a familiar voice. Turning to his side to see the Falcon approaching him with that permanent stoic expression on his face."
     
-    show louis happy at slightleft
+    show louis happy at tint3
     l "P-Phoenix, Catcher, I didn't see you there!"
     
     "Louis laughs nervously, still startled from the initial surprise."
     
     "The Falcon only snickers under his beak, eyeing up the video recorder the Canary carries in his wing, he makes a passing motion with his head towards it."
     
-    show catcher confused at slightright
+    show catcher confused at tint2
     c "A task?"
     
     "Louis follows Catcher's gaze, nodding in affirmation."
@@ -2980,12 +3048,12 @@ label _aven_task_conclusion:
     
     "The sound of the door closing breaks Louis out of his trance, his eyes meeting the bird he waited for. The Canary smiles weakly as he scratches the nape of his neck."
     
-    show louis anxious at slightleft
+    show louis anxious at shadow3
     l "S-Sorry, Sir. I was just lost in thought."
     
     "Louis bows in greeting, in which Aven returns in respect."
     
-    show aven neutral at slightright
+    show aven neutral at shadow2
     a "It's alright, son. Have you been waiting long?"
     
     "The Bellbird asks as he places a wing on Louis' shoulder, focusing his attention on the Canary."
@@ -3100,12 +3168,12 @@ label day_3_concluded:
     
     "Inside his mother's hospital room, he held the video recorder in his wing, he fidgets with the gadget idle, almost missing the doctor that catches him at the corner of his eye."
     
-    show aziel alarmed at slightright
+    show aziel alarmed at tinthospital2
     az "Mister Louis!"
     
     "The Owl catches the Canary by the wing, pulling him softly to get his attention."
     
-    show louis anxious at slightleft
+    show louis anxious at tinthospital3
     l "D-Doctor Aziel! I didn't see you, forgive me-"
     
     "Aziel laughs softly, shaking his head dismissively."
