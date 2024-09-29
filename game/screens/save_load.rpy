@@ -39,76 +39,53 @@ screen file_slots(title):
 
     use game_menu(title)
 
-    fixed:
-        xsize 1500 xalign 1.0
-        ## This ensures the input will get the enter event before any of the
-        ## buttons do.
-        order_reverse True
-
-        ## The page name, which can be edited by clicking on it.
-        ## This can be pretty easily removed if you want.
-        ## Don't forget to also remove the `default` at the top if so.
-        button:
-            style "page_label"
-            key_events True
-            action page_name_value.Toggle()
-
-            input:
-                style "page_label_text"
-                value page_name_value
-
-        ## The grid of file slots.
-        grid 3 2:
-            style_prefix "slot"
-
-            for i in range(3*2):
-                $ slot = i + 1
-
-                button:
-                    action FileAction(slot)
-                    has vbox
-
-                    add FileScreenshot(slot) xalign 0.5
-
-                    ## https://www.fabriziomusacchio.com/blog/2021-08-15-strftime_Cheat_Sheet/
-                    text FileTime(slot,
-                            format=_("{#file_time}%A, %B %d %Y, %H:%M"),
-                            empty=_("empty slot")):
-                        style "slot_time_text"
-
-                    text FileSaveName(slot) style "slot_name_text"
-
-                    # This means the player can hover this save
-                    # slot and hit delete to delete it
-                    key "save_delete" action FileDelete(slot)
-
-        ## Buttons to access other pages.
-        vbox:
-            style_prefix "page"
-            hbox:
-                ypos -90
-                textbutton _("<") action FilePagePrevious()
-
-                if config.has_autosave:
-                    textbutton _("{#auto_page}A") action FilePage("auto")
-
-                if config.has_quicksave:
-                    textbutton _("{#quick_page}Q") action FilePage("quick")
-
-                ## range(1, 10) gives the numbers from 1 to 9.
-                for page in range(1, 10):
-                    textbutton "[page]" action FilePage(page)
-
-                textbutton _(">") action FilePageNext()
-
-            # if config.has_sync:
-            #     if CurrentScreenName() == "save":
-            #         textbutton _("Upload Sync"):
-            #             action UploadSync()
-            #     else:
-            #         textbutton _("Download Sync"):
-            #             action DownloadSync()
-
+    frame:
+        background None
+        style_prefix "slot"
+        viewport:
+            mousewheel True draggable True pagekeys True
+            scrollbars 'vscrollbar'
+            xoffset 640
+            yoffset 270
+            xmaximum 900
+            ymaximum 700
+            vbox at Transform(Null(), zoom=0.8):
+                ## Loop to generate slots dynamically
+                for i in range(25):  # You can adjust the number of slots as needed
+                    $ slot = i + 1
+                    button:
+                        background None
+                        action FileAction(slot)
+                        has hbox
+                        # spacing 5
+                        frame:
+                            background "./gui/slot.png"
+                            # xfill True
+                            add AlphaMask(Transform(FileScreenshot(slot), crop=(50, 0, 950, 1080), fit='contain'), mask=Transform(Image("./gui/slot.png"), zoom=0.91)):
+                                xcenter 0.52
+                                ycenter 0.52
+                        ## Display save time and name
+                        default is_empty = FileTime(slot, format=_(""), empty=_("empty slot"))
+                        text FileTime(slot,
+                                format=_("{#file_time}%A, %B %d %Y, %H:%M"),
+                                empty=_("empty slot")):
+                            style "slot_time_text"
+                        ## Enable delete on hover + key press
+                        # key "save_delete" action FileDelete(slot)
+                        fixed:
+                            yoffset 30
+                            xoffset 30
+                            if not FileTime(slot, format=_(""), empty=_("empty slot")) == "empty slot":
+                                imagebutton idle Solid('FF0000'):
+                                    ysize 24
+                                    xsize 40
+                                    action FileDelete(slot)
+                    fixed:
+                        xsize 1000 ysize 5
+                        add "#ffffff": # white
+                            alpha 0.3
+                    null height 50
+      
 
 style page_label:
     xpadding 75
@@ -126,18 +103,21 @@ style slot_grid:
     spacing 15
 
 style slot_time_text:
-    size 25
-    xalign 0.5
-
-style slot_vbox:
-    spacing 12
+    size 30
+    xalign 0.0
+    yalign 0.1
 
 style slot_button:
-    xpos -70
-    xysize (300, 309)
-    #padding (15, 15, 15, 15)
-    background Solid('#000000', width=80, height=100)
-    # background "gui/button/slot_[prefix_]background.png"
+    xysize (900, 300)
+    
+style slot_vscrollbar:
+    base_bar Frame("gui/slider/vertical_idle_bar.png")
+    thumb "gui/slider/vertical_idle_thumb.png"
+    thumb_offset 0
+    top_gutter 0
+    bottom_gutter 0
+    xmaximum 25
+    ymaximum 800
 
 style slot_button_text:
     size 21
@@ -157,5 +137,5 @@ style page_vbox:
 
 style page_button:
     padding (15, 6, 15, 6)
-    xalign 0.5
+    xalign 0.51
 

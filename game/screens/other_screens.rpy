@@ -54,28 +54,45 @@ screen help():
     tag menu
 
     default device = "keyboard"
-
+    style_prefix 'game_menu'
     #add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
     use game_menu(_("Help"))
 
-    viewport:
-        style_prefix 'game_menu'
-        mousewheel True draggable True pagekeys True
-        scrollbars "vertical"
-
-        has vbox
-        style_prefix "help"
-        spacing 23
-
+    fixed:
+        xoffset 1000
+        yoffset 200
         hbox:
-
+            spacing 50
+            style_prefix 'help'
             textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
             textbutton _("Mouse") action SetScreenVariable("device", "mouse")
 
             if GamepadExists():
                 textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
+    fixed:
+        xsize 900 ysize 5
+        yoffset 260
+        xoffset 650
+        add "#ffffff": # white
+            alpha 0.3
 
+    null height 10
+
+    viewport:
+        style_prefix 'help'
+        mousewheel True draggable True pagekeys True
+        yinitial 1.0
+        scrollbars "vertical" 
+        xalign 0.6
+        yalign 0.7
+        xmaximum 800
+        ymaximum 700 
+
+        has vbox
+        style_prefix "help"
+        spacing 23
+    
         if device == "keyboard":
             use keyboard_help
         elif device == "mouse":
@@ -193,10 +210,30 @@ style help_button:
 
 style help_label:
     xpos 120
-    right_padding 200
+    right_padding 140
 
 style help_label_text:
     #xpos 200
-    right_padding 200
+    right_padding 100
     xalign 1.0
     textalign 1.0
+
+style help_vscrollbar:
+    base_bar Frame("gui/slider/vertical_idle_bar.png")
+    thumb "gui/slider/vertical_idle_thumb.png"
+    thumb_offset 0
+    top_gutter 0
+    bottom_gutter 0
+    xmaximum 25
+    ymaximum 600
+    yoffset 50
+
+style help_viewport:
+    xsize 920
+    ysize config.screen_height-450
+    yoffset 30
+    # align (0.9, 0.8)
+
+style help_side:
+    yfill True
+    align (1.3, 1)

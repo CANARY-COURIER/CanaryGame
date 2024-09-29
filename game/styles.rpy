@@ -111,14 +111,14 @@ style vbar:
 
 style scrollbar:
     ysize 18
-    base_bar Frame("gui/scrollbar/horizontal_[prefix_]bar.png", 6, 6, 6, 6, tile=False)
-    thumb Frame("gui/scrollbar/horizontal_[prefix_]thumb.png", 6, 6, 6, 6, tile=False)
+    base_bar Frame("gui/slider/vertical_[prefix_]bar.png", 6, 6, 6, 6, tile=False)
+    thumb "gui/slider/vertical_[prefix_]thumb.png"
     unscrollable 'hide'
 
 style vscrollbar:
     xsize 18
-    base_bar Frame("gui/scrollbar/vertical_[prefix_]bar.png", 6, 6, 6, 6, tile=False)
-    thumb Frame("gui/scrollbar/vertical_[prefix_]thumb.png", 6, 6, 6, 6, tile=False)
+    base_bar Frame("gui/slider/horizontal_[prefix_]bar.png", 6, 6, 6, 6, tile=False)
+    thumb "gui/slider/horizontal_[prefix_]thumb.png"
     unscrollable 'hide'
 
 style slider:

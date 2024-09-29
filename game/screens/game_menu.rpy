@@ -112,21 +112,32 @@ style return_button:
     hover_color "#a5a5a5"
     xpos 320
     yalign 1.0
-    yoffset -55
+    yoffset -60
 
 style game_menu_viewport:
-    xsize config.screen_width-420
-    ysize config.screen_height-150
+    xsize config.screen_width-520
+    ysize config.screen_height-350
     align (0.9, 0.8)
 
 style game_menu_side:
     yfill True
     align (1.3, 1)
 
+# style game_menu_vscrollbar:
+#     unscrollable "hide"
+
 style game_menu_vscrollbar:
-    unscrollable "hide"
+    base_bar Frame("gui/slider/vertical_idle_bar.png")
+    thumb "gui/slider/vertical_idle_thumb.png"
+    thumb_offset 0
+    top_gutter 0
+    bottom_gutter 0
+    xmaximum 25
+    ymaximum 800
 
 style game_menu_label:
-    padding (300, 10)
+    padding (260, 30)
+
 style game_menu_label_text:
-    size 30
+    size 50
+    # ypos 
