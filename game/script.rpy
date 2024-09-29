@@ -67,6 +67,7 @@ image achievementivory = "/gui/AchievementIvory.png"
 image achievementlily = "/gui/AchievementLily.png"
 image achievementaven = "/gui/AchievementAven.png"
 image newspaper text = "/gui/newspapertext.png"
+image blackopacity = "/gui/BlackOpacity.png"
 
 image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (215,190), image="/images/last_frame.png")
 image argument = Movie(channel="movie_dp", play="images/arguement.webm", loop=False)
@@ -88,7 +89,7 @@ transform scarypos:
 
 transform tint1:
     matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
-    truecenter
+    center
 
 transform tint2:
     matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
@@ -100,7 +101,7 @@ transform tint3:
 
 transform tint4:
     matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
-    truecenter
+    center
 
 transform tint5:
     matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
@@ -112,7 +113,7 @@ transform tint6:
 
 transform tinthospital:
     matrixcolor TintMatrix("#adb2bb")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
-    truecenter
+    center
 
 transform tinthospital2:
     matrixcolor TintMatrix("#adb2bb")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
@@ -124,7 +125,7 @@ transform tinthospital3:
     
 transform shadow1:
     matrixcolor TintMatrix("#eccdae")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
-    truecenter
+    center
 
 transform shadow2:
     matrixcolor TintMatrix("#eccdae")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
@@ -143,9 +144,9 @@ label start:
     # jump test_parallax_vp
     # jump inventory_test
 
-    #jump start_scene ######### START
+    jump start_scene ######### START
     #jump day_3_concluded ########## SECOND HALF
-    jump corrupted_superstore
+    #jump corrupted_superstore
     #jump new_day_2_begin
 
 
@@ -159,7 +160,7 @@ label start_scene:
     with dissolve1
 
     voice "voice/nl1.wav"    
-    nl "Welcome! This is Narrator Louis, pleasure to be guiding you in Avane Studio's first ever- {i}Canary Courier{/i}! Alpha Build- of course!"
+    nl "Welcome! This is Narrator Louis, and it's my pleasure to be guiding you in Avane Studio's first ever- {i}Canary Courier{/i}! Alpha Build- of course!"
     
     scene tutorial 2
     with dissolve1
@@ -171,7 +172,7 @@ label start_scene:
     with dissolve1
 
     voice "voice/nl3.wav"
-    nl "You, the player, will be controlling me- Louis, the canary bird throughout the whole game,"
+    nl "You, the player, will be controlling me- Louis, the canary bird!"
 
     scene tutorial 4
     with dissolve1
@@ -179,13 +180,13 @@ label start_scene:
     with dissolve1
 
     voice "voice/nl4.wav"
-    nl "And in my stead- deliver and fulfill customer orders to get me that sweet 3 star rating!"
+    nl "Throughout the whole game, you'll deliver and fulfill customer orders in my stead, to get me that sweet 3 star rating!"
 
     scene tutorial 6
     with dissolve1
 
     voice "voice/nl5.wav"
-    nl "That's the gist of it- the name of the game basically!"
+    nl "That's the gist of it- the name of the game!"
 
     scene black
     with dissolve1
@@ -197,8 +198,12 @@ label start_scene:
     
     voice "voice/nl6.wav"
     nl "You must be wondering, now what's all this for, right?"
+
     voice "voice/nl7.wav"
-    nl "All of this is with cause, of course, but I'll tell you that a bit later on, let's first proceed- to your first task of the day!"
+    nl "All of this is with cause, of course, but I'll explain that a bit later."
+    
+    voice "voice/nl8.wav"
+    nl "For now, let's proceed to your first task of the day!"
     
     jump opening_sequence
     with dissolve3
@@ -364,16 +369,16 @@ label _bellbird_interaction:
     scene acorn street
     show lightoverlay
 
-    voice "voice/nl8.wav"
+    voice "voice/nl9.wav"
     nl "That should be a good introduction for you to start with!"
     
-    voice "voice/nl9.wav"
+    voice "voice/nl10.wav"
     nl "Now, I don't want to spoil you too much on how the game works, but here's a quick rundown:"
 
-    voice "voice/nl10.wav"
+    voice "voice/nl11.wav"
     nl "You have your inventory on the left which you can access after dialogues, settings on your right, your task checklist at the upper left corner right beside your map, and that's... about it!"
     
-    voice "voice/nl11.wav"
+    voice "voice/nl12.wav"
     nl "From this point on, I'll no longer be joining you as Narrator, but I'll be with you for the rest of the game! :D"
 
     hide lightoverlay
@@ -1013,6 +1018,7 @@ label im_glad_to_be_able_to_serve_you:
 
 label day_1_concluded:
     
+    play music "music/CC Mission Complete.wav" fadein 1 fadeout 1
     scene achievement
     with dissolve3
     show achievementivory at truecenter
@@ -2262,6 +2268,7 @@ label _deliver_to_lily_02:
 
 label day_2_concluded:
 
+    play music "music/CC Mission Complete.wav" fadein 1 fadeout 1
     scene achievement
     with dissolve3
     show achievementlily at truecenter
@@ -3178,8 +3185,7 @@ label _aven_task_conclusion:
 
 label day_3_concluded:
 
-    # ACHIEVEMENT UNLOCKED: 1 STAR FROM AVEN
-
+    play music "music/CC Mission Complete.wav" fadein 1 fadeout 1
     scene achievement
     with dissolve3
     show achievementaven at truecenter
@@ -3302,6 +3308,7 @@ label catcher_day_one:
 
     $ half = 2
     $ day = 1
+    $ quick_menu = True
 
     scene basement2
     with dissolve3
@@ -3516,6 +3523,7 @@ label go_outside:
 label corrupted_superstore:
 
     $ half = 2
+    $ quick_menu = True
     scene corrupted store
     with dissolve3
 
@@ -3720,6 +3728,8 @@ label the_crow:
     with dissolve3
     show BlackBars zorder 10
 
+    play music "music/CC Horror 2nd Half.ogg" fadein 2 fadeout 2
+
     no "The Falcon's steps are broad and rigid, the effects of the Superstore encounter still present in his feathers as Catcher makes his way to the neighboring hospital to seek the solstice of a familiar friend."
 
     no "His talons finds itself in the front of a dimly lit building, a place that feels unrecognizable to his eyes yet a part of himself resonates with."
@@ -3818,14 +3828,20 @@ label the_crow:
 
     b "She just mistook you for a little boy..."
 
+    $ quick_menu = False
     b "{b}Don't you remember?{/b}"
 
-    # The GUI and rest for this section should be removed and the background should slowly transition to black (but not fully),
-    # dragging out the climax and playing with the ambience of the music playing in the background.] 
-    # The music stops completely.] 
-    # The game then uses the art of Benny Snapped Neck.png sprite for a split second (you can insert neck crack sound here briefly),
-    # showing on the screen- before transitioning it back to ??? default.png and the rest of the GUI should return like normal.
+    show blackopacity zorder 101 at truecenter
+    with Dissolve(7.0)
+    pause 7.0
+    stop music
+    show crow snapped neck
+    pause 1.0
+    show crow default 2
+    show black
+    with Dissolve(4.0)
 
+    $ quick_menu = True
     no "Catcher jolts, startled from the initial panic that starts to seep back through his system. Entering the hospital to get away from Benny or whatever it was he just saw."
 
     no "He feels like a memory is popping back in his head, one that's been haunting him for years, forgetting it for a while until it comes back to taunt and remind him of his sins."
@@ -3834,12 +3850,16 @@ label the_crow:
 
     no "Yet suddenly now they felt so real to him."
 
+    stop music fadeout 3
+
     jump the_hospital
 
 label the_hospital:
 
     scene hospital
     with dissolve3
+
+    play music "music/CC Somber Hospital Theme.wav" fadein 2 fadeout 2
 
     no "The Falcon drags his talons across the dark and long empty hallways of the hospital, unease and terrified to the tail, Catcher searches around for nothing but confusion and a cry for help."
 
@@ -4021,6 +4041,8 @@ label the_hospital:
 
     pause 1.0
 
+    stop music fadeout 3
+
     jump new_day_2_begin
 
 label new_day_2_begin:
@@ -4126,6 +4148,8 @@ label kill_your_darlings:
 
     scene hospital
     with dissolve3
+
+    play music "music/CC Somber Hospital Theme.wav" fadein 2 fadeout 2
 
     show catcher sad 2
     no "The Falcon snaps awake back to where he once was, again, he's tucked into one of the patient's rooms in the hospital."
@@ -4252,5 +4276,7 @@ label farewell_father_dearest:
     ca "{i}Monsters{/i} that walk this ground."
 
     no "The Falcon leaves."
+
+    stop music fadeout 3
 
     return
