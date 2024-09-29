@@ -81,6 +81,24 @@ screen contentwarning:
             min_width 240 # sets line length
             text_align 0.5 # align center
 
+screen dailydelightspick:
+    imagebutton:
+            auto "images/items/bun_%s.png"
+            focus_mask True
+            action Return()
+    imagebutton:
+            auto "images/items/donut_%s.png"
+            focus_mask True
+            action Return()
+    imagebutton:
+            auto "images/items/donut2_%s.png"
+            focus_mask True
+            action Return()
+    imagebutton:
+            auto "images/items/pie_%s.png"
+            focus_mask True
+            action Return()
+
 screen tape:
     imagebutton:
             auto "gui/tape_arguement_%s.png"

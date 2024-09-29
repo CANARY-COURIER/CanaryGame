@@ -26,8 +26,11 @@ image acorn street night = "/Backgrounds/Acorn Street Night No Houses.png"
 image acorn street night houses = "/Backgrounds/Acorn Street Night.png"
 image acorn street day 3 = "/Backgrounds/Day 3 Concluded BG.png"
 image aves courier center = "/Backgrounds/Aves Courier Center.png"
+image aves courier center inside = "/Backgrounds/Aves Courier Center Interior.png"
 image daily delights = "/Backgrounds/Daily Delights No Bread.png"
+image daily delights pick = "/Backgrounds/Daily Delights Ivory.png"
 image cornfield mail post = "/Backgrounds/Cornfield Mail Post.png"
+image cornfield map = "/Backgrounds/Cornfield Town Map.png"
 image feathered fixer = "/Backgrounds/Feathered Fixer Side View.png"
 image flyaway superstore = "/Backgrounds/Flyaway Superstore.png"
 image avian care hallway = "/Backgrounds/Avian Care Hallway.png"
@@ -137,12 +140,8 @@ transform shadow3:
 
 
 label start:
-    #show screen toolbox # <<< important
     stop music fadeout 2.0
     $quick_menu = False
-
-    # jump test_parallax_vp
-    # jump inventory_test
 
     jump start_scene ######### START
     #jump day_3_concluded ########## SECOND HALF
@@ -153,8 +152,6 @@ label start:
 label start_scene:
 
     $ half = 1
-
-    # call screen drag_and_drop_inventory
 
     scene tutorial 1
     with dissolve1
@@ -188,14 +185,9 @@ label start_scene:
     voice "voice/nl5.wav"
     nl "That's the gist of it- the name of the game!"
 
-    scene black
-    with dissolve1
+    scene acorn street
+    with dissolve3
 
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game fades into black, booting up the 2D platform game world.{/color}"
-    #############################################
-    
     voice "voice/nl6.wav"
     nl "You must be wondering, now what's all this for, right?"
 
@@ -217,24 +209,15 @@ label opening_sequence:
 
     $quick_menu = True
 
-    scene acorn street
+    scene aves courier center inside
     with dissolve2
-    show lightoverlay
-    show BlackBars
-    #show screen toolbox
-
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game transitions into the 2D platform view of the world, wherein the character 'Louis' is shown inside of Aves Courier Center.{/color}"
-    #############################################
-
-    #INTRODUCTION (DAY 1)
+    #show lightoverlay
     
     show louis happy at tint1
     with dissolve2
     l "Aves Courier Center, this is where all the magic happens..."
     
-    "Louis speaks of his work fondly."
+    #"Louis speaks of his work fondly."
     
     "Louis enters Aves Courier Center with a big smile on his face, looking forward to whatever the day may bring..."
     
@@ -358,16 +341,12 @@ label _bellbird_interaction:
     "Leaving Louis on his own by the front of the center to tend to other matters, Aven gives Louis the dose of motivation he needed to start off his job."
     
     "Louis is faced with the printed paper in his talons, skimming through the contents of the task, he huffs his chest in ease."
-
        
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}///proceed to pastry pieces mini-game.///{/color}"
-    "{color=#f00}///The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Aves Courier Center.///{/color}"
-    #############################################
+    #proceed to pastry pieces mini-game.
+    #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Aves Courier Center.
     
-    scene acorn street
-    show lightoverlay
+    scene aves courier center
+    #show lightoverlay
 
     voice "voice/nl9.wav"
     nl "That should be a good introduction for you to start with!"
@@ -381,40 +360,41 @@ label _bellbird_interaction:
     voice "voice/nl12.wav"
     nl "From this point on, I'll no longer be joining you as Narrator, but I'll be with you for the rest of the game! :D"
 
-    hide lightoverlay
+    #hide lightoverlay
     
     jump _new_task_pastry_pieces_tutorial_task
 
 
 label _new_task_pastry_pieces_tutorial_task:
-    show  lightoverlay
+    #show  lightoverlay
     "Louis looks to his checklist again. 'Bakery Delivery' greets him in bold, red scribbles as he reads on, taking note of the simple instructions listed."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}///The game opens up the Louis' checklist, reading the contents it spells out to the player exactly what is expected to be done.///{/color}"
-    "{color=#f00}DELIVERY FOR IVORY{/color}"
-    "{color=#f00}Ivory has sent in a morning task she wishes to be fulfilled before ((12:00 PM MORNING)).{/color}"
-    "{color=#f00}The task is simple enough, she just needs ((2 pastry goods)) delivered to her doorstep since she has been craving sweets lately.{/color}"
-    "{color=#f00}Visit 'Daily Delights' Bakery in 'Cornfield City'{/color}"
-    "{color=#f00}Talk with the ((baker)): 'Elio'{/color}"
-    "{color=#f00}Pick the required pastries from Elio's Bakery{/color}"
-    "{color=#f00}- A Slice of Apple Pie{/color}"
-    "{color=#f00}- A Cinnamon Bun{/color}"
-    "{color=#f00}Check-out the pastries from Elio{/color}"
-    "{color=#f00}Leave 'Daily Delights' Bakery and go to 'Acorn Street'{/color}"
-    "{color=#f00}Find the ((red house)) on 'Acorn Street'{/color}"
-    "{color=#f00}Delivery the pastries to Ivory's doorstep{/color}"
-    "{color=#f00}Mark the task as: ((DELIVERED)){/color}"
-    "{color=#f00}///The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Aves Courier Center///{/color}"
-    "{color=#f00}///The game automatically opens the 'Map' for this section, and the player can choose to only access the town street: 'Cornfield City'///{/color}"
-    "{color=#f00}///The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in 'Cornfield City', the player may only interact with 'Daily Delights' for this section///{/color}"
-    "{color=#f00}///The player is then greeted by a transition cutscene that starts the Bakery Mini-game dialogue///{/color}"
-    #END FUNCTIONALITY
-    ############################################# 
+    #The game opens up the Louis' checklist, reading the contents it spells out to the player exactly what is expected to be done.
+    "This is what it reads:"
+    "'DELIVERY FOR IVORY'"
+    "{color=#8b593c}Ivory has sent in a morning task she wishes to be fulfilled before 12:00 PM MORNING.{/color}"
+    "{color=#8b593c}The task is simple enough, she just needs 2 pastry goods delivered to her doorstep since she has been craving sweets lately.{/color}"
+    "{color=#8b593c}Visit 'Daily Delights' Bakery in 'Cornfield City'{/color}"
+    "{color=#8b593c}Talk with the baker: 'Elio'{/color}"
+    "{color=#8b593c}Pick the required pastries from Elio's Bakery{/color}"
+    "{color=#8b593c}- A Slice of Apple Pie{/color}"
+    "{color=#8b593c}- A Cinnamon Bun{/color}"
+    "{color=#8b593c}Check-out the pastries from Elio{/color}"
+    "{color=#8b593c}Leave 'Daily Delights' Bakery and go to 'Acorn Street'{/color}"
+    "{color=#8b593c}Find the red house on 'Acorn Street'{/color}"
+    "{color=#8b593c}Delivery the pastries to Ivory's doorstep{/color}"
+    "{color=#8b593c}Mark the task as: DELIVERED{/color}"
+    #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Aves Courier Center
+    #The game automatically opens the 'Map' for this section, and the player can choose to only access the town street: 'Cornfield City'
+    #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in 'Cornfield City', the player may only interact with 'Daily Delights' for this section
+    #The player is then greeted by a transition cutscene that starts the Bakery Mini-game dialogue
     
-    scene acorn street
-    show lightoverlay
+    scene cornfield map
+    with dissolve3
+    pause 3.0
+    scene daily delights
+    with dissolve3
+    #show lightoverlay
 
     "Louis steps in front of the open bakery wall-store, the letters above him on the sign reads: 'Daily Delights'."
     
@@ -451,15 +431,15 @@ label _new_task_pastry_pieces_tutorial_task:
     "Elio smiles  as he ties the familiar baker apron around his body , waiting for Louis to respond"
     
     menu:
-        "FULFILL 'PASTRY PIECES' TASK":
-            jump _fulfill_pastry_pieces_task
         "Were you okay back there?":
             jump _were_you_okay_back_there
         "How long have you been working here?":
             jump _how_long_have_you_been_working_here
+        "Complete the delivery":
+            jump _fulfill_pastry_pieces_task
 
 label _fulfill_pastry_pieces_task:
-    show  lightoverlay
+    #show  lightoverlay
 
     "Louis returns the smile  as he focuses on the task at hand, amused by the Baker's display."
     
@@ -483,21 +463,29 @@ label _fulfill_pastry_pieces_task:
     l "I'm working for multiple departments in the Center, so you're going to be seeing me everywhere for the next few days."
 
     "Louis smiles towards Elio as he explained, recalling the earlier conversation he had with the Falcon."
-    
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game showcases the pastry glass display in full view with Elio barely peaking at the top."
-    "{color=#f00}It shows there are four (4) hoverable choices to pick from: Plain, Glazed Donut / Chocolate Chip Muffin / A Slice of Apple Pie / A Cinnamon Bun."
-    "{color=#f00}Louis- the player, has to pick two (2) pastries to be dragged into their inventory: A Slice of Apple Pie & A Cinnamon Bun."
-    "{color=#f00}The player can choose if they are done or not with buttons that read: CONTINUE BROWSING / FINISH BROWSING."
-    #############################################
-    
-    show elio neutral
+
+    jump delights_pick
+
+label delights_pick:
+    #The game showcases the pastry glass display in full view with Elio barely peeking at the top."
+    #It shows there are four (4) hoverable choices to pick from: Plain, Glazed Donut / Chocolate Chip Muffin / A Slice of Apple Pie / A Cinnamon Bun.
+    #Louis- the player, has to pick two (2) pastries to be dragged into their inventory: A Slice of Apple Pie & A Cinnamon Bun.
+    #The player can choose if they are done or not with buttons that read: CONTINUE BROWSING / FINISH BROWSING.
+    $ quick_menu = False
+    scene daily delights pick
+    with dissolve1
+    call screen dailydelightspick
+    $ quick_menu = True
+
+    scene daily delights
+    with dissolve1
+
+    show elio neutral at slightright
+    show louis happy at slightleft
     e "That doesn't sound healthy, are you sure you're alright managing all that work?"
     
     "Elio asks, concerned, worried for the canary's well-being."
     
-    show louis happy
     l "I'll be quite alright. I need to anyway, it's for someone special to me."
     
     "Louis smiles reassuringly as he hands his pick of pastries to Elio."
@@ -646,11 +634,6 @@ label true_until_your_customers_question_your_safety_measures:
 
 
 label yes_that_would_be_all:
-
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}///The game proceeds with the dialogue if the player chooses: (Yes that would be all.) option.///{/color}"
-    #############################################
     
     show louis normal
     l "Yes, that would be all!"
@@ -682,14 +665,8 @@ label yes_that_would_be_all:
 
 
 label let_me_look_around_again:
-
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game goes back to the pastry selection screen if the player chooses the: (Let me look around again.) option.{/color}"
-    "{color=#f00}These two options will come up again for the second time once the player is finished browsing.{/color}"
-    #############################################
     
-    jump _fulfill_pastry_pieces_task
+    jump delights_pick
 
 
 label _peregrine_interaction_1:
@@ -700,11 +677,8 @@ label _peregrine_interaction_1:
     
     "But before he can continue onto his journey, he notices a familiar Falcon in his view..."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Daily Delights Bakery, with the character 'Catcher' a few blocks away.{/color}"
-    "{color=#f00}The player should be able to move 'Louis' to interact with 'Catcher'.{/color}"
-    #############################################
+    #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Daily Delights Bakery, with the character 'Catcher' a few blocks away.
+    #The player should be able to move 'Louis' to interact with 'Catcher'.
     
     scene acorn street
     show lightoverlay
