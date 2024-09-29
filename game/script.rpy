@@ -8,8 +8,12 @@ define az = Character('Aziel')
 define li = Character('Lily')
 define m = Character('Maverick')
 
-default half = 1
-default day = 1
+define no = Character('', what_font="/fonts/AveriaSerifLibre-Regular.ttf")
+define ca = Character('Catcher', what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")
+define iv = Character('Ivory', what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")
+
+default half = 1.5
+$ day = 1
 
 image streetview = "/Backgrounds/Street View.png"
 image acorn street = "/Backgrounds/Acorn Street Day Closed Doors.png"
@@ -37,15 +41,21 @@ image magic trick 9 = "/magic trick/009.png"
 
 image hospital = "/Backgrounds/hospital hall.jpg"
 image basement = "/Backgrounds/basement.png"
-image basement = "/Backgrounds/basement2.png"
+image basement2 = "/Backgrounds/basement2.png"
 image attic = "/Backgrounds/attic.png"
+image corrupted outside = "/Backgrounds/Acorn Street UPDATED.png"
+image corrupted store = "/Backgrounds/Flyaway Superstore UPDATED.png"
+image corrupted store blur = "/Backgrounds/Flyaway Superstore UPDATED Blurry.png"
 
 image achievement = "/gui/AchievementBackground.png"
 image achievementivory = "/gui/AchievementIvory.png"
 image achievementlily = "/gui/AchievementLily.png"
 image achievementaven = "/gui/AchievementAven.png"
+image newspaper text = "/gui/newspapertext.png"
 
 image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (215,190), image="/images/last_frame.png")
+image argument = Movie(channel="movie_dp", play="images/arguement.webm", loop=False)
+
 image lightoverlay = "/gui/Light_Overlay.png"
 
 transform slightleft:
@@ -60,7 +70,6 @@ transform scarypos:
     xpos 1700
     ypos 895
 
-label start:
 transform tint1:
     matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
     truecenter
@@ -108,21 +117,24 @@ transform shadow2:
 transform shadow3:
     matrixcolor TintMatrix("#eccdae")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
     slightleft
-    
 
 label start:
-    show screen toolbox # <<< important
+    #show screen toolbox # <<< important
     stop music fadeout 2.0
     $quick_menu = False
 
     # jump test_parallax_vp
     # jump inventory_test
 
-    jump _lily_task_conclusion
+    #jump start_scene ######### START
+    # jump day_3_concluded ########## SECOND HALF
+    jump corrupted_superstore
 
-    #jump start_scene
+    
 
 label start_scene:
+
+    $ half = 1
 
     # call screen drag_and_drop_inventory
 
@@ -3242,7 +3254,401 @@ label day_3_concluded:
     l "Aurora is going to be so... so happy!"
     
     "Louis says to himself with a happy chirp."
+
+    #############################################
+    #FUNCTIONALITY HERE
+    "{color=#f00}As the player approaches and clicks on the 'yellow house', the game fades to black, signifying the end of the first half.{/color}"
+    #############################################
     
-    "As the player approaches and clicks on the 'yellow house', the game fades to black, signifying the end of the first half."
+    scene black
+    with Dissolve(9.0)
+
+    jump transitioning
+
+label transitioning:
+
+    call screen contentwarning
+
+    $ half = 1.5
+
+    scene black
+    no "The sound of rustling leaves from outside fills the silence that consumed the void. A deep humming mixes in with the creaking of an open door, the clamor of a distant murder echoes to nowhere."
+
+    no "Breathing heavily as the prattling sound of birds is in earshot, focusing on nothing yet it induces a sinking, anxious feeling inside."
+
+    no "{color=#f00}Wake up.{/color}"
+
+label catcher_day_one:
+
+    $ half = 2
+    $ day = 1
+
+    scene basement2
+    with dissolve3
+    # faded bedroom
+
+    no "As Catcher peels his eyelids open, his head throbs, a blaring headache that makes his vision go blurry, he balances himself, looking around the dark room he assumes he's in."
+
+    no "With the rough textured feeling of the floorboards beneath him, the Falcon gets used to where his talons stand."
+     
+    no "Stumbling around the room, his wings grazes the walls, searching for the light switch as he grunts after bumping into something at the side of him."
+
+    no "The small switch is almost missed by the Falcon, with a firm grasp on the walls, Catcher flickers the switch open, revealing the scene to be... a bedroom?"
+
+    #bedroom
+
+    ca "Where the... shit am I...?"
+
+    no "The Falcon mutters to himself confusingly."
+
+    no "Catcher looks at his side, now seeing that the object he had bumped into was a perching chair. He continues to glance around the room, taking note of every detail."
+
+    ca "This is certainly not {i}my{/i} room."
+
+    no "The Falcon walks around the room quietly, careful in his movements."
+
+    no "The spacious room catches his attention the most, filled with the typical items like a bed, a stool, a bedside table with an old lamp, nothing to Catcher was clicking in the slightest."
+
+    no "His eyes wander, taking in the sight of two doors in his view."
+
+    no "The Falcon assumes one door leads down, while the other goes up."
+
+    jump attic_basement_choice
+
+label attic_basement_choice:
+    menu:
+        "THE ATTIC":
+            jump attic_exploration
+        "THE BASEMENT":
+            jump basement_exploration
+
+
+label attic_exploration:
+
+    scene attic
+    with dissolve3
+
+    no "The Falcon chooses to go up."
+
+    no "Catcher pulls on the string attached to the ceiling, he assumes this should be the door that opens up the hatch that leads to the room above."
+
+    no "The attic door opens, as Catcher drags the stringed door down, stairs were quickly unfolding before him, a loud, creaking sound following it that fills up the unsettling ambience that surrounded the room."
+
+    no "With a loud thud, the entrance to the room is revealed to the Falcon, he looks up momentarily; the darkness from above is the only thing he can see."
+
+    no "Still he persists, climbing up the staircase slowly, his hesitance creeps in."
+
+    no "He peeks his head through the hatch, eyes scanning around the dark room before ascending further."
+
+    no "The dim lighting from below and the lone window on the end of the room  barely provides any solid clearance on what Catcher is looking at when he steps his talon in the attic, his eyes gazing around."
+
+    no "But it was only filled with old boxes and sheet-covered items."
+
+    no "Roaming around the room for something, Catcher's eyes land on something that piques his interest."
+
+    no "The Falcon walks over to the side of the attic, tilting his head as what looks like a frame of a painting."
+
+    no "Upon further inspection, Catcher drags the white sheet that covered a portion of the frame to reveal what hides underneath-"
+
+    no "As suspected, the frame indeed revealed a picture. Not quite a painting from how it feels under Catcher's talons, but it showed him something that made his brow muscle raise."
+
+    no "Before him was a portrait of a familiar Bellbird and Owl, Aven and Aziel were right there; wing to wing right next to each other with big smiles on their beaks."
+
+    no "Catcher took note of the way the portrait looked, professional, clean and- both wearing similar articles of clothing."
+
+    no "The Falcon snickers in disbelief."
+
+    ca "Of course, they're related."
+
+    no "The Falcon turns to look at the rest of the room, peeking through boxes as he moves away from the portrait only to be greeted with nothing."
+
+    no "He decides to leave and go back down."
+
+    jump done_exploring
+
+
+label basement_exploration:
+
+    no "The Falcon chooses to go down, an exhale of a deep breath follows as he isn't so fond of the complete darkness he knows will greet him."
+
+    no "Catcher approaches the door that separates him and the other room, staring at the knob as he thinks carefully if he should go through with this or not."
+
+    menu:
+        "PROCEED":
+            jump basement_proceed
+        "GO BACK":
+            jump attic_basement_choice
+
+label basement_proceed:
+    scene basement
+    with dissolve3
+
+    no "Putting on the little courage he has, he twists open the door knob, revealing to him a staircase leading down as he had suspected."
+
+    no "Catcher takes in the sight, how ominous it all felt to him."
+
+    no "The Falcon can feel his feather lightly being brushed by the window coming from behind him, the ambience that reeked from below, the void that stared back at him as he stood in that doorway."
     
+    no "For a moment, he hesitates again; whether he should continue or not."
+
+    menu:
+        "PROCEED":
+            jump basement_proceed2
+        "GO BACK":
+            jump attic_basement_choice
+
+label basement_proceed2:
+
+    no "The Falcon ventures forth, continuing into the darkness of the room below."
+
+    no "The floorboards of the stairs make an uncanny creak whenever Catcher's talons continue to descend, the lack of lighting making his eyes strain and lose focus."
+
+    scene basement2
+    with dissolve3
+
+    no "As Catcher reaches the end of the staircase, he is greeted by a light switch when, upon flickering it open, only provides a dim enough light to illuminate a portion of the basement room."
+
+    no "The room itself wasn't inherently special as the room above. All Catcher could make out was a couch and a coffee table, some shelves behind it but it was pretty much empty... abandoned sort of way."
+
+    no "Observing a bit more as his eyes squint through the door room; his talon bump into something that moved across the ground."
+
+    no "Perching down to feel whatever it was he had kicked, he feels a square-shaped item as he picks it up with his talons."
+
+    no "Upon further inspection, it appears to be a cassette tape."
+
+    no "Searching through the darkness- the room provides a small box television."
+
+    no "Holding the cassette tape and putting one and two together, Catcher approaches the little DVD box that's stationed just right next to the television."
+
+    scene black
+    with dissolve3
+
+    call screen tape
+
+    show argument at truecenter
+    $ renpy.pause(139.0, hard=True)
+    stop movie
+
+    scene black
+    with dissolve3
+
+    no "The tape ends and Catcher is left standing frozen on the spot, lost in thought on whatever it was he just watched."
+
+    no "Unsure of what to make of it all, he buries the tape deep in his mind, turning to leave the basement."
+
+    jump done_exploring
+
+label done_exploring:
+    
+    scene basement2
+    with dissolve3
+
+    no "The Falcon decides to venture out of the bedroom and beyond what the house has to offer."
+
+    no "He has seen and found enough, deciding there was nothing left to explore; he wanders through the house seeking its exit."
+
+    no "There wasn't much. Due to the small amount of space to move in the house in general, it was just the same repeating four corners on where Catcher could walk and fit himself in."
+
+    no "With his eyes on the ground, eventually he finds the light, his temporary euphoria. Stumbling out of the doorway with a light huff on his talons."
+
+    no "Exiting the house with a soft 'click' of the door behind him."
+
+    jump go_outside
+
+label go_outside:
+
+    scene corrupted outside
+    with dissolve3
+
+    ca "Is this... {i}a nightmare{/i}?"
+
+    no "The Falcon asks no one but himself."
+
+    no "Catcher looks around the dull street, the dead leaves of autumn's embrace colored the concrete with little to no movement from the wind."
+
+    no "The sight of the orange forest beyond the houses haunts his spine, sending a shiver and a tingle he suddenly feels down to his talons; he takes a step back to compose himself and to still his breathing."
+
+    no "At a final glance around the area leading him to no bird in sight, he settles to fly somewhere else, where he'll know he can have a bird to chirp with."
+
+    #############################################
+    #FUNCTIONALITY HERE
+    "{color=#f00}The game transitions back into the 2D platform view of the world, wherein the character 'Catcher' is shown in front of the main 'Acorn Street' background.{/color}"
+    "{color=#f00}The game should highlight the 'Map' for this section, and the player can choose to only access the town street: 'Cornfield City'{/color}"
+    "{color=#f00}Travel to: A ghost town{/color}"
+    #############################################
+
+    no "Catcher glances at his surroundings taking it in as something he is all too familiar with, he wanders around aimlessly with no direction, feeling alone."
+
+    no "He decides to go to places that would usually be crowded with people."
+
+    no "The Falcon strolls with an emotionless look on his face towards two areas he's familiar with: the Flyway Superstore, and the Avian Care Hospital."
+
+    no "He decides to go to the Flyway Superstore first."
+
+    #############################################
+    #FUNCTIONALITY HERE
+    "{color=#f00}While the game allows the player to explore 'Cornfield City', but a text or dialogue should pop up (Catcher: No, I don't want to go here.){/color}"
+    "{color=#f00}if the player chooses to go to the other locations not stated in the choices.{/color}"
+
+    jump corrupted_superstore
+    #############################################
+
+label corrupted_superstore:
+
+    $ half = 2
+    scene corrupted store
+    with dissolve3
+
+    show BlackBars zorder 10
+
+    no "The Falcon approaches Flyway Superstore, with the buzzing lights of the signage above greeting him eerily, entering the building as the glass doors with chimes close behind him."
+
+    no "Catcher feels a chill. The lack of life makes him stand lonely and uneasy."
+
+    no "Standing in what once a bustling area filled with chatter and the sound of walking reduced to nothing but... him, makes him feel unsettled."
+
+    no "Catcher sighs under his breath, trying to compose himself as the tense atmosphere dawns on his body."
+
+    no "Walking along the long cold isles of the Superstore to each with their own isolated batch of food supplies, the sound of the blaring lights above echo throughout the vicinity."
+
+    no "The Falcon couldn't shake off the heavy feeling that weighed on him."
+
+    no "The deserted Superstore only serves to haunt him of his thoughts rather than soothe it, turning to leave, he stops dead on his tracks, catching sight of a familiar bird in view."
+
+    no "Catcher recognizes her all too well, Ivory, the blue mockingbird that once... held his attention."
+
+    no "As he approaches her, his talons move methodically, following one goal in mind as the sight of her consumes his empty thoughts."
+
+    no "But what once was a happy-chirp of a bird, the Ivory that stands before Catcher was barely a shell of what he thought of her that for a moment he said to himself... is this really her?"
+
+    show catcher happy 2 at slightleft
+    ca "Ivory? Miss Ivory?"
+
+    no "The Falcon approaches casually, despite his weary state, he masks his uneasiness with an unnatural looking smile."
+
+    no "The mockingbird looks up to the Falcon, with eyes as soulless as the colors of her feathers."
+
+    show ivory normal 2 at slightright
+    iv "Yes?"
+
+    iv "Do you need assistance with anything?"
+
+    no "Ivory politely asks, as if reciting a routined script."
+
+    no "Catcher shifts on his talons, feeling a twitch in his brow muscle as she speaks."
+
+    ca "How are you?"
+
+    no "The Falcon asks, his question coming off more as a demand."
+
+    no "Ivory's gaze falls on the floor, saying nothing until she looks up at him again."
+
+    show ivory sad 2
+    iv "I'm fine."
+
+    iv "I have no reason not to be anything but fine, I'd think?"
+
+    no "Ivory replies, uncertain in her tone, staring back at the Falcon."
+
+    no "........."
+    no "......"
+    no "..."
+
+    show catcher sad 2
+    ca "Of course."
+
+    ca "You're right."
+
+    no "........."
+    no "......"
+    no "..."
+
+    no "Catcher shifts again, the silence for once, unsettling him."
+
+    show catcher normal 2
+    ca "I've missed you."
+
+    no "Catcher puts it down bluntly, the stare lingering head on."
+
+    ca "I've missed our time together."
+
+    no "Catcher takes a step towards her, his stance coming off strong."
+
+    no "Ivory freezes, the mockingbird breaking her gaze from him."
+
+    show catcher sad 2
+    ca "Don't you want it too? The time we spent together?"
+
+    show catcher happy 2 at slightleft
+    ca "It was fun, wasn't it."
+
+    no "The Falcon's voice strains, his tone coming off flat and obsessive almost, paired with the stare down he gave the mockingbird."
+
+    no "Catcher takes a step forward."
+
+    no "Ivory takes two steps back."
+
+    show ivory angry 2
+    iv "It wasn't."
+
+    iv "Don't mistake my consideration for kindness, Catcher."
+
+    no "The mockingbird defense, her stance weary and guarded."
+
+    show catcher angry 2
+    ca "Oh {i}come on{/i}, you don't mean that."
+
+    show catcher sad 2
+    ca "I never-never saw you as anything like I should be taking advantage of or anything-"
+
+    no "The Falcon puts his hands up, as if surrendering yet his talons reach out towards her, as if being close to her will soothe him."
+
+    iv "Maybe not me, but you still did what you've done!"
+
+    no "The mockingbird snaps at him, her voice filled with disdain."
+
+    no "Catcher flinches at her tone, his brow muscles knitted together in confusion."
+
+    show catcher angry 2
+    ca "What I've done? What-What do you mean? What could I have possibly done for you to speak to me {b}this way{/b}."
+
+    no "The Falcon's voice continues to be strained, what should be the tone of confusion came off as hostile, demanding and thunderous."
+
+    no "The mockingbird's gaze hardens, her eyes squinting at the Falcon's display."
+
+    iv "Oh don't act clueless, you know what {b}you've done!{/b}"
+
+    iv "To me- to my benny, you-you're a {b}MONSTER{/b}."
+
+    no "The mockingbird feigns a lunge at the Falcon, Catcher instinctively recoils."
+
+    ca "What-I did nothing to him! I don't even know what you're ACCUSING me off-?!"
+
+    iv "Oh- {b}you did nothing{/b}, of course you'd say that! You don't even remember {b}WHAT YOU DID{/b}!"
+
+    show ivory normal 2
+    iv "{b}Let me remind you!{/b}"
+
+    no "The mockingbird was quick in her movements- shoving a paper in Catcher's direction, forcing him to grasp on it firmly,"
+
+    no "sending him tumbling back lightly from the impact, staggering his movements as he looks down on the paper that was forced onto his talons."
+
+    scene corrupted store blur
+    with dissolve2
+
+    call screen bennynewspaper
+
+    show newspaper text
+    no "The Falcon's eyes widened at the contents of the newspaper as he read on:"
+    hide newspaper text
+
+    no "Catcher looks up from the newspaper article, meeting the mockingbird's eyes."
+
+    ca "I-I don't understand-what does this have to do with anything-"
+
+    ca "This has {b}nothing to DO{/b} with me?!-"
+
+    show ivory angry 2
+    iv "-This has {b}EVERYTHING{/b} to do with {b}YOU{/b}."
+
     return

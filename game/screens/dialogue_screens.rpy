@@ -32,14 +32,27 @@ screen say(who, what):
                         text who id "who"
 
                 text what id "what"
-        else:
+        elif half == 1.5:
             window:
                 id "window2"
                 style "window2"
 
                 if who is not None:
 
-                    add "Creepynamebox" xpos -174 ypos -65
+                    window:
+                        id "namebox2"
+                        style "namebox2"
+                        text who id "who"
+
+                text what id "what"
+        else:
+            window:
+                id "window3"
+                style "window3"
+
+                if who is not None:
+
+                    #add "Creepynamebox" xpos -174 ypos -65
 
                     window:
                         id "namebox2"
@@ -65,6 +78,12 @@ style window1:
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style window2:
+    xalign 0.5
+    yalign 1.0
+    xysize (1231, 277)
+    padding (40, 10, 100, 40)
+
+style window3:
     xalign 0.5
     yalign 1.0
     xysize (1231, 277)

@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 337: expected 'image_name_component' not found.
-    show  hide lightoverlay
-        ^
-
-File "game/script.rpy", line 409: expected 'image_name_component' not found.
-    show  hide lightoverlay
-        ^
+File "game/script.rpy", line 54: expected '=' not found.
+    image newspaper text "/gui/newspapertext.png"
+                         ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sat Sep 28 21:00:46 2024
+Sun Sep 29 02:06:15 2024

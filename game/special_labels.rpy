@@ -39,6 +39,60 @@ label splashscreen:
 
     return
 
+screen contentwarning:
+
+    modal True
+
+    frame:
+        xsize 1920
+        ysize 1080
+        xpos 0
+        ypos 0
+        padding (0, 0) # Manually reset padding
+        background color("#000")
+
+        vbox:
+            text "{size=33}Content Warning{/size}":
+                pos (370, 40)
+                xsize 540 # sets line length
+                text_align 0.5 # align center
+
+        imagebutton:
+            auto "gui/button_%s.png"
+            # YES button
+            focus_mask True
+            pos (370,440)
+            action Return(), With(dissolve)
+
+        imagebutton:
+            auto "gui/button_%s.png"
+            # NO button
+            focus_mask True
+            pos (650,440)
+            action Quit()
+
+        text "{size=35}Yes{/size}":
+            pos (380, 455)
+            min_width 240 # sets line length
+            text_align 0.5 # align center
+
+        text "{size=35}No{/size}":
+            pos (660, 455)
+            min_width 240 # sets line length
+            text_align 0.5 # align center
+
+screen tape:
+    imagebutton:
+            auto "gui/tape_argument_%s.png"
+            focus_mask True
+            action Return()
+
+screen bennynewspaper:
+    imagebutton:
+            auto "gui/benny_newspaper_clipping_%s.png"
+            focus_mask True
+            action Return()
+
 ## After Load ##################################################################
 ##
 ## Adjust any variables etc in the after_load label
