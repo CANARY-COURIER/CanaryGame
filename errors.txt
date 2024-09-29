@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 3812: end of line expected.
-    jump the_hospital:
-                     ^
+File "game/screens/other_screens.rpy", line 235: style statement expects a non-empty block.
+    style help_side:
+                    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Sep 29 13:34:08 2024
+Mon Sep 30 05:23:07 2024

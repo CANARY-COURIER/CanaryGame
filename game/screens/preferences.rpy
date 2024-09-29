@@ -50,8 +50,6 @@ screen preferences():
             ## Additional vboxes of type "radio_pref" or "check_pref" can be
             ## added here, to add additional creator-defined preferences.
 
-        null height 60
-
         hbox:
             style_prefix "slider"
             box_wrap True
@@ -94,74 +92,74 @@ screen preferences():
 
 ### PREF
 style pref_label:
-    left_margin 90
+    # left_margin 10
     top_margin 15
     bottom_margin 3
 
 style pref_label_text:
-    left_margin 90
+    # left_margin 10
     yalign 1.0
 
 style pref_vbox:
-    left_margin 90
+    # left_margin 10
     xsize 338
 
 ## RADIO
 style radio_label:
-    left_margin 90
+    # left_margin 10
     is pref_label
 
 style radio_label_text:
-    left_margin 90
+    # left_margin 10
     is pref_label_text
 
 style radio_vbox:
-    left_margin 90
+    # left_margin 10
     is pref_vbox
     spacing 0
 
 style radio_button:
-    left_margin 90
+    # left_margin 10
     foreground "gui/button/radio_[prefix_]foreground.png"
     padding (35, 6, 6, 6)
 
 ## CHECK
 style check_label:
-    left_margin 90
+    # left_margin 10
     is pref_label
 style check_label_text:
-    left_margin 90
+    # left_margin 10
     is pref_label_text
 
 style check_vbox:
-    left_margin 90
+    # left_margin 10
     is pref_vbox
     spacing 0
 
 style check_button:
-    left_margin 90
+    # left_margin 10
     foreground "gui/button/check_[prefix_]foreground.png"
     padding (35, 6, 6, 6)
 
 ## SLIDER
 style slider_label:
-    left_margin 90
+    # left_margin 10
     is pref_label
 style slider_label_text:
-    left_margin 90
+    # left_margin 10
     is pref_label_text
 
 style slider_slider:
-    left_margin 90
+    # left_margin 10
     xsize 400
-    xpos 90
+    xpos 10
 
 style slider_button:
-    left_margin 90
+    # left_margin 10
     yalign 0.5
 
 style slider_vbox:
-    left_margin 90
+    # left_margin 10
     is pref_vbox
     xsize 550
 

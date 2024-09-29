@@ -21,17 +21,23 @@ screen history():
     use game_menu(_("History"))
 
     viewport:
-        style_prefix 'game_menu'
+        # style_prefix 'game_menu'
+        style_prefix "history"
         mousewheel True draggable True pagekeys True
-        scrollbars "vertical" yinitial 1.0
+        yinitial 1.0
+        scrollbars "vertical" 
+        xalign 0.635
+        yalign 0.7
+        xmaximum 900
+        ymaximum 700
 
         has vbox
 
-        style_prefix "history"
-
+        
         for h in _history_list:
 
             frame:
+                right_padding 100
                 has hbox
                 if h.who:
                     label h.who style 'history_name':
@@ -42,8 +48,8 @@ screen history():
                             text_color h.who_args["color"]
                         xsize 200   # this number and the null width
                                     # number should be the same
-                else:
-                    null width 200
+                # else:
+                #     null width 200
 
                 $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
                 text what:
@@ -57,9 +63,8 @@ screen history():
 
 define gui.history_allow_tags = { "alt", "noalt", "rt", "rb", "art" }
 
-
 style history_frame:
-    xsize 1100
+    xsize 900
     ysize None
     background None
 
@@ -85,3 +90,12 @@ style history_label:
 
 style history_label_text:
     xalign 0.5
+
+style history_vscrollbar:
+    base_bar Frame("gui/slider/vertical_idle_bar.png")
+    thumb "gui/slider/vertical_idle_thumb.png"
+    thumb_offset 0
+    top_gutter 0
+    bottom_gutter 0
+    xmaximum 25
+    ymaximum 800
