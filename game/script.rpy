@@ -11,9 +11,13 @@ define m = Character('Maverick')
 define no = Character('', what_font="/fonts/AveriaSerifLibre-Regular.ttf")
 define ca = Character('Catcher', what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")
 define iv = Character('Ivory', what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")
+define cro = Character('???', what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")
+define b = Character('Benny', what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")
+define av = Character('Aven', what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")
+define p = Character('Pieter', what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")
 
 default half = 1.5
-$ day = 1
+default day = 1
 
 image streetview = "/Backgrounds/Street View.png"
 image acorn street = "/Backgrounds/Acorn Street Day Closed Doors.png"
@@ -39,13 +43,24 @@ image magic trick 7 = "/magic trick/007.png"
 image magic trick 8 = "/magic trick/008.png"
 image magic trick 9 = "/magic trick/009.png"
 
+image bennykane 1 = "/benny kane/001.png"
+image bennykane 2 = "/benny kane/002.png"
+image bennykane 3 = "/benny kane/003.png"
+image bennykane 4 = "/benny kane/004.png"
+image bennykane 5 = "/benny kane/005.png"
+image bennykane 6 = "/benny kane/006.png"
+
 image hospital = "/Backgrounds/hospital hall.jpg"
+image hospital blur = "/Backgrounds/hospital hall blurry.png"
 image basement = "/Backgrounds/basement.png"
 image basement2 = "/Backgrounds/basement2.png"
 image attic = "/Backgrounds/attic.png"
 image corrupted outside = "/Backgrounds/Acorn Street UPDATED.png"
 image corrupted store = "/Backgrounds/Flyaway Superstore UPDATED.png"
 image corrupted store blur = "/Backgrounds/Flyaway Superstore UPDATED Blurry.png"
+image corrupted hospital = "/Backgrounds/Avian Care Patient Room UPDATED.png"
+image daycare 1 = "/Backgrounds/Daycare Room 1.png"
+image daycare 2 = "/Backgrounds/Daycare Room 2.png"
 
 image achievement = "/gui/AchievementBackground.png"
 image achievementivory = "/gui/AchievementIvory.png"
@@ -55,6 +70,7 @@ image newspaper text = "/gui/newspapertext.png"
 
 image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (215,190), image="/images/last_frame.png")
 image argument = Movie(channel="movie_dp", play="images/arguement.webm", loop=False)
+image static = Movie(play="images/tvstatic.webm", loop=False, size = (1920,1080))
 
 image lightoverlay = "/gui/Light_Overlay.png"
 
@@ -118,6 +134,7 @@ transform shadow3:
     matrixcolor TintMatrix("#eccdae")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)
     slightleft
 
+
 label start:
     #show screen toolbox # <<< important
     stop music fadeout 2.0
@@ -127,10 +144,10 @@ label start:
     # jump inventory_test
 
     #jump start_scene ######### START
-    # jump day_3_concluded ########## SECOND HALF
+    #jump day_3_concluded ########## SECOND HALF
     jump corrupted_superstore
+    #jump new_day_2_begin
 
-    
 
 label start_scene:
 
@@ -188,15 +205,18 @@ label start_scene:
 
 
 label opening_sequence:
+    
+    $ half = 1
 
     play music "music/CC Main Story Dialogue Theme.wav" fadein 3 fadeout 3
 
     $quick_menu = True
 
     scene acorn street
+    with dissolve2
     show lightoverlay
     show BlackBars
-    show screen toolbox
+    #show screen toolbox
 
     #############################################
     #FUNCTIONALITY HERE
@@ -1001,7 +1021,7 @@ label day_1_concluded:
     $ renpy.pause(3.0)
     
     #DAY 1 CONCLUDED
-    scene hospital
+    scene avian care hallway
     with dissolve3
 
     stop music fadeout 2.0
@@ -2250,7 +2270,7 @@ label day_2_concluded:
     $ renpy.pause(3.0)
     
     #DAY 1 CONCLUDED
-    scene hospital
+    scene avian care hallway
     with dissolve3
 
     stop music fadeout 2.0
@@ -3169,7 +3189,7 @@ label day_3_concluded:
 
     #DAY 3 CONCLUDED
 
-    scene hospital
+    scene avian care hallway
     with dissolve3
 
     stop music fadeout 2.0
@@ -3650,5 +3670,587 @@ label corrupted_superstore:
 
     show ivory angry 2
     iv "-This has {b}EVERYTHING{/b} to do with {b}YOU{/b}."
+
+    no "The mockingbird moves, jabbing her wing dead center into the Falcon's feathery chest."
+
+    no "Jabbing him again, and again-"
+
+    no "And again."
+
+    no "With each intentful jab, her movements became more rigid, the emotions finally catching up to her as her words slice through his soul like a knife."
+
+    #play music "music/crying woman.wav" fadein 2 fadeout 2
+
+    show ivory sad sad
+    voice "voice/i1.wav" 
+    iv "You took him {b}away from me{/b}-"
+
+    voice "voice/i2.wav" 
+    iv "I will {b}never{/b} get to see him again {b}because of YOU{/b}."
+
+    no "The mockingbird's talons claw at the Falcon's chest, grabbing- begging, trying to release the sorrow in her voice."
+
+    show ivory sad sad sad
+    voice "voice/i3.wav" 
+    iv "{b}YOU TOOK HIM AWAY.{/b}"
+    voice "voice/i4.wav" 
+    iv "{b}YOU TOOK HIM AWAY.{/b}"
+    voice "voice/i5.wav" 
+    iv "{b}YOU TOOK HIM AWAY.{/b}"
+    voice "voice/i6.wav" 
+    iv "{b}YOU TOOK HIM AWAY.{/b}"
+    voice "voice/i8.wav" 
+    iv "{b}YOU TOOK HIM AWAY.{/b}"
+
+    voice "voice/i9.wav" 
+    no "The cries of the mockingbird repeats, haunting his being, tainting his soul, over and over- like a broken record."
+
+    voice "voice/i10.wav" 
+    no "Ivory repeats, unresponsive to whatever else the Falcon chooses to say or do, with her woes echoing through the building- he leaves quickly."
+
+    no "Exiting the vicinity with nothing but a mortal reminder of her sorrow."
+
+    stop music fadeout 3
+
+    jump the_crow
+
+label the_crow:
+
+    scene corrupted outside
+    with dissolve3
+    show BlackBars zorder 10
+
+    no "The Falcon's steps are broad and rigid, the effects of the Superstore encounter still present in his feathers as Catcher makes his way to the neighboring hospital to seek the solstice of a familiar friend."
+
+    no "His talons finds itself in the front of a dimly lit building, a place that feels unrecognizable to his eyes yet a part of himself resonates with."
+
+    no "The surroundings of the building was overgrown with weeds and plantation, a lone bench sitting in the middle of all the lived-in moss that crawled up the walls."
+
+    no "The Falcon's eyes gazing on the bench, his stare lingers and as if he manifested his reality true-"
+
+    no "His friend sat perched by the entrance, the crying crow watching the scenery around it, the empty road that leads to everywhere yet nothing at all."
+
+    no "Catcher approaches quietly, perching himself right beside the crow, glancing at him wearily. The Falcon's breathing remains unsteady and sporadic, still calming himself down from earlier events."
+
+    show crow default 2 at slightright
+    cro "Catcher? Are you okay?"
+
+    no "The crying crow shows his concern, turning his complete attention towards the Falcon."
+
+    no "Catcher meets the white void of the crow's eyes, nodding quickly, shaken up and confused still."
+
+    show catcher sad 2 at slightleft
+    ca "Y-Yes I'm-I'm fine."
+
+    no "The Falcon stills his breathing, yet his appalled resolve is still visible on his face."
+
+    show catcher normal 2
+    ca "You're- You're alright, right? Like,"
+
+    ca "You're here, breathing, with me. Right?"
+
+    no "The crow tilts its head on him, its expression dull and soulless, but its intentions say otherwise."
+
+    show catcher sad 2
+    ca "Benny, please answer me."
+
+    no "The Falcon pleads softly, the crying crow- Benny responding with a nod."
+
+    b "Yes, of course I am!"
+
+    b "Where else should I be?"
+
+    no "The crow laughs, dry and croaked, but the tone of its voice feels like it would've sounded kind, playful- childlike."
+
+    show catcher angry 2
+    ca "Then-Then what does this mean?"
+
+    no "The Falcon brings up the newspaper from before, showcasing it to the crow, his voice laced with concern and fright."
+
+    no "Catcher shares the newspaper article, about the crow's supposed murder, letting the crow read over his shoulder about the contents that filled the paper; its eyes unreadable and blank..."
+
+    no "Until it turns to look at Catcher."
+
+    b "T-That's... wow... Are you okay?"
+
+    no "The crow asks Catcher, showing the little worry his face can muster up."
+
+    show catcher sad 2
+    ca "Y-Yeah, I think so... it's-it's Ivory..."
+
+    b "Do you wanna tell me what happened?"
+
+    no "The crow asks lightly, careful not to probe or overstep the shaken up Falcon."
+
+    no "Catcher meets Benny's eyes, trying to find comfort in the sea of nothing."
+
+    show catcher angry 2
+    ca "I just- I don't- understand why your sister- why {b}Ivory{/b} would accuse me of- of doing {b}this{/b} to you."
+
+    no "If the Falcon could try a bit harder, then maybe... he would finally be able to show his true feelings."
+
+    b "I-I- I don't know..."
+
+    b "Do you think she just... mistook you for someone else, K-Catcher?"
+
+    no "The crow's attention on the Falcon was full and intense, its gaze remained connected to Catcher the whole time."
+
+    no "Catcher looks at his dear friend, confusion and frustration building up in him."
+
+    show catcher sad 2
+    ca "I don't know, I really don't-"
+
+    ca "Ivory- She sounded so... so {i}sure{/i} and genuine..."
+
+    no "The Falcon keeps the crow's stare."
+
+    ca "I doubt... she'd mistake anyone for that..."
+
+    no "The Falcon's voice comes off as a whisper, his eyes trailing to the ground, tone- filled with vulnerability and turmoil."
+
+    b "It's okay, Kane."
+
+    no "Catcher stiffens, hesitantly meeting the crow's gaze."
+
+    no "........."
+    no "......"
+    no "..."
+
+    b "She just mistook you for a little boy..."
+
+    b "{b}Don't you remember?{/b}"
+
+    # The GUI and rest for this section should be removed and the background should slowly transition to black (but not fully),
+    # dragging out the climax and playing with the ambience of the music playing in the background.] 
+    # The music stops completely.] 
+    # The game then uses the art of Benny Snapped Neck.png sprite for a split second (you can insert neck crack sound here briefly),
+    # showing on the screen- before transitioning it back to ??? default.png and the rest of the GUI should return like normal.
+
+    no "Catcher jolts, startled from the initial panic that starts to seep back through his system. Entering the hospital to get away from Benny or whatever it was he just saw."
+
+    no "He feels like a memory is popping back in his head, one that's been haunting him for years, forgetting it for a while until it comes back to taunt and remind him of his sins."
+
+    no "Catcher is becoming more and more panicked as these events unfold, he doesn't remember what took place during those times and thinks these were all just bad dreams."
+
+    no "Yet suddenly now they felt so real to him."
+
+    jump the_hospital
+
+label the_hospital:
+
+    scene hospital
+    with dissolve3
+
+    no "The Falcon drags his talons across the dark and long empty hallways of the hospital, unease and terrified to the tail, Catcher searches around for nothing but confusion and a cry for help."
+
+    no "The glitching fluorescent lights and the smell of an overused air purifier fills his nose, feeling nostalgia from the aroma, a regular scent that his system got used to unhealthily so."
+
+    no "Only the sound of the buzzing lights from above fill the silence in the hallways, The Falcon continues to walk, reaching a dead end or an ominous patient room he refuses to go to;"
+
+    no "Somehow, he finds some bird present."
+
+    no "As he enters a new hallway his eyes settle on a figure at the end of the room, his eyes squinting, adjusting to the bright light illuminating above him as he approaches hesitantly."
+
+    ca "Hello?"
+
+    no "The Falcon calls out to the figure."
+
+    no "His voice bounces off the walls, echoing throughout yet he receives no response."
+
+    no "Catcher continues on, approaching the face of the figure becoming knowing to him, despite his hesitance there was a sense of urgency in his movement;"
+
+    no "The uneven breathing and a thirst to solve his issue plaguing his mind."
+
+    no "Standing before him, was the face of a Bellbird- the same one he carried out tasks to, even the ones that were unethical enough for him to speak of."
+
+    no "The Bellbird looks older compared to the time the Falcon saw him. An alarmed yet concerning look on his face as he watches Catcher's panic-stricken behavior."
+
+    no "The Falcon spares no time to seek answers, desperately trying to calm himself with a talon over his chest as he speaks."
+
+    show catcher happy 2
+    ca "Thank-Thank Phoenix, {i}you're here{/i}."
+
+    no "The Falcon grasps on the Bellbird's arms, a face of relief dawning his face."
+
+    no "Catcher's confusion remains, a growing agitation building up as his confusion lingers."
+
+    show catcher sad 2
+    ca "What's-What's happening to me?"
+
+    ca "Why are there voices in my head {i}crying to me{/i}?"
+
+    no "The Falcon pleads, his grip tightening over the Bellbird's feathers."
+
+    ca "This-This isn't normal- why are the birds around me tell-telling me something that isn't real-?!"
+
+    ca "What's {b}WRONG{/b} with me?!"
+
+    no "Catcher's voice trembles and breaks, afraid and confused like a chick asking for its mother."
+
+    show catcher angry 2
+    ca "Why can't I answer {b}ANY{/b} of what they're telling me?!"
+
+    ca "{b}WHAT HAVE {i}I{/i} DONE-?!{/b}"
+
+    no "The Bellbird flinches, the spat that came out of the Falcon's beak was raw and grounding."
+
+    no "Aven clenches his jaw -"
+
+    no "........."
+    no "......"
+    no "..."
+
+    no "Yet his words weigh like nothing is wrong."
+
+    show catcher angry 2 at slightleft
+    show aven neutral 2 at slightright
+    av "You did nothing, you've done {b}nothing.{/b}"
+
+    av "Kane, you're fine."
+
+    no "The Bellbird's choice of words was picked apart- meticulous and careful on how he should proceed."
+
+    no "The Falcon caws out a frustrated jeer."
+
+    show catcher sad 2
+    ca "-Why does every bird keep calling me that-?! Who is Kane-?!"
+
+    show catcher angry 2
+    no "Aven moves to hold Catcher down by the shoulder, grounding him on the pristine floors of the hospital."
+
+    show aven sad 2
+    av "Shhh..."
+
+    no "The Bellbird shushes the Falcon, calming him down methodically."
+
+    ca "What's happening... Am I okay, Aven? {b}AM I OKAY-???{/b}"
+
+    no "The Falcon's words swallow and croak."
+
+    show catcher sad 2
+    ca "Tell me, Doctor- Pieter, {b}tell me{/b}."
+
+    no "Catcher begs, his words coming out a slur, he's not entirely sure what he's saying anymore."
+
+    ca "{b}What are the voices telling me? What do my dreams mean?{/b}"
+
+    no "The shudder and cling of the Falcon's movements never wavering with desperation."
+
+    show aven confused 2
+    av "{b}There is no reason for you to not be fine.{/b}"
+
+    no "Aven's words ring a reminder."
+
+    show aven happy 2
+    av "You're {b}special{/b}, Kane. {b}You're special{/b}."
+
+    no "The Bellbird cradles the weeping Falcon in his wings, how he soothes his shaking with a fatherly pet, shushing him down and tending to his lonesome body."
+
+    show aven neutral 2
+    av "You have to take these, so you can stay {b}fine{/b}."
+
+    no "Piete feigns reassurance in his tone as he hands Kane vials of medicine."
+
+    hide aven netraul 2
+    hide catcher sad 2
+    scene hospital blur
+    call screen pills
+
+    scene hospital
+
+    show aven neutral 2 at slightright
+    show catcher sad 2 at slightleft
+    av "There's {b}nothing wrong{/b} with you, okay?"
+
+    show aven happy 2
+    av "You've just got to manage your illness, {i}big doses{/i}, got it?"
+
+    no "The Bellbird pats the Falcon gently as he spoke close for him to whisper into his ears."
+
+    show aven neutral 2
+    av "I don't want you coming back here now just because you stopped taking them, hm?"
+
+    show aven happy 2
+    av "You were doing so, so well with them before."
+
+    no "Pieter pats Kane firmly on the back."
+
+    no "The Bellbird urges the Falcon to consume what he gave him-reassured that this is the only way to get better."
+
+    no "In spite of Catcher's desperate efforts and need to find resolve, he hesitates, looking at the Bellbird worryingly like- like he doesn't believe these specific medications were helping him."
+
+    ca "But-But I've felt better without these, I was fine!"
+
+    ca "I should be {i}cured{/i}, right, Doctor?"
+
+    ca "By why {i}aren't{/i} I-?!"
+
+    no "A Look of horror dawns on the Bellbird, shaking the Falcon by the wings urgently as he speaks."
+
+    show aven confused 2
+    p "You've... stopped taking... them?"
+
+    no "The Falcon forces himself to nod hurriedly."
+
+    show aven angry 2
+    p "You... You foolish boy- always the {b}troublemaker{/b}!"
+
+    no "The Bellbird pursues again, taking matters to his own wings."
+
+    no "The Falcon stumbles back, feeling his beak forced open as the sickly, familiar substance starts to drown his throat with the bitter flavor, sending his mind afloat."
+
+    no "His throat struggles to swallow, the sound of a bubbling gargle fills the once soundless halls with Catcher's struggle as he chokes and sneers."
+
+    p "This is a part of the routine, you mustn't stop taking them unless you are told {b}not to{/b}!"
+
+    no "The Bellbird spats in frustration as the Falcon breaks free from his hold-"
+
+    no "Catcher's heavy breathing as he tries to recollect his thoughts, his body wavers, his mind stirs as he struggles to take a good look at the Bellbird."
+
+    show catcher sad 2
+    ca "Don't..."
+
+    no "The Falcon's gaze shakes, the ground beneath him spinning with his thoughts."
+
+    ca "...touch me-"
+
+    no "A loud thud is the last thing the Falcon hears."
+
+    scene white
+    with dissolve3
+
+    pause 1.0
+
+    jump new_day_2_begin
+
+label new_day_2_begin:
+
+    $ half = 2
+    $ day = 2
+
+    scene daycare 2
+    with dissolve3
+
+    play music "music/CC Specific Scene (Piano).ogg" fadein 3 fadeout 3
+
+    no "The Falcon peels his eyelids open, groaning at the throbbing pain coming from his head as he holds it in his wing."
+
+    no "Catcher looks around where he is, he notices how he's tucked into one of the patient's rooms in the hospital."
+
+    no "Deciding to leave and explore whatever had just happened to him, he stands up and heads towards the first door he sees that leads out."
+
+    no "As Catcher walks around the long halls of the hospital that seems to be in good condition, the cleanliness of the floors is reflected with the bright light from above."
+
+    no "Hearing only his talons, he notices no one else is roaming the halls with him, peeping through one of the doors with windows hoping to see some bird, yet all the rooms seem to remain empty."
+
+    no "The cold long hallways filled with the smell of overused air fresheners feel nostalgic to him as he walks further and further down the hallways familiar to his jagged memory."
+
+    no "Feeling like he's been walking down the same hall for quite a while, he pauses suddenly, hearing the faint laughter and mumbling of birds in the distance."
+
+    no "It sounds like chicks, laughing and talking amongst themselves. Catcher approaches, picks up his pace and sees a door in front of him."
+
+    no "He can tell the sounds are coming from behind this door so he calms his pace and listens closely, hearing some chicks cry and the others shout."
+
+    scene daycare 1
+    with dissolve1
+
+    no "As he approaches the door and takes a peek through the little window, he sees young chicks, some barely in their teens, he guesses who are all in this one room."
+
+    no "The nurses and caretakers to the side chatting amongst themselves."
+
+    no "Some interact with the chicks, others just standing there watching the chicks although they seem to be almost asleep with their eyes open."
+
+    no "His attention is taken by a nurse with a face who feels familiar to him."
+
+    no "The nurse attentively watches two chicks play with a wide smile plastered across her face, while his mind is focused on why this nurse seems so familiar to him like he knows them."
+
+    no "His eyes dance around the room searching for the chicks that the nurse has her attention on."
+
+    no "His brow muscles knit together as his gaze hardens at the sight. He sees the same face that's been haunting him in his dreams."
+
+    no "The young mockingbird chick's face slowly warped, changing itself to a young, blonde human child."
+
+    stop music
+    scene black
+    pause 1.0
+
+    play music "music/CC Specific Scene (Melodic).ogg" fadein 1 fadeout 2
+    play sound "music/suffocation.mp3" fadein 5 fadeout 2
+
+    show bennykane 1
+    $ renpy.pause(4.0, hard=True)
+    show bennykane 2
+    $ renpy.pause(4.0, hard=True)
+    show bennykane 3
+    $ renpy.pause(4.0, hard=True)
+    show bennykane 4
+    $ renpy.pause(4.0, hard=True)
+    show bennykane 5
+    $ renpy.pause(4.0, hard=True)
+    show bennykane 6
+    $ renpy.pause(4.0, hard=True)
+
+    scene black
+    pause 2.0
+
+    stop music
+    stop sound
+
+    no "Catcher's eyes widened."
+
+    no "His cheeks feel a damp wetness as his wing grazes his face, realizing then- he's crying."
+
+    no "Tears slowly stream down his face yet his expression is blank, this is memory... A memory he had forgotten either willingly, or not."
+
+    no "He remembers their names... Benny, the friend that laid limp in his arms."
+
+    no "Elise, Benny's sister who he vaguely remembers the way her hands violently yank his hair away from Benny's still body;"
+
+    no "The torment in her cries, her scream repeatedly asking him: 'Kane- WHAT DID YOU DO?!'"
+
+    no "Eventually getting separated by a group of nurses and care-takers in the area, seeing her disgusted and horrified eyes as she picks up her brother's lifeless body off of the ground while the children around him were sent into a panic."
+    
+    no "Crying layered one over the other deafening everyone's ears off."
+
+    no "This memory... was the same 'dream' he had been having... the same one that haunts him to till this day-"
+
+    $ half = 1.5
+    show static at truecenter
+    $ renpy.pause(2.0, hard=True)
+    stop movie
+    $ half = 2
+
+    jump kill_your_darlings
+
+label kill_your_darlings:
+
+    scene hospital
+    with dissolve3
+
+    show catcher sad 2
+    no "The Falcon snaps awake back to where he once was, again, he's tucked into one of the patient's rooms in the hospital."
+
+    no "His head throbs like before, painful of what occurred as he recalls what happened. The Falcon vaguely remembers Dr. Aven forcing the same medications he's been taking for years down his throat."
+
+    no "Catcher shudders remembering the memory. His body feels weak as he tries to stand on his talon from the bed, pondering to himself."
+
+    show catcher angry 2
+    ca "Why would I do that, did I really? Was that really me?"
+
+    no "He breathes heavily, trying to understand it all."
+
+    show catcher sad 2
+    ca "Doctor Aven- Aziel... they said I'll be fine but why-why...there should be nothing wrong with me..."
+
+    no "Questioning himself more as struggles to keep himself stable on his talons, dragging his movements towards the door."
+
+    show catcher normal 2
+    ca "I'm okay. {b}I'm okay.{/b}"
+
+    no "The Falcon exhales."
+
+    ca "I'm fine. I have medication, I'm doing {i}fine{/i}, so {b}I should be fine{/b}."
+
+    show catcher sad 2
+    ca "I wouldn't...I'm okay? I wouldn't do such a thing... why would I...?"
+
+    show catcher angry 2
+    ca "Did... they lie to me?"
+
+    no "Catcher wobbles slightly in his step, grasping the wall as he tries to balance himself upright."
+
+    show catcher sad 2
+    ca "I was supposed to be {i}cured{/i}, I am better."
+
+    ca "I should be better...why would he give me more-? They said I should take it...2 times a day, high dosage and-and..."
+
+    show catcher angry 2
+    ca "I {i}should{/i} be {b}FINE. WHY AM I {i}NOT CURED{/i}-?!{/b}"
+
+    no "The Falcon stumbles."
+
+    show catcher sad 2
+    ca "Why would they lie to me..."
+
+    no "A quiet sob to himself, Catcher takes the pills sitting by the table next to the door."
+
+    no "His vision was too blurry to read the labels but he was able to make out that it had two manufacturing dates, 1958 and 1960s."
+
+    scene hospital blur
+    with dissolve3
+    call screen pills2
+
+    jump farewell_father_dearest
+
+label farewell_father_dearest:
+
+    scene hospital
+    with dissolve2
+
+    no "Tears fall on the Falcon's face as his emotions slowly start draining his perception of everything."
+
+    no "Walking slowly towards the door and keeping his balance the best he can, he twists the doorknob open."
+
+    show catcher sad 2
+    ca "There's two different labels on that container with different dates... what... were they giving me... all these years... am I okay-?"
+
+    show catcher normal 2
+    ca "Was this really all to cure me... {b}cure me of {i}what{/i}...?{/b}"
+
+    show catcher sad 2
+    no "His voice shakes as his suppressed emotions come out as he uncontrollably weeps while struggling to walk out the hospital room."
+    
+    show catcher angry 2
+    ca "Where is he?"
+
+    no "The Falcon mutters to himself, finding determination on what's really being done to him."
+
+    no "The memory felt as real as it is, and it was his. The birds he knew in there- they were real, he knew their names, their relations- their lives."
+
+    no "He knows now that what happened is his reality, but there were too many questions to be asked- he couldn't even trust {b}himself{/b}."
+
+    no "The Falcon's pace quickens, the determined drive to find the Bellbird is at its peak. His curiosity grows, so does his anger."
+
+    no "An unsettling feeling grows within his chest, a brewing hate mixed with bitterness and grinded teeth."
+
+    show catcher angry 2
+    ca "They {b}{i}lied{/i} to me.{/b}"
+
+    no "The Falcon almost sees red as the Bellbird enters his line of sight at the end of the hall."
+
+    no "Angered at the mere sight of him, how his vision blurs from his reality to the warped reality in his head."
+
+    no "The {color=#f00}burnt face{/color} of the Bellbird warps his vision."
+    #scared text + functionality FIX THIS LATER ALE
+
+    no "Adrenaline builds through his body, the Falcon's jaw clenches as he feels the ends of his talon sharpen."
+
+    no "He feels his chest burning. Discreetly under his wing, his talons clasp around the syringe of anesthesia he hid in his jacket."
+
+    no "Approaching the Bellbird with a murderous intent."
+
+    show catcher angry 2 at slightleft
+    show aven confused 2 at slightright
+    av "Kane-?"
+
+    no "The Falcon strikes once the Bellbird is within reach- stabbing the syringe straight to the Bellbird's neck, his other talon making sure the old bird was captured in his hold."
+
+    ca "{b}{i}You should have told your son who I was when you were still alive.{/i}{/b}"
+
+    no "As Aven's body quickly reacts to the chemical being injected into him, Catcher holds the old Bellbird in his wings, as he skillfully reaches into his pocket for the Methanol and matches he keeps in his jacket."
+
+    no "Drenching the Methanol on his feathers, letting the Bellbird fall to the ground as his body makes a flat 'thud', he ignites the match, mercilessly letting it fall on the Bellbird's feathers."
+
+    no "The Falcon  watches as the burning bird dances with the kindling flame rising."
+
+    ca "Your brother did {b}the same thing{/b}."
+
+    no "Catcher turns to walk past the unconscious, burning Bellbird."
+
+    ca "Down goes the father, the mother of your son- may your wife's soul be blessed... and your brother."
+
+    ca "{i}Monsters{/i} that walk this ground."
+
+    no "The Falcon leaves."
 
     return

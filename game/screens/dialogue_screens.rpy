@@ -195,7 +195,7 @@ screen quick_menu():
 
             if day == 1:
                 fixed:
-                    pos (1435, 140)
+                    pos (1450, 130)
                     image 'gui/Day1.png'
             elif day == 2:
                 fixed:
@@ -206,7 +206,7 @@ screen quick_menu():
                     pos (1435, 140)
                     image 'gui/Day3.png'
         
-        else:
+        elif half==2:
             imagebutton auto "gui/creepymenubutton_%s.png" xpos 1208 ypos 1004 focus_mask True action ShowMenu('save')
             imagebutton auto "gui/creepysettingsbutton_%s.png" xpos 1317 ypos 1004 focus_mask True action ShowMenu('preferences')
             imagebutton auto "gui/creepyskipbutton_%s.png" xpos 1424 ypos 1004 focus_mask True action Skip(fast=True, confirm=True)
@@ -236,7 +236,6 @@ screen quick_menu():
                     ysize 74
                     image 'gui/Day3creepy.png'
                     
-
         hbox:
             style_prefix "quick"
 

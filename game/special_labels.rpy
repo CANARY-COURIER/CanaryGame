@@ -83,13 +83,25 @@ screen contentwarning:
 
 screen tape:
     imagebutton:
-            auto "gui/tape_argument_%s.png"
+            auto "gui/tape_arguement_%s.png"
             focus_mask True
             action Return()
 
 screen bennynewspaper:
     imagebutton:
             auto "gui/benny_newspaper_clipping_%s.png"
+            focus_mask True
+            action Return()
+
+screen pills:
+    imagebutton:
+            auto "gui/pills_bottle_%s.png"
+            focus_mask True
+            action Return()
+
+screen pills2:
+    imagebutton:
+            auto "gui/pills_bottle2_%s.png"
             focus_mask True
             action Return()
 
