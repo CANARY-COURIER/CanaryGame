@@ -91,7 +91,7 @@ label attic_exploration:
 
     no "He decides to leave and go back down."
 
-    jump done_exploring
+    jump attic_basement_choice
 
 
 label basement_exploration:
@@ -172,7 +172,7 @@ label basement_proceed2:
 
 label done_exploring:
     
-    scene basement2
+    scene bedroom
     with dissolve3
 
     no "The Falcon decides to venture out of the bedroom and beyond what the house has to offer."
@@ -214,8 +214,8 @@ label go_outside:
 
     no "He decides to go to the Flyway Superstore first."
 
-    #While the game allows the player to explore 'Cornfield City', but a text or dialogue should pop up (Catcher: No, I don't want to go here.){/color}"
-    #if the player chooses to go to the other locations not stated in the choices.{/color}"
+    #While the game allows the player to explore 'Cornfield City', but a text or dialogue should pop up (Catcher: No, I don't want to go here.)
+    #if the player chooses to go to the other locations not stated in the choices.
 
     jump corrupted_superstore
 
@@ -517,6 +517,9 @@ label the_crow:
 
     no "The Falcon's voice comes off as a whisper, his eyes trailing to the ground, tone- filled with vulnerability and turmoil."
 
+    hide catcher sad_2
+    show crow default_2
+
     b "It's okay, Kane."
 
     no "Catcher stiffens, hesitantly meeting the crow's gaze."
@@ -557,6 +560,7 @@ label the_hospital:
 
     scene hospital
     with dissolve3
+    show BlackBars zorder 10
 
     play music "music/CC Somber Hospital Theme.wav" fadein 2 fadeout 2
 
@@ -622,7 +626,7 @@ label the_hospital:
     no "Yet his words weigh like nothing is wrong."
 
     show catcher angry_2 at slightleft
-    show aven neutral_2 at slightright
+    show aven neutral_2 at aven2pos
     av "You did nothing, you've done {b}nothing.{/b}"
 
     av "Kane, you're fine."
@@ -724,6 +728,7 @@ label the_hospital:
 
     no "The Bellbird spats in frustration as the Falcon breaks free from his hold-"
 
+    #BACKGROUND DARKER + BLURRED except for catcher
     no "Catcher's heavy breathing as he tries to recollect his thoughts, his body wavers, his mind stirs as he struggles to take a good look at the Bellbird."
 
     show catcher sad_2
@@ -744,7 +749,7 @@ label the_hospital:
 
     stop music fadeout 3
     scene black
-    with Dissolve(10.0)
+    with Dissolve(3.0)
     $ quick_menu = False
     show HAHA at truecenter
     $ renpy.pause(73.0, hard=True)
@@ -948,21 +953,23 @@ label farewell_father_dearest:
     show catcher angry_2
     ca "They {b}{i}lied{/i} to me.{/b}"
 
+    show catcher angry_2 at slightleft
+    show aven confused_2 at slightright
     no "The Falcon almost sees red as the Bellbird enters his line of sight at the end of the hall."
 
     no "Angered at the mere sight of him, how his vision blurs from his reality to the warped reality in his head."
 
     no "The {color=#f00}burnt face{/color} of the Bellbird warps his vision."
-    #scared text + functionality FIX THIS LATER ALE
+    #scared text + functionality FIX THIS LATER ALE ALSO GLITCHED
 
+    show aven confused_2
     no "Adrenaline builds through his body, the Falcon's jaw clenches as he feels the ends of his talon sharpen."
 
     no "He feels his chest burning. Discreetly under his wing, his talons clasp around the syringe of anesthesia he hid in his jacket."
 
     no "Approaching the Bellbird with a murderous intent."
 
-    show catcher angry_2 at slightleft
-    show aven confused_2 at slightright
+    show catcher angry_2
     av "Kane-?"
 
     no "The Falcon strikes once the Bellbird is within reach- stabbing the syringe straight to the Bellbird's neck, his other talon making sure the old bird was captured in his hold."
@@ -973,8 +980,11 @@ label farewell_father_dearest:
 
     no "Drenching the Methanol on his feathers, letting the Bellbird fall to the ground as his body makes a flat 'thud', he ignites the match, mercilessly letting it fall on the Bellbird's feathers."
 
+    hide aven confused_2
+    hide catcher_angry_2
     no "The Falcon  watches as the burning bird dances with the kindling flame rising."
 
+    show catcher angry_2
     ca "Your brother did {b}the same thing{/b}."
 
     no "Catcher turns to walk past the unconscious, burning Bellbird."

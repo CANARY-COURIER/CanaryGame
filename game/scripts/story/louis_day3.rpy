@@ -14,6 +14,10 @@
 label _new_task_caught_on_camera_finale:
     
     #NEW TASK: CAUGHT ON CAMERA (Finale)
+    scene aves courier center inside
+    with dissolve2
+    show aven neutral at tint2
+    show louis normal at tint3
     
     "Louis watches his boss shuffle around the room, the bellbird grumbling under his breath as the Canary watches curiously at the side."
     
@@ -36,14 +40,17 @@ label _new_task_caught_on_camera_finale:
     show aven neutral
     a "Open it."
     
+    scene aves courier center inside
+    show broken camera
     "Louis opened the box without hesitation, untying the knot before he was greeted with what seems to be... a broken video recorder?"
-    
-    show louis scared
+    hide broken camera
+
+    show louis scared at tint2
     l "Sir?"
     
     "Louis' voice held confusion with what he was holding in his wings as he searched the bellbird's face for an explanation."
     
-    show aven neutral
+    show aven neutral at tint3
     a "I know, I know. Listen, I can't say too much since it's confidential information."
     
     show aven thinking
@@ -72,7 +79,6 @@ label _new_task_caught_on_camera_finale:
     show aven neutral
     "Louis stood on his talons for a moment, unsure on what to say but he started to nod slowly at his words."
     
-    show louis normal
     l "I-I suppose you're right..."
     
     "Now, Louis wasn't the type to bad mouth any bird- even if his mind assumed sometimes out of his own curiosity, but something tells him there was more than what he's led to believe."
@@ -200,14 +206,18 @@ label _aven_task_conclusion:
     
     "Aven repeats his offer, unplugging the video recorder from the computer, handing the video recorder in his wing."
     
+    hide aven neutral
+    hide louis happy
+    show camera fixed
     "Louis looks at the video recorder wearily in his wing, looking back at the Bellbird's beckoning motion."
+    hide camera fixed
     
-    show louis anxious
+    show louis anxious at shadow3
+    show aven neutral at shadow2
     l "A-Are you sure, Sir?"
     
     "Aven nods firmly."
-    
-    show aven neutral
+
     a "Take it, son."
     
     "The Bellbird beckons again, this time, the Canary accepts the video recorder, holding it onto his wing."
@@ -255,7 +265,7 @@ label day_3_concluded:
 
     #DAY 3 CONCLUDED
 
-    scene avian care hallway
+    scene avian care room
     with dissolve3
     $ is_daytime = False
 
@@ -263,8 +273,6 @@ label day_3_concluded:
     play music "music/CC Somber Hospital Theme.wav" fadein 2 fadeout 2
     
     "Louis toys around with the new video recorder in his possession as he walked across the polished floors of the hospital's hallways."
-    
-    "The scene of the game opens up in the 'Aven's Care Hospital' room where it is overseeing the background, only the character 'Louis' will be present for this section."
     
     "Inside his mother's hospital room, he held the video recorder in his wing, he fidgets with the gadget idle, almost missing the doctor that catches him at the corner of his eye."
     
@@ -312,6 +320,7 @@ label day_3_concluded:
     
     "The Owl finished, tucking in his wings into the pristine white coat he wore."
     
+    show louis happy
     "The Canary beams brightly the more he listens to the Owl talk, so much so his wings started feeling giddy as he softly flapped around with a small bounce on his talons."
     
     "Unable to handle his joy, he reaffirms with the Owl, just in case."
@@ -537,8 +546,6 @@ label _patch_it_up:
     show maverick neutral
     m "I need you to hand me that screw driver."
     
-    "The player should drag and drop the 'screwdriver' item to Maverick, in which he will remove the main camera lenses from the video recorder's anatomy."
-    
     "Louis hands the tiny screwdriver to Maverick."
     
     m "I should have some spare parts that should match whatever...this thing has."
@@ -758,8 +765,6 @@ label day_3:
     show aven neutral    
     "Despite the chaos, the bellbird could comb through the flocks of colors that flew past him and Louis' sight, birds parting for their boss to make way out of his feathers."
     
-    "The game fades in the inside of 'Cornfield Mail Post' with the character 'Louis' right next to 'Aven' the NPC."
-    
     jump _new_task_caught_on_camera_finale
 
 
@@ -770,7 +775,7 @@ label day_3:
 # Options involving interactions with Catcher (Phoenix).
 label _peregrine_interaction_3:
     
-    scene streetview
+    scene cornfield town
 
     "Louis smiles happily with a new video recorder in his wing as he walks out of the Feathered Fixer Hardware store with a light bounce on his step."
     

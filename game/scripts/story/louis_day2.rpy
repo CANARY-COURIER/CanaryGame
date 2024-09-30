@@ -455,7 +455,7 @@ label day_2_concluded:
     
     "Louis watches as the Owl strides past him, tending to his mother's dextrose and noting down his observations on a clipboard silently."
     
-    show louis normal
+    show louis anxious
     l "N-Nothing out of ordinary, I suppose?"
     
     "Louis stiffens momentarily as the Owl turns around to face him."

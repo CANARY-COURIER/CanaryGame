@@ -37,7 +37,7 @@ image hospital blur = "/Backgrounds/hospital hall blurry.png"
 image basement = "/Backgrounds/basement.png"
 image basement2 = "/Backgrounds/basement2.png"
 image attic = "/Backgrounds/attic.jpg"
-image corrupted outside = "/Backgrounds/Acorn Street UPDATED.png"
+image corrupted outside = "/Backgrounds/Cornfield Town UPDATED.png"
 image corrupted store = "/Backgrounds/Flyaway Superstore UPDATED.png"
 image corrupted store blur = "/Backgrounds/Flyaway Superstore UPDATED Blurry.png"
 image corrupted hospital = "/Backgrounds/Avian Care Patient Room UPDATED.png"
@@ -79,6 +79,10 @@ transform magicpos:
     yoffset -50
     xalign 0.5
     zoom 0.82
+
+transform aven2pos:
+    xoffset -50
+    yalign 1.0
 
 transform slightleft:
     xalign 0.18
