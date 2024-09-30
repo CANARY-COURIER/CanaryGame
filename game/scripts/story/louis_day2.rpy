@@ -307,7 +307,6 @@ label _a_letter_mail_scattered_on_the_floor:
     jump _bellbirds_suspicion
 
 
-
 #######################################################
 #                   STORY LABELS                     #
 #######################################################
