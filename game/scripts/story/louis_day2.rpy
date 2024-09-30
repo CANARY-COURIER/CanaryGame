@@ -657,7 +657,7 @@ label deny_deny_deny:
     
     "Aven reaches his hold on Louis again, almost dragging him on his feet when he ushers him out."
 
-    jump jump day_2_continuation
+    jump day_2_continuation
 
 
 label peregrine_interaction_2:

@@ -1,0 +1,163 @@
+{
+    "director_writers_designers_editors": [
+      {
+        "name": "Quack & Loaf Co.",
+        "link": null,
+        "link2": null
+      }
+    ],
+    "programmers": [
+      {
+        "name": "SAN",
+        "icon" : "./scripts/credits/imgs/itch.png", 
+        "id": "seo-a-nam",
+        "link": "https://itch.io/profile/seo-a-nam",
+        "link2": null
+      },
+      {
+        "name": "Alessandro",
+        "icon" : "./scripts/credits/imgs/x_icon.png", 
+        "id": "panino_dev",
+        "link": "https://x.com/panino_dev",
+        "link2": null
+      },
+      {
+        "name": "samehawke",
+        "icon" : "./scripts/credits/imgs/itch.png", 
+        "id": "samehawke",
+        "link": "https://samehawke.itch.io/",
+        "link2": null
+      }
+    ],
+    "sprite_cg_artists": [
+      {
+        "name": "shibakiba",
+        "icon" : "./scripts/credits/imgs/x_icon.png", 
+        "id": "shiba_kiba",
+        "link": "https://x.com/shiba_kiba",
+        "link2": null
+      },
+      {
+        "name": "CRRN",
+        "icon" : "./scripts/credits/imgs/x_icon.png", 
+        "id": "_crrn_",
+        "link": "https://x.com/_crrn_",
+        "link2": null
+      }
+    ],
+    "helper_artists": [
+      {
+        "name": "smuisers",
+        "icon" : "./scripts/credits/imgs/insta_icon.png", 
+        "id" : "smuisers",
+        "link": "https://www.instagram.com/smuisers?igsh=c21oOGNqZHZrbmEx&utm_source=qr",
+        "link2": null
+      },
+      {
+        "name": "Weissily",
+        "icon" : "./scripts/credits/imgs/carrd_icon.png", 
+        "id" : "weissily",
+        "link": "https://weissily.carrd.co/",
+        "link2": null
+      }
+    ],
+    "background_item_artists": [
+      {
+        "name": "ajihaew",
+        "icon" : "./scripts/credits/imgs/x_icon.png", 
+        "id" : "ajihaew",
+        "link": "https://x.com/ajihaew",
+        "link2": "https://ajihaew.com/"
+      },
+      {
+        "name": "Fiona",
+        "icon" : "./scripts/credits/imgs/insta_icon.png", 
+        "id" : "unenthusedcrayon",
+        "link": "https://www.instagram.com/unenthusedcrayon/",
+        "link2": null
+      }
+    ],
+    "composers": [
+      {
+        "name": "Lilith 'Lilithpad' Scarlet",
+        "icon" : "./scripts/credits/imgs/x_icon.png", 
+        "id" : "lilithpads",
+        "link": "https://x.com/lilithpads",
+        "link2": null
+      },
+      {
+        "name": "Apogio",
+        "icon" : "./scripts/credits/imgs/link.png", 
+        "id" : "lilithpads",
+        "link": "https://composerapogio.com/",
+        "link2": null
+      }
+    ],
+    "voice_actors": [
+      {
+        "name": "Samuel Hagg as Avel Leto",
+        "icon" : "./scripts/credits/imgs/x_icon.png", 
+        "id" : "aseattorney",
+        "link": "https://x.com/aseattorney",
+        "link2": null
+      },
+      {
+        "name": "Luminaryyxx as Evangeline Leto",
+        "icon" : "./scripts/credits/imgs/x_icon.png", 
+        "id" : "Luminaryyxx",
+        "link": "https://x.com/Luminaryyxx",
+        "link2": null
+      },
+      {
+        "name": "Keedo as Kane Cozbi",
+        "icon" : null,
+        "id" : null,
+        "link": null,
+        "link2": null
+      },
+      {
+        "name": "Pluto as Elise Shaw",
+        "icon" : null,
+        "id" : null,
+        "link": null,
+        "link2": null
+      }
+    ],
+    "misc": [
+      {
+        "name": "Miscellaneous Beta Testers",
+        "icon" : null,
+        "id" : "AltairDeLirio & Lily Wisteria",
+        "link": null,
+        "link2": null
+      },
+      {
+        "name": "Sensitivity Reader",
+        "icon" : "./scripts/credits/imgs/insta_icon.png",
+        "id" : "i_specialize_in_sad",
+        "link": "https://www.instagram.com/i_specialize_in_sad?igsh=MTN6eHUxMDM4NGxybA%3D%3D&utm_source=qr",
+        "link2": null
+      },
+      {
+        "name": "Proofreaders",
+        "icon" : null,
+        "id" : "sieerrraaa & helio.wyrm",
+        "link": null,
+        "link2": null
+      },
+      {
+        "name": "Manager",
+        "icon" : null,
+        "id" : "Lily Wisteria",
+        "link": null,
+        "link2": null
+      },
+      {
+        "name": "Itch.io Designer",
+        "icon" : "./scripts/credits/imgs/itch.png",
+        "id" : "mishantics",
+        "link": "https://mishantics.itch.io/",
+        "link2": null
+      }
+    ]
+  }
