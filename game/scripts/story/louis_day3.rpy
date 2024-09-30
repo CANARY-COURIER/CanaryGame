@@ -260,6 +260,7 @@ label day_3_concluded:
     $ is_daytime = False
 
     stop music fadeout 2.0
+    play music "music/CC Somber Hospital Theme.wav" fadein 2 fadeout 2
     
     "Louis toys around with the new video recorder in his possession as he walked across the polished floors of the hospital's hallways."
     
@@ -347,7 +348,7 @@ label day_3_concluded:
     
     stop music fadeout 3
     scene black
-    with Dissolve(10.0)
+    with dissolve3
     $ quick_menu = False
     show evangeline at truecenter
     $ renpy.pause(82.0, hard=True)
@@ -859,7 +860,7 @@ label resist:
     jump _peregrine_int_3_continuation
 
 
-# Player can choose to give in to Catcher’s pressure.
+# Player can choose to give in to Catcher's pressure.
 label give_in:
     
     "Louis sighs in defeat, knowing himself that he can never truly keep up a white lie for his own good, too honest and a bird true to his morals."

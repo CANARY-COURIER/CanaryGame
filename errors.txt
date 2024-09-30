@@ -1,9 +1,0 @@
-﻿I'm sorry, but errors were detected in your script. Please correct the
-errors listed below, and try again.
-
-
-File "game/libs/image-tool/layered_image_visualizer.rpy", line 1205: is not terminated with a newline. (Check strings and parenthesis.)
-            add sprt.construct_image_attributes(persistent.sprt_who
-
-Ren'Py Version: Ren'Py 8.2.3.24061702
-Mon Sep 30 23:20:01 2024

@@ -7,8 +7,8 @@
 
 # ===== Start Scene: Introduction and Tutorial =====
 label start_scene:
-    """ Intro to the tutorial """
-    $ half = 1
+    #""" Intro to the tutorial """
+    $ half = 0.5
 
     # Scene starts, and we introduce the player to the world
     scene tutorial 1
@@ -92,6 +92,70 @@ label opening_sequence:
 
 label day_1_concluded:
     
+    "Louis rummages through his bag, sorting out other stuff out of the way as he pulls out the paper bag containing the contents of Ivory's orders, handing it over gently with a small smile on his face."
+
+    show louis happy
+    l "This should be what you've tasked me with, a slice of apple pie, and a delicious cinnamon roll."
+
+    "Louis feels his wing briefly graze hers as she accepts the bag with a fond look in her eyes as she sees the pastries she wanted."
+
+    show ivory neutral
+    i "Just in time as well, I'm ever grateful for you going out of your way to do this for me."
+    
+    show ivory happy
+    i "There's just so many chores to do after my shift, I can't possibly do other things I'd need for it anymore!"
+
+    "Louis chuckles at his words as he nods, understanding the hassle well."
+
+    show louis happy
+    l "Well, it is my job, Miss Ivory. I'm glad I'm making things easy for you if anything."
+
+    show louis normal
+    l "If everything is in order, I shall be taking my leave, then?"
+    
+    "Louis watches as the passerine bird looks through the content of the bag, before he hears her hum satisfied- a singsong tune."
+    
+    show ivory happy
+    i "You did everything right, splendid!"
+
+    show ivory neutral
+    i "Well done, I should be able to mark my task finished for you- ah! I have something for you, before I forget."
+
+    "Louis is left standing in front of the doorway of Ivory's home as she quickly disappears into the comfort of her home, before she returns with a plastic bag in her beak and the familiar pastry in view."
+
+    "He was quick to accept her offer as she leaned forward to hand it to him, in his wings was the cinnamon roll he had bought for her as something part of his task."
+    hide ivory neutral
+    hide louis normal
+    show cinnamonroll
+    with dissolve1
+
+    "Louis faces Ivory confused, a bit lost on what this meant."
+
+    i "I figured you must be tired from your delivery, a small snack wouldn't hurt!"
+
+    "Ivory smiles kindly at Louis which he takes rather well, he returns the grin with a thankful look plastered on his face."
+
+    hide cinnamonroll
+    show ivory happy at slightright
+    show louis anxious at slightleft
+    l "I-I'd have to go now, but this is a lot, thank you... are- are you sure you'd want me to have this?"
+
+    show louis normal
+    l "I mean, you did order it and all... "
+
+    "Ivory waves him off dismissively again with her wing, pushing him lightly off her doorway with a reassuring smile."
+
+    i "Nonsense! It'd be rude to refuse a gift from a lady bird now, no?"
+
+    "Louis finds himself chuckling, finding amusement at being backed up to a corner. He bows his head promptly."
+
+    show louis happy
+    l "I suppose you're right, it would be rude. In that case, thank you for the lovely gift."
+
+    l "I'll see you around, Miss Ivory."
+
+    "Ivory returns Louis' farewell bow, watching Louis take off, shutting the door behind her."
+
     play music "music/CC Mission Complete.wav" fadein 1 fadeout 1
     scene achievement
     with dissolve3
@@ -106,6 +170,7 @@ label day_1_concluded:
     $ is_daytime = False
 
     stop music fadeout 2.0
+    play music "music/CC Somber Hospital Theme.wav" fadein 2 fadeout 2
     
     "Louis finds himself perched comfortably right next to the sleeping figure that inhabits the room he currently resides in."
     
@@ -156,6 +221,8 @@ label day_1_concluded:
 
     "As Louis bids his last goodbyes for the day, he exits the room." 
     
+    scene avian care hallway
+    with dissolve2
     "Before he has a chance to leave- he is stopped promptly by a soft yet stern call of his name, he turns around, faced with a bird much larger than he is."
     
     "???" "Mister Louis? Is that you I see there?"
@@ -207,13 +274,14 @@ label day_1_concluded:
     
     show aziel neutral
     "Louis catches a brief glance of the Owl flying off elsewhere into the hospital, with that in mind, he turns to fly off on his own as well."
-    hide aziel neutral
     
+    scene acorn street night
+    with dissolve2
     "Safely returning to the comforts of his home, and ending the day off with a successful delivery- and an interesting day with new faces."
 
     stop music fadeout 3
     scene black
-    with Dissolve(10.0)
+    with dissolve3
     $ quick_menu = False
     show interview2 at truecenter
     $ renpy.pause(90.0, hard=True)
@@ -229,7 +297,6 @@ label day_1_concluded:
 #######################################################
 #                   DECISION LABELS                  #
 #######################################################
-
 
 
 label bellbird_decision:
@@ -341,7 +408,8 @@ label _how_long_have_you_been_working_here:
     
     "Elio beams fondly of his little bakery beginnings."
     
-    jump _new_task_pastry_pieces_tutorial_task
+    #jump _new_task_pastry_pieces_tutorial_task
+    jump elio_questions
 
 
 label youre_not_wrong:
@@ -381,7 +449,8 @@ label youre_not_wrong:
     show elio happy
     e "Of course! Baking has been my passion for the longest time, this job is my dream."
     
-    jump _new_task_pastry_pieces_tutorial_task
+    jump elio_questions
+    #jump _new_task_pastry_pieces_tutorial_task
 
 
 label true_until_your_customers_question_your_safety_measures:
@@ -418,7 +487,8 @@ label true_until_your_customers_question_your_safety_measures:
     show elio happy    
     e "Of course! Baking has been my passion for the longest time, this job is my dream."
     
-    jump _new_task_pastry_pieces_tutorial_task
+    #jump _new_task_pastry_pieces_tutorial_task
+    jump elio_questions
 
 
 label let_me_look_around_again:
@@ -508,13 +578,13 @@ label peregrine_int_continuation_1:
     
     "Catcher didn't say anything more, a small silence falling between them."
     
+    show catcher neutral
     "........."
     "......"
     "..."
     
     "Catcher spoke up again."
     
-    show catcher neutral
     c "It looks like you've got it all under control then."
     
     "Catcher briefly said before changing the topic at hand."
@@ -637,7 +707,7 @@ label _tutorial_conclusion:
     #TUTORIAL CONCLUSION
     #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the town street of 'Cornfield City'
     
-    scene cornfield city
+    scene cornfield town
     show  lightoverlay
 
     "Louis stands idly on the main street of the town, reminded again of the task in hand as he pulls out his check-list from his pocket, marking the finished ones so far."
@@ -758,8 +828,8 @@ label _peregrine_interaction_1:
 
 label _bellbird_interaction:
 
-    """ Interaction Placeholder """
-    # Future mechanic: This is where you’ll hook up the interaction counter for Bellbird.
+    #""" Interaction Placeholder """
+    # Future mechanic: This is where you'll hook up the interaction counter for Bellbird.
     # If a mini-game happens here, you can link to it with a jump or call statement later.
 
     show aven neutral
@@ -924,7 +994,7 @@ label delights_pick:
 # Includes a map mechanic where the player can select streets in Cornfield City.
 # Decision-based but includes task instructions and map navigation.
 label _new_task_pastry_pieces_tutorial_task:
-    """ New Task: Delivery Mini-game Placeholder """
+    #""" New Task: Delivery Mini-game Placeholder """
     # Placeholder for the pastry delivery mini-game. In the future, you'd jump to a mini-game label here.
     # When the mechanics are ready, this will be your go-to spot.
 
@@ -998,6 +1068,9 @@ label _new_task_pastry_pieces_tutorial_task:
     
     "Elio smiles  as he ties the familiar baker apron around his body , waiting for Louis to respond"
     
+    jump elio_questions
+
+label elio_questions:
     menu:
         "Were you okay back there?":
             jump _were_you_okay_back_there

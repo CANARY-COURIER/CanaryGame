@@ -1,7 +1,7 @@
 image streetview = "/Backgrounds/Street View.png"
 image acorn street = "/Backgrounds/Acorn Street Day Closed Doors.png"
 image acorn street no houses = "/Backgrounds/Acorn Street Day No Houses.png"
-image acorn street night = "/Backgrounds/Acorn Street Night No Houses.png"
+image acorn street night = "/Backgrounds/Acorn Street Night Closed Doors.png"
 image acorn street night houses = "/Backgrounds/Acorn Street Night.png"
 image acorn street day 3 = "/Backgrounds/Day 3 Concluded BG.png"
 image aves courier center = "/Backgrounds/Aves Courier Center.png"
@@ -61,8 +61,10 @@ image supermarket items = "/images/items/supermarket.png"
 image broken camera = "/images/items/broken camera.png"
 image camera fixed = "/images/items/fixed camera.png"
 image itch = "/gui/itch page.png"
+image cinnamonroll = "/images/items/hospital rewards/hospital_cinnaroll.png"
+image grocerybag = "/images/items/supermarket items/grocery_paperbag.png"
 
-image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (215,190), image="/images/last_frame.png")
+image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (225,200)) #image="/images/last_frame.png"
 image interview2 = Movie(channel="movie_dp", play="images/interview2.webm", size = (1300,1200), loop=False)
 image devlog01 = Movie(channel="movie_dp", play="images/devlog 01.webm", size = (1300,1200), loop=False)
 image evangeline = Movie(channel="movie_dp", play="images/Evangelineknows.webm", size = (1300,1200), loop=False)
