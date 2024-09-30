@@ -392,7 +392,7 @@ label day_2_concluded:
 
     $ renpy.pause(3.0)
     
-    scene avian care hallway
+    scene avian care room
     with dissolve3
     $ is_daytime = False
 
@@ -424,7 +424,7 @@ label day_2_concluded:
     
     "Louis thought that the cold, plain white room was a bit unsettling to him, originally- he was going to bring the flowers back to his wife; but his mother's patient room could use a bit more color."
     
-    "Especially when both him and his white treat the hospital as their second home ever since his mother fell ill."
+    "Especially when both him and his wife the hospital as their second home ever since his mother fell ill."
     
     show louis normal
     l "I bought you a gift again, consider it...something from your son and your daughter-in-law."
