@@ -10,6 +10,35 @@
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+Director, Writers, Character Designers, and Video Editors\n
+Quack & Loaf Co.\n
+GUI & Programmers\n
+{a=https://sites.google.com/view/alessandro-brillo/}Alessandro{/a} - {a=https://x.com/panino_dev}@panino_dev{/a}\n
+{a=https://itch.io/profile/seo-a-nam}SAN{/a}\n
+{a=https://samehawke.itch.io/}samehawke{/a}\n
+Sprites & CG Artists\n
+shibakiba - {a=https://twitter.com/shiba_kiba}@shiba_kiba{/a}\n
+CRRN - {a=https://x.com/_crrn_}@_crrn_{/a}\n
+Helper Artists\n
+smuisers - {a=https://www.instagram.com/smuisers?igsh=c21oOGNqZHZrbmEx&utm_source=qr}@smuisers{/a}\n
+{a=https://weissily.carrd.co/}Weissily{/a}\n
+Background & Item Artists\n
+{a=https://ajihaew.com/}ajihaew{/a} - {a=https://twitter.com/ajihaew}@ajihaew{/a}\n
+Fiona - {a=https://www.instagram.com/unenthusedcrayon/}@unenthusedcrayon{/a}\n
+Composers\n
+Lilith "Lilithpad" Scarlet - {a=https://x.com/lilithpads}@lilithpads{/a}\n
+{a=https://composerapogio.com/}Apogio{/a}\n
+Voice Actors\n
+Samuel Hagg as Avel Leto - {a=https://x.com/aseattorney}@aseattorney{/a}
+Luminaryyxx as Evangeline Leto - {a=https://x.com/Luminaryyxx}@Luminaryyxx{/a}
+Keedo as Kane Cozbi\n
+Pluto as Elise Shaw\n
+Miscellanous\n
+beta tester - {a=https://altairdelirio.carrd.co/}AltairDeLirio{/a} & Lily Wisteria\n
+senstivity reader - I Specialize in Sad - {a=https://www.instagram.com/i_specialize_in_sad?igsh=MTN6eHUxMDM4NGxybA%3D%3D&utm_source=qr}@i_specialize_in_sad{/a}\n
+proofreaders - sieerrraaa & helio.wyrm\n
+manager - Lily Wisteria\n
+itch.io designer - https://mishantics.itch.io/
 EasyRenPyGui is made by {a=https://github.com/shawna-p}Feniks{/a} {a=https://feniksdev.com/}@feniksdev.com{/a}
 """)
 

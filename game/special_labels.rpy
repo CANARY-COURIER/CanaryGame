@@ -101,6 +101,24 @@ screen dailydelightspick:
             focus_mask True
             action Return()
 
+screen hardwarepick:
+    imagebutton:
+            auto "images/items/glue_%s.png"
+            focus_mask True
+            action Return("glue")
+    imagebutton:
+            auto "images/items/screwdriver_%s.png"
+            focus_mask True
+            action Return("screwdriver")
+    imagebutton:
+            auto "images/items/toothpick_%s.png"
+            focus_mask True
+            action Return("toothpick")
+    imagebutton:
+            auto "images/items/wrench_%s.png"
+            focus_mask True
+            action Return("wrench")
+
 screen itchpage:
     imagebutton:
             auto "gui/itch button_%s.png"

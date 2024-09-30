@@ -248,14 +248,14 @@ label corrupted_superstore:
 
     no "But what once was a happy-chirp of a bird, the Ivory that stands before Catcher was barely a shell of what he thought of her that for a moment he said to himself... is this really her?"
 
-    show catcher happy_2 at slightleft
+    show catcher happy 2 at slightleft
     ca "Ivory? Miss Ivory?"
 
     no "The Falcon approaches casually, despite his weary state, he masks his uneasiness with an unnatural looking smile."
 
     no "The mockingbird looks up to the Falcon, with eyes as soulless as the colors of her feathers."
 
-    show ivory normal_2 at slightright
+    show ivory normal 2 at slightright
     iv "Yes?"
 
     iv "Do you need assistance with anything?"
@@ -270,7 +270,7 @@ label corrupted_superstore:
 
     no "Ivory's gaze falls on the floor, saying nothing until she looks up at him again."
 
-    show ivory sad_2
+    show ivory sad 2
     iv "I'm fine."
 
     iv "I have no reason not to be anything but fine, I'd think?"
@@ -281,7 +281,7 @@ label corrupted_superstore:
     no "......"
     no "..."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "Of course."
 
     ca "You're right."
@@ -292,7 +292,7 @@ label corrupted_superstore:
 
     no "Catcher shifts again, the silence for once, unsettling him."
 
-    show catcher normal_2
+    show catcher normal 2
     ca "I've missed you."
 
     no "Catcher puts it down bluntly, the stare lingering head on."
@@ -303,10 +303,10 @@ label corrupted_superstore:
 
     no "Ivory freezes, the mockingbird breaking her gaze from him."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "Don't you want it too? The time we spent together?"
 
-    show catcher happy_2 at slightleft
+    show catcher happy 2 at slightleft
     ca "It was fun, wasn't it."
 
     no "The Falcon's voice strains, his tone coming off flat and obsessive almost, paired with the stare down he gave the mockingbird."
@@ -315,17 +315,17 @@ label corrupted_superstore:
 
     no "Ivory takes two steps back."
 
-    show ivory angry_2
+    show ivory angry 2
     iv "It wasn't."
 
     iv "Don't mistake my consideration for kindness, Catcher."
 
     no "The mockingbird defense, her stance weary and guarded."
 
-    show catcher angry_2
+    show catcher angry 2
     ca "Oh {i}come on{/i}, you don't mean that."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "I never-never saw you as anything like I should be taking advantage of or anything-"
 
     no "The Falcon puts his hands up, as if surrendering yet his talons reach out towards her, as if being close to her will soothe him."
@@ -336,7 +336,7 @@ label corrupted_superstore:
 
     no "Catcher flinches at her tone, his brow muscles knitted together in confusion."
 
-    show catcher angry_2
+    show catcher angry 2
     ca "What I've done? What-What do you mean? What could I have possibly done for you to speak to me {b}this way{/b}."
 
     no "The Falcon's voice continues to be strained, what should be the tone of confusion came off as hostile, demanding and thunderous."
@@ -353,7 +353,7 @@ label corrupted_superstore:
 
     iv "Oh- {b}you did nothing{/b}, of course you'd say that! You don't even remember {b}WHAT YOU DID{/b}!"
 
-    show ivory normal_2
+    show ivory normal 2
     iv "{b}Let me remind you!{/b}"
 
     no "The mockingbird was quick in her movements- shoving a paper in Catcher's direction, forcing him to grasp on it firmly,"
@@ -375,7 +375,7 @@ label corrupted_superstore:
 
     ca "This has {b}nothing to DO{/b} with me?!-"
 
-    show ivory angry_2
+    show ivory angry 2
     iv "-This has {b}EVERYTHING{/b} to do with {b}YOU{/b}."
 
     no "The mockingbird moves, jabbing her wing dead center into the Falcon's feathery chest."
@@ -388,7 +388,7 @@ label corrupted_superstore:
 
     #play music "music/crying woman.wav" fadein 2 fadeout 2
 
-    show ivory sad_sad
+    show ivory sad sad
     voice "voice/i1.wav" 
     iv "You took him {b}away from me{/b}-"
 
@@ -397,7 +397,8 @@ label corrupted_superstore:
 
     no "The mockingbird's talons claw at the Falcon's chest, grabbing- begging, trying to release the sorrow in her voice."
 
-    show ivory sad_sad_sad
+    scene corrupted store dark
+    show ivory sad sad sad
     voice "voice/i3.wav" 
     iv "{b}YOU TOOK HIM AWAY.{/b}"
     voice "voice/i4.wav" 
@@ -441,26 +442,26 @@ label the_crow:
 
     no "Catcher approaches quietly, perching himself right beside the crow, glancing at him wearily. The Falcon's breathing remains unsteady and sporadic, still calming himself down from earlier events."
 
-    show crow default_2 at slightright
+    show crow default 2 at slightright
     cro "Catcher? Are you okay?"
 
     no "The crying crow shows his concern, turning his complete attention towards the Falcon."
 
     no "Catcher meets the white void of the crow's eyes, nodding quickly, shaken up and confused still."
 
-    show catcher sad_2 at slightleft
+    show catcher sad 2 at slightleft
     ca "Y-Yes I'm-I'm fine."
 
     no "The Falcon stills his breathing, yet his appalled resolve is still visible on his face."
 
-    show catcher normal_2
+    show catcher normal 2
     ca "You're- You're alright, right? Like,"
 
     ca "You're here, breathing, with me. Right?"
 
     no "The crow tilts its head on him, its expression dull and soulless, but its intentions say otherwise."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "Benny, please answer me."
 
     no "The Falcon pleads softly, the crying crow- Benny responding with a nod."
@@ -471,7 +472,7 @@ label the_crow:
 
     no "The crow laughs, dry and croaked, but the tone of its voice feels like it would've sounded kind, playful- childlike."
 
-    show catcher angry_2
+    show catcher angry 2
     ca "Then-Then what does this mean?"
 
     no "The Falcon brings up the newspaper from before, showcasing it to the crow, his voice laced with concern and fright."
@@ -484,7 +485,7 @@ label the_crow:
 
     no "The crow asks Catcher, showing the little worry his face can muster up."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "Y-Yeah, I think so... it's-it's Ivory..."
 
     b "Do you wanna tell me what happened?"
@@ -493,7 +494,7 @@ label the_crow:
 
     no "Catcher meets Benny's eyes, trying to find comfort in the sea of nothing."
 
-    show catcher angry_2
+    show catcher angry 2
     ca "I just- I don't- understand why your sister- why {b}Ivory{/b} would accuse me of- of doing {b}this{/b} to you."
 
     no "If the Falcon could try a bit harder, then maybe... he would finally be able to show his true feelings."
@@ -506,7 +507,7 @@ label the_crow:
 
     no "Catcher looks at his dear friend, confusion and frustration building up in him."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "I don't know, I really don't-"
 
     ca "Ivory- She sounded so... so {i}sure{/i} and genuine..."
@@ -517,8 +518,8 @@ label the_crow:
 
     no "The Falcon's voice comes off as a whisper, his eyes trailing to the ground, tone- filled with vulnerability and turmoil."
 
-    hide catcher sad_2
-    show crow default_2
+    hide catcher sad 2
+    show crow default 2
 
     b "It's okay, Kane."
 
@@ -537,9 +538,9 @@ label the_crow:
     with Dissolve(7.0)
     pause 7.0
     stop music
-    show crow snapped_neck
+    show crow snapped neck
     pause 1.0
-    show crow default_2
+    show crow default 2
     show black
     with Dissolve(4.0)
 
@@ -590,14 +591,14 @@ label the_hospital:
 
     no "The Falcon spares no time to seek answers, desperately trying to calm himself with a talon over his chest as he speaks."
 
-    show catcher happy_2
+    show catcher happy 2
     ca "Thank-Thank Phoenix, {i}you're here{/i}."
 
     no "The Falcon grasps on the Bellbird's arms, a face of relief dawning his face."
 
     no "Catcher's confusion remains, a growing agitation building up as his confusion lingers."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "What's-What's happening to me?"
 
     ca "Why are there voices in my head {i}crying to me{/i}?"
@@ -610,7 +611,7 @@ label the_hospital:
 
     no "Catcher's voice trembles and breaks, afraid and confused like a chick asking for its mother."
 
-    show catcher angry_2
+    show catcher angry 2
     ca "Why can't I answer {b}ANY{/b} of what they're telling me?!"
 
     ca "{b}WHAT HAVE {i}I{/i} DONE-?!{/b}"
@@ -625,8 +626,8 @@ label the_hospital:
 
     no "Yet his words weigh like nothing is wrong."
 
-    show catcher angry_2 at slightleft
-    show aven neutral_2 at aven2pos
+    show catcher angry 2 at slightleft
+    show aven neutral 2 at aven2pos
     av "You did nothing, you've done {b}nothing.{/b}"
 
     av "Kane, you're fine."
@@ -635,13 +636,13 @@ label the_hospital:
 
     no "The Falcon caws out a frustrated jeer."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "-Why does every bird keep calling me that-?! Who is Kane-?!"
 
-    show catcher angry_2
+    show catcher angry 2
     no "Aven moves to hold Catcher down by the shoulder, grounding him on the pristine floors of the hospital."
 
-    show aven sad_2
+    show aven sad 2
     av "Shhh..."
 
     no "The Bellbird shushes the Falcon, calming him down methodically."
@@ -650,7 +651,7 @@ label the_hospital:
 
     no "The Falcon's words swallow and croak."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "Tell me, Doctor- Pieter, {b}tell me{/b}."
 
     no "Catcher begs, his words coming out a slur, he's not entirely sure what he's saying anymore."
@@ -659,17 +660,17 @@ label the_hospital:
 
     no "The shudder and cling of the Falcon's movements never wavering with desperation."
 
-    show aven confused_2
+    show aven confused 2
     av "{b}There is no reason for you to not be fine.{/b}"
 
     no "Aven's words ring a reminder."
 
-    show aven happy_2
+    show aven happy 2
     av "You're {b}special{/b}, Kane. {b}You're special{/b}."
 
     no "The Bellbird cradles the weeping Falcon in his wings, how he soothes his shaking with a fatherly pet, shushing him down and tending to his lonesome body."
 
-    show aven neutral_2
+    show aven neutral 2
     av "You have to take these, so you can stay {b}fine{/b}."
 
     no "Piete feigns reassurance in his tone as he hands Kane vials of medicine."
@@ -681,19 +682,20 @@ label the_hospital:
 
     scene hospital
 
-    show aven neutral_2 at slightright
-    show catcher sad_2 at slightleft
+    show BlackBars zorder 10
+    show aven neutral 2 at aven2pos
+    show catcher sad 2 at slightleft
     av "There's {b}nothing wrong{/b} with you, okay?"
 
-    show aven happy_2
+    show aven happy 2
     av "You've just got to manage your illness, {i}big doses{/i}, got it?"
 
     no "The Bellbird pats the Falcon gently as he spoke close for him to whisper into his ears."
 
-    show aven neutral_2
+    show aven neutral 2
     av "I don't want you coming back here now just because you stopped taking them, hm?"
 
-    show aven happy_2
+    show aven happy 2
     av "You were doing so, so well with them before."
 
     no "Pieter pats Kane firmly on the back."
@@ -710,12 +712,12 @@ label the_hospital:
 
     no "A Look of horror dawns on the Bellbird, shaking the Falcon by the wings urgently as he speaks."
 
-    show aven confused_2
+    show aven confused 2
     p "You've... stopped taking... them?"
 
     no "The Falcon forces himself to nod hurriedly."
 
-    show aven angry_2
+    show aven angry 2
     p "You... You foolish boy- always the {b}troublemaker{/b}!"
 
     no "The Bellbird pursues again, taking matters to his own wings."
@@ -731,7 +733,7 @@ label the_hospital:
     #BACKGROUND DARKER + BLURRED except for catcher
     no "Catcher's heavy breathing as he tries to recollect his thoughts, his body wavers, his mind stirs as he struggles to take a good look at the Bellbird."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "Don't..."
 
     no "The Falcon's gaze shakes, the ground beneath him spinning with his thoughts."
@@ -861,52 +863,53 @@ label kill_your_darlings:
 
     scene hospital
     with dissolve3
+    show BlackBars zorder 10
 
     play music "music/CC Somber Hospital Theme.wav" fadein 2 fadeout 2
 
-    show catcher sad_2
+    show catcher sad 2
     no "The Falcon snaps awake back to where he once was, again, he's tucked into one of the patient's rooms in the hospital."
 
     no "His head throbs like before, painful of what occurred as he recalls what happened. The Falcon vaguely remembers Dr. Aven forcing the same medications he's been taking for years down his throat."
 
     no "Catcher shudders remembering the memory. His body feels weak as he tries to stand on his talon from the bed, pondering to himself."
 
-    show catcher angry_2
+    show catcher angry 2
     ca "Why would I do that, did I really? Was that really me?"
 
     no "He breathes heavily, trying to understand it all."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "Doctor Aven- Aziel... they said I'll be fine but why-why...there should be nothing wrong with me..."
 
     no "Questioning himself more as struggles to keep himself stable on his talons, dragging his movements towards the door."
 
-    show catcher normal_2
+    show catcher normal 2
     ca "I'm okay. {b}I'm okay.{/b}"
 
     no "The Falcon exhales."
 
     ca "I'm fine. I have medication, I'm doing {i}fine{/i}, so {b}I should be fine{/b}."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "I wouldn't...I'm okay? I wouldn't do such a thing... why would I...?"
 
-    show catcher angry_2
+    show catcher angry 2
     ca "Did... they lie to me?"
 
     no "Catcher wobbles slightly in his step, grasping the wall as he tries to balance himself upright."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "I was supposed to be {i}cured{/i}, I am better."
 
     ca "I should be better...why would he give me more-? They said I should take it...2 times a day, high dosage and-and..."
 
-    show catcher angry_2
+    show catcher angry 2
     ca "I {i}should{/i} be {b}FINE. WHY AM I {i}NOT CURED{/i}-?!{/b}"
 
     no "The Falcon stumbles."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "Why would they lie to me..."
 
     no "A quiet sob to himself, Catcher takes the pills sitting by the table next to the door."
@@ -923,21 +926,22 @@ label farewell_father_dearest:
 
     scene hospital
     with dissolve2
+    show BlackBars zorder 10
 
     no "Tears fall on the Falcon's face as his emotions slowly start draining his perception of everything."
 
     no "Walking slowly towards the door and keeping his balance the best he can, he twists the doorknob open."
 
-    show catcher sad_2
+    show catcher sad 2
     ca "There's two different labels on that container with different dates... what... were they giving me... all these years... am I okay-?"
 
-    show catcher normal_2
+    show catcher normal 2
     ca "Was this really all to cure me... {b}cure me of {i}what{/i}...?{/b}"
 
-    show catcher sad_2
+    show catcher sad 2
     no "His voice shakes as his suppressed emotions come out as he uncontrollably weeps while struggling to walk out the hospital room."
     
-    show catcher angry_2
+    show catcher angry 2
     ca "Where is he?"
 
     no "The Falcon mutters to himself, finding determination on what's really being done to him."
@@ -950,26 +954,31 @@ label farewell_father_dearest:
 
     no "An unsettling feeling grows within his chest, a brewing hate mixed with bitterness and grinded teeth."
 
-    show catcher angry_2
+    show catcher angry 2
     ca "They {b}{i}lied{/i} to me.{/b}"
 
-    show catcher angry_2 at slightleft
-    show aven confused_2 at slightright
+    show catcher angry 2 at slightleft
+    show aven confused 2 at aven2pos
+    show BlackBars zorder 10
     no "The Falcon almost sees red as the Bellbird enters his line of sight at the end of the hall."
 
     no "Angered at the mere sight of him, how his vision blurs from his reality to the warped reality in his head."
 
+    scene hospital dark
+    show catcher angry 2 at slightleft
+    show aven burnt at aven2pos
+    show BlackBars zorder 10
     no "The {color=#f00}burnt face{/color} of the Bellbird warps his vision."
     #scared text + functionality FIX THIS LATER ALE ALSO GLITCHED
 
-    show aven confused_2
+    show aven confused 2
     no "Adrenaline builds through his body, the Falcon's jaw clenches as he feels the ends of his talon sharpen."
 
     no "He feels his chest burning. Discreetly under his wing, his talons clasp around the syringe of anesthesia he hid in his jacket."
 
     no "Approaching the Bellbird with a murderous intent."
 
-    show catcher angry_2
+    show catcher angry 2
     av "Kane-?"
 
     no "The Falcon strikes once the Bellbird is within reach- stabbing the syringe straight to the Bellbird's neck, his other talon making sure the old bird was captured in his hold."
@@ -980,15 +989,17 @@ label farewell_father_dearest:
 
     no "Drenching the Methanol on his feathers, letting the Bellbird fall to the ground as his body makes a flat 'thud', he ignites the match, mercilessly letting it fall on the Bellbird's feathers."
 
-    hide aven confused_2
-    hide catcher_angry_2
+    hide aven confused 2
+    hide catcher angry 2
     no "The Falcon  watches as the burning bird dances with the kindling flame rising."
 
-    show catcher angry_2
+    show catcher angry 2
     ca "Your brother did {b}the same thing{/b}."
 
     no "Catcher turns to walk past the unconscious, burning Bellbird."
 
+    show hospital dark blur
+    with dissolve3
     ca "Down goes the father, the mother of your son- may your wife's soul be blessed... and your brother."
 
     ca "{i}Monsters{/i} that walk this ground."

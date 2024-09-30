@@ -45,12 +45,12 @@ label _new_task_caught_on_camera_finale:
     "Louis opened the box without hesitation, untying the knot before he was greeted with what seems to be... a broken video recorder?"
     hide broken camera
 
-    show louis scared at tint2
+    show louis scared at tint3
     l "Sir?"
     
     "Louis' voice held confusion with what he was holding in his wings as he searched the bellbird's face for an explanation."
     
-    show aven neutral at tint3
+    show aven neutral at tint2
     a "I know, I know. Listen, I can't say too much since it's confidential information."
     
     show aven thinking
@@ -543,9 +543,17 @@ label _patch_it_up:
     
     "The Eagle instructs Louis bluntly."
     
-    show maverick neutral
+    #show maverick neutral
     m "I need you to hand me that screw driver."
+
+    hide maverick smile
+    call screen hardwarepick
+    if _return == "screwdriver":
+        pass
+    else:
+        jump wrong_choice
     
+    show maverick smile at slightright
     "Louis hands the tiny screwdriver to Maverick."
     
     m "I should have some spare parts that should match whatever...this thing has."
@@ -558,6 +566,13 @@ label _patch_it_up:
     
     jump _you_look_like_youve_been_doing_this_for_a_long_time
 
+label wrong_choice:
+    m "Are 'ya seein' right? this ain't the one I need."
+    jump _patch_it_up
+
+label wrong_choice2:
+    m "Are 'ya seein' right? this ain't the one I need."
+    jump _you_look_like_youve_been_doing_this_for_a_long_time
 
 label _you_look_like_youve_been_doing_this_for_a_long_time:
     
@@ -570,7 +585,7 @@ label _you_look_like_youve_been_doing_this_for_a_long_time:
     
     "Louis initiates, choosing his words carefully."
     
-    show maverick confused
+    show maverick confused at slightright
     "The eagle nods at his words, focusing on his wings."
     
     show maverick neutral
@@ -586,12 +601,20 @@ label _you_look_like_youve_been_doing_this_for_a_long_time:
     show maverick neutral
     m "Wrench."
     
+    hide maverick neutral
+    hide louis normal
+    call screen hardwarepick
+    if _return == "wrench":
+        pass
+    else:
+        jump wrong_choice2
     #The player should drag and drop the 'wrench' item to Maverick, in which he will continue to remove from the video recorder's anatomy.
     #The previous item should return to where it was previously dragged from.
     
     "Louis hands the wrench to Maverick."
     
-    show louis happy
+    show louis happy at slightleft
+    show maverick neutral at slightright
     l "Why not go into healthcare then? Rather than just work on-"
     
     "Louis eyes the surroundings while the Eagle tinkered away."
@@ -617,16 +640,19 @@ label _you_look_like_youve_been_doing_this_for_a_long_time:
     "The Eagle shows Louis the microphone, with one light shake- it also snaps in half completely, exposing the wire in the middle."
     
     show maverick neutral
-    m "Give me a toothpick and that glue, this thing you ought to fix quickly."
-    
-    "The player should drag and drop the 'toothpick' and 'tube glue' item to Maverick, in which he will continue to remove from the video recorder's anatomy."
-    
-    "The previous item should return to where it was previously dragged from."
+    m "Give me that glue, this thing you ought to fix quickly."
+    hide maverick neutral
+    hide louis normal
+    call screen hardwarepick
+    if _return == "glue":
+        pass
+    else:
+        jump wrong_choice2
     
     "Louis continues to watch as the Eagle takes the tube glue and begins to  meticulously put glue on the tip of the toothpick he had previously handed over."
     
-    show louis normal
-    show maverick confused
+    show louis normal at slightleft
+    show maverick confused at slightright
     l "So the hardware thing was your idea, then?"
     
     "Louis curiously asks."

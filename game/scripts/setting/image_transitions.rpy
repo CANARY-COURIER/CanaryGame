@@ -34,11 +34,14 @@ image bennykane 6 = "/benny kane/006.png"
 
 image hospital = "/Backgrounds/hospital hall.jpg"
 image hospital blur = "/Backgrounds/hospital hall blurry.png"
+image hospital dark = "/Backgrounds/hospital hall dark.png"
+image hospital dark blur = "/Backgrounds/hospital hall dark blur.png"
 image basement = "/Backgrounds/basement.png"
 image basement2 = "/Backgrounds/basement2.png"
 image attic = "/Backgrounds/attic.jpg"
 image corrupted outside = "/Backgrounds/Cornfield Town UPDATED.png"
 image corrupted store = "/Backgrounds/Flyaway Superstore UPDATED.png"
+image corrupted store dark = "/Backgrounds/Flyaway Superstore UPDATED dark.png"
 image corrupted store blur = "/Backgrounds/Flyaway Superstore UPDATED Blurry.png"
 image corrupted hospital = "/Backgrounds/Avian Care Patient Room UPDATED.png"
 image daycare 1 = "/Backgrounds/Daycare Room 1.png"
@@ -81,7 +84,7 @@ transform magicpos:
     zoom 0.82
 
 transform aven2pos:
-    xoffset -50
+    xoffset 1000
     yalign 1.0
 
 transform slightleft:
