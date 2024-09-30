@@ -68,6 +68,10 @@ image cinnamonroll = "/images/items/hospital rewards/hospital_cinnaroll.png"
 image grocerybag = "/images/items/supermarket items/grocery_paperbag.png"
 image bouquet = "/images/items/hospital rewards/hospital_bouquet.png"
 
+image checklist lily = "/gui/lily's checklist.png"
+image checklist ivory = "/gui/ivory's checklist.png"
+image checklist aven = "/gui/aven's checklist.png"
+
 image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (225,200)) #image="/images/last_frame.png"
 image interview2 = Movie(channel="movie_dp", play="images/interview2.webm", size = (1300,1200), loop=False)
 image devlog01 = Movie(channel="movie_dp", play="images/devlog 01.webm", size = (1300,1200), loop=False)
@@ -77,6 +81,11 @@ image HAHA = Movie(channel="movie_dp", play="images/HAHA.webm", size = (1300,120
 image static = Movie(play="images/tvstatic.webm", loop=False, size = (1920,1080))
 
 image lightoverlay = "/gui/Light_Overlay.png"
+
+transform checklistpos:
+    yoffset -20
+    xalign 0.5
+    zoom 1.5
 
 transform magicpos:
     yoffset -50

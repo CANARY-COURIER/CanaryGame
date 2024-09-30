@@ -8,6 +8,7 @@ label catcher_day_one:
     scene bedroom blur
     with dissolve3
     # faded bedroom
+    play music "music/CC Horror 2nd Half.ogg" fadein 2 fadeout 2
 
     no "As Catcher peels his eyelids open, his head throbs, a blaring headache that makes his vision go blurry, he balances himself, looking around the dark room he assumes he's in."
 
@@ -349,7 +350,7 @@ label corrupted_superstore:
 
     no "The mockingbird feigns a lunge at the Falcon, Catcher instinctively recoils."
 
-    ca "What-I did nothing to him! I don't even know what you're ACCUSING me off-?!"
+    ca "What-I did nothing to him! I don't even know what you're ACCUSING me of-?!"
 
     iv "Oh- {b}you did nothing{/b}, of course you'd say that! You don't even remember {b}WHAT YOU DID{/b}!"
 
@@ -1013,6 +1014,10 @@ label farewell_father_dearest:
     show evangeline at truecenter
     $ renpy.pause(82.0, hard=True)
     stop movie
-    $ quick_menu = True
+
+    show black
+    with dissolve3
+    play music "music/CC End Credit Track.mp3" fadein 2 fadeout 2
+    call screen credits_display
 
     return

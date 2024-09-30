@@ -54,29 +54,30 @@ label _new_task_shopping_spree_:
     
     hide louis normal
     hide aven neutral
+    show checklist lily at checklistpos
     "Louis opens the folded checklist, reading the big writing scribbled in red that says 'Grocery Errands' looking back at him."
     
     "He takes note of what's listed, simple instructions he knows he'll be able to follow through."
     
     #The game opens up the Louis' checklist, reading the contents it spells out to the player exactly what is expected to be done.
-    "The checklist reads:"
+    # "The checklist reads:"
 
-    "{color=#8b593c}DELIVERY FOR LILY{/color}"
-    "{color=#8b593c}Lily has sent in an evening task she wishes to be fulfilled before '6:00 PM EVENING'."
-    "{color=#8b593c}The task- though plenty, is pretty simple enough, she just needs 5 supermarket items delivered to her doorstep, baking ingredients for the cake she'll be making before her roommate, Sierra, return home.{/color}"
-    "{color=#8b593c}Visit 'Flyway Superstore' Supermarket in 'Cornfield City'{/color}"
-    "{color=#8b593c}Pick the required grocery items from the Supermarket:{/color}"
-    "{color=#8b593c}- A Dozen of Eggs{/color}"
-    "{color=#8b593c}- A Pack of Sugar{/color}"
-    "{color=#8b593c}- A Pack of Flour{/color}"
-    "{color=#8b593c}- A Berry Branch{/color}"
-    "{color=#8b593c}- Two (2) Cartons of Milk{/color}"
-    "{color=#8b593c}Talk with the 'cashier': 'Ivory'{/color}"
-    "{color=#8b593c}Check-out the pastries from Ivory{/color}"
-    "{color=#8b593c}Leave 'Flyway Superstore' Supermarket and go to 'Acorn Street'{/color}"
-    "{color=#8b593c}Find the 'blue  house'  on 'Acorn Street'{/color}"
-    "{color=#8b593c}Deliver the groceries to Lily's doorstep{/color}"
-    "{color=#8b593c}Mark the task as: 'DELIVERED'{/color}"
+    # "{color=#8b593c}DELIVERY FOR LILY{/color}"
+    # "{color=#8b593c}Lily has sent in an evening task she wishes to be fulfilled before '6:00 PM EVENING'."
+    # "{color=#8b593c}The task- though plenty, is pretty simple enough, she just needs 5 supermarket items delivered to her doorstep, baking ingredients for the cake she'll be making before her roommate, Sierra, return home.{/color}"
+    # "{color=#8b593c}Visit 'Flyway Superstore' Supermarket in 'Cornfield City'{/color}"
+    # "{color=#8b593c}Pick the required grocery items from the Supermarket:{/color}"
+    # "{color=#8b593c}- A Dozen of Eggs{/color}"
+    # "{color=#8b593c}- A Pack of Sugar{/color}"
+    # "{color=#8b593c}- A Pack of Flour{/color}"
+    # "{color=#8b593c}- A Berry Branch{/color}"
+    # "{color=#8b593c}- Two (2) Cartons of Milk{/color}"
+    # "{color=#8b593c}Talk with the 'cashier': 'Ivory'{/color}"
+    # "{color=#8b593c}Check-out the pastries from Ivory{/color}"
+    # "{color=#8b593c}Leave 'Flyway Superstore' Supermarket and go to 'Acorn Street'{/color}"
+    # "{color=#8b593c}Find the 'blue  house'  on 'Acorn Street'{/color}"
+    # "{color=#8b593c}Deliver the groceries to Lily's doorstep{/color}"
+    # "{color=#8b593c}Mark the task as: 'DELIVERED'{/color}"
     #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Cornfield Mail Post
     #The game automatically opens the 'Map' for this section, and the player can choose to only access the town street: 'Cornfield City'
     #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in 'Cornfield City'
@@ -228,7 +229,7 @@ label _a_newspaper_bulletin_board:
     
     "The newspaper held with curiosity in his wings as he read on quietly to himself, his eyes widening at the words of the headline that read:"
     
-    "BEN, AN 11 YEAR OLD CHICK PUT DXWN IN AVIAN CARE HOSPITAL"
+    "BEN, AN 11 YEAR OLD CHICK PUT DOWN IN AVIAN CARE HOSPITAL"
     
     "The headline covered mostly the paper with layers of text, what caught Louis' eye mostly was the rectangular drawn picture that took up most of the space next to the contents of the newspaper."
     
@@ -400,8 +401,6 @@ label day_2_concluded:
 
     #DAY 2 CONCLUDED
     
-    "The scene of the game opens up in the 'Aven's Care Hospital' room where it is overseeing the background, only the character 'Louis' will be present for this section."
-    
     "Louis finds himself in familiar surroundings once again, the sort of artificial smell that he can't tell if it's good or not for his body- feels his lungs."
     
     "As the Canary stays perched on the side of his resting loved-one, reading out to them as a sort of way to keep the liveliness, well, alive despite the silence and tranquility."
@@ -423,10 +422,10 @@ label day_2_concluded:
     
     "Louis thought that the cold, plain white room was a bit unsettling to him, originally- he was going to bring the flowers back to his wife; but his mother's patient room could use a bit more color."
     
-    "Especially when both him and his wife the hospital as their second home ever since his mother fell ill."
+    "Especially when both him and his wife visit the hospital as their second home ever since his mother fell ill."
     
     show louis normal
-    l "I bought you a gift again, consider it...something from your son and your daughter-in-law."
+    l "I brought you a gift again, consider it...something from your son and your daughter-in-law."
     
     "Louis smiles as he gently places the bouquet of flowers into the pot now that he had previously cleared the withering roses from before."
     

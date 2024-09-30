@@ -1001,27 +1001,27 @@ label _new_task_pastry_pieces_tutorial_task:
     #show  lightoverlay
 
     # === Display Task Checklist ===
-    
+    show checklist ivory at checklistpos
     "Louis looks to his checklist again. 'Bakery Delivery' greets him in bold, red scribbles as he reads on, taking note of the simple instructions listed."
     
     #The game opens up the Louis' checklist, reading the contents it spells out to the player exactly what is expected to be done.
     
     # === Task Instructions: Display step-by-step delivery tutorial ===
 
-    "This is what it reads:"
-    "'DELIVERY FOR IVORY'"
-    "{color=#8b593c}Ivory has sent in a morning task she wishes to be fulfilled before 12:00 PM MORNING.{/color}"
-    "{color=#8b593c}The task is simple enough, she just needs 2 pastry goods delivered to her doorstep since she has been craving sweets lately.{/color}"
-    "{color=#8b593c}Visit 'Daily Delights' Bakery in 'Cornfield City'{/color}"
-    "{color=#8b593c}Talk with the baker: 'Elio'{/color}"
-    "{color=#8b593c}Pick the required pastries from Elio's Bakery{/color}"
-    "{color=#8b593c}- A Slice of Apple Pie{/color}"
-    "{color=#8b593c}- A Cinnamon Bun{/color}"
-    "{color=#8b593c}Check-out the pastries from Elio{/color}"
-    "{color=#8b593c}Leave 'Daily Delights' Bakery and go to 'Acorn Street'{/color}"
-    "{color=#8b593c}Find the red house on 'Acorn Street'{/color}"
-    "{color=#8b593c}Delivery the pastries to Ivory's doorstep{/color}"
-    "{color=#8b593c}Mark the task as: DELIVERED{/color}"
+    # "This is what it reads:"
+    # "'DELIVERY FOR IVORY'"
+    # "{color=#8b593c}Ivory has sent in a morning task she wishes to be fulfilled before 12:00 PM MORNING.{/color}"
+    # "{color=#8b593c}The task is simple enough, she just needs 2 pastry goods delivered to her doorstep since she has been craving sweets lately.{/color}"
+    # "{color=#8b593c}Visit 'Daily Delights' Bakery in 'Cornfield City'{/color}"
+    # "{color=#8b593c}Talk with the baker: 'Elio'{/color}"
+    # "{color=#8b593c}Pick the required pastries from Elio's Bakery{/color}"
+    # "{color=#8b593c}- A Slice of Apple Pie{/color}"
+    # "{color=#8b593c}- A Cinnamon Bun{/color}"
+    # "{color=#8b593c}Check-out the pastries from Elio{/color}"
+    # "{color=#8b593c}Leave 'Daily Delights' Bakery and go to 'Acorn Street'{/color}"
+    # "{color=#8b593c}Find the red house on 'Acorn Street'{/color}"
+    # "{color=#8b593c}Delivery the pastries to Ivory's doorstep{/color}"
+    # "{color=#8b593c}Mark the task as: DELIVERED{/color}"
     #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Aves Courier Center
     #The game automatically opens the 'Map' for this section, and the player can choose to only access the town street: 'Cornfield City'
     #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in 'Cornfield City', the player may only interact with 'Daily Delights' for this section

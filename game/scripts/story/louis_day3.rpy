@@ -115,20 +115,21 @@ label _new_task_caught_on_camera_finale:
     
     "Louis only bows in goodbye with that, knowing he won't be acknowledged any longer- he turns to leave, setting to fly off towards the city again."
     
+    show checklist aven at checklistpos
     "This time, the list reads:"
-    #The game opens up the Louis' checklist, reading the contents it spells out to the player exactly what is expected to be done.
-    "{color=#8b593c}'DELIVERY FOR AVEN'{/color}"
-    "{color=#8b593c}Aven has assigned a very special task just for Louis to complete, while for this task-{/color}"
-    "{color=#8b593c}there is no time requirement to fulfill, he is tasked to help out 'Maverick' from the 'Feathered Fixer' Hardware to restore 'one (1) broken video recorder' back to it's new and working state.{/color}"
-    "{color=#8b593c}- Visit 'Feathered Fixer' Hardware in 'Cornfield City'{/color}"
-    "{color=#8b593c}- Talk with 'the repairman': 'Maverick'{/color}"
-    "{color=#8b593c}- Fix the 'broken video recorder' with Maverick{/color}"
-    "{color=#8b593c}- Check-out the 'fixed video recorder' from Maverick{/color}"
-    "{color=#8b593c}- Leave 'Feathered Fixer' Hardware and go to 'Aves Courier Center'{/color}"
-    "{color=#8b593c}- Find 'Aven'{/color}"
-    "{color=#8b593c}- Deliver the fixed video recorder back to Aven{/color}"
-    "{color=#8b593c}- Mark the task as: 'DELIVERED'{/color}"
-    #############################################
+    # #The game opens up the Louis' checklist, reading the contents it spells out to the player exactly what is expected to be done.
+    # "{color=#8b593c}'DELIVERY FOR AVEN'{/color}"
+    # "{color=#8b593c}Aven has assigned a very special task just for Louis to complete, while for this task-{/color}"
+    # "{color=#8b593c}there is no time requirement to fulfill, he is tasked to help out 'Maverick' from the 'Feathered Fixer' Hardware to restore 'one (1) broken video recorder' back to it's new and working state.{/color}"
+    # "{color=#8b593c}- Visit 'Feathered Fixer' Hardware in 'Cornfield City'{/color}"
+    # "{color=#8b593c}- Talk with 'the repairman': 'Maverick'{/color}"
+    # "{color=#8b593c}- Fix the 'broken video recorder' with Maverick{/color}"
+    # "{color=#8b593c}- Check-out the 'fixed video recorder' from Maverick{/color}"
+    # "{color=#8b593c}- Leave 'Feathered Fixer' Hardware and go to 'Aves Courier Center'{/color}"
+    # "{color=#8b593c}- Find 'Aven'{/color}"
+    # "{color=#8b593c}- Deliver the fixed video recorder back to Aven{/color}"
+    # "{color=#8b593c}- Mark the task as: 'DELIVERED'{/color}"
+    # #############################################
     
     jump _the_fix_the_recorder
 
