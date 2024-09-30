@@ -56,6 +56,11 @@ define sprt.BIG_TEXT = int(gui.text_size*1.4)
 define sprt.MED_TEXT = gui.text_size
 define sprt.SMALL_TEXT = int(gui.text_size*0.8)
 
+init python:
+    config.underlay.append(
+        renpy.Keymap( 
+            K_i = lambda: renpy.run( ShowMenu("image_tools") ) ) )
+
 ## Everything beyond this point is not meant to be edited by the user, but
 ## you're welcome to read it for learning purposes.
 ################################################################################

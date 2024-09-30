@@ -729,6 +729,7 @@ label _tutorial_conclusion:
     "He strolled casually, his eyes peeled finding the 'red house' on the main street."
     
     show louis anxious at tint4
+    
     l "It should be around here...better get these to Miss Ivory before I run out of time and she cancels on me."
     
     "The player will be able to hover their mouse and walk around the area to choose which house they will be able to go to- for this section, only the red house's door is available for access."
@@ -784,7 +785,6 @@ label _tutorial_conclusion:
         "I'm glad to be able to serve you.":
             jump im_glad_to_be_able_to_serve_you
 
-
 # 2d platform view.
 label _peregrine_interaction_1:
 
@@ -825,7 +825,7 @@ label _peregrine_interaction_1:
             jump no_he_definitely_hunted_me_down
 
 
-# 2d platform view.
+
 label _bellbird_interaction:
 
     #""" Interaction Placeholder """
