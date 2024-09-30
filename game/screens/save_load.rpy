@@ -19,7 +19,7 @@ screen save():
 
     add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
-    use file_slots(_("Save"))
+    use file_slots(_("Save"))  
 
 
 screen load():
@@ -32,18 +32,19 @@ screen load():
 
 
 screen file_slots(title):
-
-    default page_name_value = FilePageNameInputValue(
-        pattern=_("Page {}"), auto=_("Automatic saves"),
-        quick=_("Quick saves"))
+    # default page_name_value = FilePageNameInputValue(
+    #     pattern=_("Page {}"), auto=_("Automatic saves"),
+    #     quick=_("Quick saves"))
 
     use game_menu(title)
-
     frame:
         background None
         style_prefix "slot"
+        
         viewport:
-            mousewheel True draggable True pagekeys True
+            mousewheel True 
+            # draggable True 
+            # pagekeys True
             scrollbars 'vscrollbar'
             xoffset 640
             yoffset 270
@@ -54,22 +55,21 @@ screen file_slots(title):
                 for i in range(25):  # You can adjust the number of slots as needed
                     $ slot = i + 1
                     button:
-                        background None
+                        background "./gui/button/slot_idle_background.png"
                         action FileAction(slot)
                         has hbox
-                        # spacing 5
-                        frame:
-                            background "./gui/slot.png"
-                            # xfill True
-                            add AlphaMask(Transform(FileScreenshot(slot), crop=(50, 0, 950, 1080), fit='contain'), mask=Transform(Image("./gui/slot.png"), zoom=0.91)):
-                                xcenter 0.52
-                                ycenter 0.52
+                        add AlphaMask(Transform(FileScreenshot(slot), crop=(50, 0, 1200, 1080), fit='contain'), mask=Transform(Image("./gui/button/slot_mask.png"), zoom=0.9)):
+                            xcenter 0.53
+                            ycenter 0.54
+                            # 'contain'
                         ## Display save time and name
-                        default is_empty = FileTime(slot, format=_(""), empty=_("empty slot"))
+                        # default is_empty = FileTime(slot, format=_(""), empty=_("empty slot"))
                         text FileTime(slot,
                                 format=_("{#file_time}%A, %B %d %Y, %H:%M"),
                                 empty=_("empty slot")):
                             style "slot_time_text"
+                        text FileSaveName(slot):
+                            style 'slot_name_text'
                         ## Enable delete on hover + key press
                         # key "save_delete" action FileDelete(slot)
                         fixed:
@@ -101,6 +101,11 @@ style slot_grid:
     xalign 0.5
     yalign 0.5
     spacing 15
+
+style slot_name_text:
+    size 30
+    xalign 0.0
+    yalign 0.1
 
 style slot_time_text:
     size 30
