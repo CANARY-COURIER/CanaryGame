@@ -63,6 +63,7 @@ image camera fixed = "/images/items/fixed camera.png"
 image itch = "/gui/itch page.png"
 image cinnamonroll = "/images/items/hospital rewards/hospital_cinnaroll.png"
 image grocerybag = "/images/items/supermarket items/grocery_paperbag.png"
+image bouquet = "/images/items/hospital rewards/hospital_bouquet.png"
 
 image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (225,200)) #image="/images/last_frame.png"
 image interview2 = Movie(channel="movie_dp", play="images/interview2.webm", size = (1300,1200), loop=False)
@@ -73,6 +74,11 @@ image HAHA = Movie(channel="movie_dp", play="images/HAHA.webm", size = (1300,120
 image static = Movie(play="images/tvstatic.webm", loop=False, size = (1920,1080))
 
 image lightoverlay = "/gui/Light_Overlay.png"
+
+transform magicpos:
+    yoffset -50
+    xalign 0.5
+    zoom 0.82
 
 transform slightleft:
     xalign 0.18
@@ -109,6 +115,11 @@ transform tint5:
 transform tint6:
     matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
     slightleft
+
+transform tintlily:
+    matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
+    xalign 0.8
+    yalign 1.0
 
 transform tinthospital:
     matrixcolor TintMatrix("#adb2bb")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)

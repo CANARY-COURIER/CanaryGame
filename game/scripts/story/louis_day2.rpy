@@ -658,7 +658,7 @@ label deny_deny_deny:
     
     "Aven reaches his hold on Louis again, almost dragging him on his feet when he ushers him out."
 
-    jump jump day_2_continuation
+    jump day_2_continuation
 
 
 label peregrine_interaction_2:
@@ -937,7 +937,8 @@ label investigate_the_figure:
     l "O-Oh! W-We were? My-My apologies..."
     
     "A part of Louis thought to himself, was this an evil spirit his mother spoke of? He had never interacted with them before, an unfamiliar face so to say- but then again he's assuming again."
-    
+    hide deadanim with dissolve1
+
     "The Crow smiles at Louis."
     
     "Louis' eyes widened softly- it wasn't the sort of smile he'd expect to receive."
@@ -956,24 +957,25 @@ label investigate_the_figure:
     
     "The Crow chirps, the sound is shallow and empty, but happily nonetheless."
     
-    scene white
-    show magic trick 1
+    $ half = 0.5
+    scene acorn street
+    show magic trick 1 at magicpos
 
     "???" "I was just showing you a magic trick, friend!"
     
-    show magic trick 2
+    show magic trick 2 at magicpos
     
     "The Crow spins around on its talons as Louis watches, it did this a few times before it stopped, facing him once again."
     
-    show magic trick 3
+    show magic trick 3 at magicpos
 
     "It huffs his chest as it closes its eyes, its chest bubbling up- ridiculously big."
     
-    show magic trick 4
+    show magic trick 4 at magicpos
 
     "Louis takes a step back instinctively, his naturally cautious being acting ahead of him, but he watches on to cater his curiosity."
     
-    show magic trick 5
+    show magic trick 5 at magicpos
 
     "The Crow opened its eyes as it looked down on the Canary."
     
@@ -981,28 +983,28 @@ label investigate_the_figure:
     
     "Louis nods, despite his cautionary stance, he lets it proceed."
 
-    show magic trick 6
+    show magic trick 6 at magicpos
     
     "The Crow smiles as it continues, its chest bubbling up like a hot air balloon on an open summer day- casting a shadow before Louis as its size grew."
     
-    show magic trick 7
+    show magic trick 7 at magicpos
 
     "And before Louis knew it- the bubbled up chest exploded, from his beak came a rainfall of stars and fireworks."
     
     "Like a magic trick."
 
-    show magic trick 8
+    show magic trick 8 at magicpos
     
     "Louis watches the sky in awe as a whimsical shower of colors dawns onto him."
 
-    show magic trick 9
+    show magic trick 9 at magicpos
     
     "Louis looks back at the Crow that admired its handiwork, its stare blank but its smile big and proud."
-    
-    hide deadanim
 
+    $ half = 1
     scene acorn street
     show lightoverlay
+    show blackbars zorder 10
     with dissolve3
     
     show louis normal at tint3
@@ -1033,6 +1035,7 @@ label investigate_the_figure:
     show louis anxious
     l "O-Of course, see you-..."
     hide louis anxious
+    hide crow normal
     
     "The Canary leaves promptly- hurriedly on his talons, as if something in him clicks; an understanding he had not connected the dots before."
     
@@ -1078,7 +1081,7 @@ label _deliver_to_lily_01:
     
     "???" "Ah, you must be the courier I've been expecting?"
     
-    show lily happy at tint2
+    show lily happy at tintlily
     "The budgie extends a wing in which Louis happily takes with a firm graze."
     
     show louis normal at tint3
@@ -1112,8 +1115,14 @@ label _deliver_to_lily_01:
     show lily neutral
     li "This should be everything I needed, thank you, dear."
     
+    hide lily neutral
+    hide louis happy
+    show bouquet
     "Louis watches as Lily sets the bag elsewhere for now."
     
+    hide bouquet
+    show louis happy at tint3
+    show lily neutral at tintlily
     li "The ingredients, it's for my roommate, Sierra."
     
     show lily anxious
