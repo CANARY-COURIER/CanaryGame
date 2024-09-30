@@ -18,6 +18,7 @@ define p = Character('Pieter', what_font="/fonts/AveriaSerifLibre-Regular.ttf", 
 
 default half = 1.5
 default day = 1
+default figure_investigated = False
 
 image streetview = "/Backgrounds/Street View.png"
 image acorn street = "/Backgrounds/Acorn Street Day Closed Doors.png"
@@ -30,7 +31,7 @@ image aves courier center inside = "/Backgrounds/Aves Courier Center Interior.pn
 image daily delights = "/Backgrounds/Daily Delights No Bread.png"
 image daily delights pick = "/Backgrounds/Daily Delights Ivory.png"
 image cornfield mail post = "/Backgrounds/Cornfield Mail Post.png"
-image cornfield map = "/Backgrounds/Cornfield Town Map.png"
+image cornfield town = "/Backgrounds/Cornfield Town Map.png"
 image feathered fixer = "/Backgrounds/Feathered Fixer Side View.png"
 image flyaway superstore = "/Backgrounds/Flyaway Superstore.png"
 image avian care hallway = "/Backgrounds/Avian Care Hallway.png"
@@ -57,13 +58,17 @@ image hospital = "/Backgrounds/hospital hall.jpg"
 image hospital blur = "/Backgrounds/hospital hall blurry.png"
 image basement = "/Backgrounds/basement.png"
 image basement2 = "/Backgrounds/basement2.png"
-image attic = "/Backgrounds/attic.png"
+image attic = "/Backgrounds/attic.jpg"
 image corrupted outside = "/Backgrounds/Acorn Street UPDATED.png"
 image corrupted store = "/Backgrounds/Flyaway Superstore UPDATED.png"
 image corrupted store blur = "/Backgrounds/Flyaway Superstore UPDATED Blurry.png"
 image corrupted hospital = "/Backgrounds/Avian Care Patient Room UPDATED.png"
 image daycare 1 = "/Backgrounds/Daycare Room 1.png"
 image daycare 2 = "/Backgrounds/Daycare Room 2.png"
+image bedroom = "/Backgrounds/bedroom.png"
+image bedroom blur = "/Backgrounds/bedroom blur.png"
+image bedroom attic = "/Backgrounds/bedroom attic.png"
+image bedroom basement = "/Backgrounds/bedroom basement.png"
 
 image achievement = "/gui/AchievementBackground.png"
 image achievementivory = "/gui/AchievementIvory.png"
@@ -71,9 +76,20 @@ image achievementlily = "/gui/AchievementLily.png"
 image achievementaven = "/gui/AchievementAven.png"
 image newspaper text = "/gui/newspapertext.png"
 image blackopacity = "/gui/BlackOpacity.png"
+image post clipping = "/images/items/post office items/post_clipping.png"
+image post letter = "/images/items/post office items/post_letter.png"
+image post package = "/images/items/post office items/post_package.png"
+image supermarket items = "/images/items/supermarket.png"
+image broken camera = "/images/items/broken camera.png"
+image camera fixed = "/images/items/fixed camera.png"
+image itch = "/gui/itch page.png"
 
 image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (215,190), image="/images/last_frame.png")
-image argument = Movie(channel="movie_dp", play="images/arguement.webm", loop=False)
+image interview2 = Movie(channel="movie_dp", play="images/interview2.webm", size = (1300,1200), loop=False)
+image devlog01 = Movie(channel="movie_dp", play="images/devlog 01.webm", size = (1300,1200), loop=False)
+image evangeline = Movie(channel="movie_dp", play="images/Evangelineknows.webm", size = (1300,1200), loop=False)
+image arguement = Movie(channel="movie_dp", play="images/arguement.webm", size = (1300,1200), loop=False)
+image HAHA = Movie(channel="movie_dp", play="images/HAHA.webm", size = (1300,1200), loop=False)
 image static = Movie(play="images/tvstatic.webm", loop=False, size = (1920,1080))
 
 image lightoverlay = "/gui/Light_Overlay.png"
@@ -389,7 +405,7 @@ label _new_task_pastry_pieces_tutorial_task:
     #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in 'Cornfield City', the player may only interact with 'Daily Delights' for this section
     #The player is then greeted by a transition cutscene that starts the Bakery Mini-game dialogue
     
-    scene cornfield map
+    scene cornfield town
     with dissolve3
     pause 3.0
     scene daily delights
@@ -676,11 +692,12 @@ label _peregrine_interaction_1:
     "He is set to check off another box from his checklist, and that is: traveling to Ivory's doorstep in Acorn Street."
     
     "But before he can continue onto his journey, he notices a familiar Falcon in his view..."
-    
+
     #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Daily Delights Bakery, with the character 'Catcher' a few blocks away.
     #The player should be able to move 'Louis' to interact with 'Catcher'.
     
     scene acorn street
+    with dissolve3
     show lightoverlay
     
     "The Peregrine Falcon watched the Canary bird with an observant gaze."
@@ -837,13 +854,9 @@ label peregrine_int_continuation_1:
 label _tutorial_conclusion:
     
     #TUTORIAL CONCLUSION
+    #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the town street of 'Cornfield City'
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the town street of 'Cornfield City'.{/color}"
-    #############################################
-    
-    scene acorn street
+    scene cornfield city
     show  lightoverlay
 
     "Louis stands idly on the main street of the town, reminded again of the task in hand as he pulls out his check-list from his pocket, marking the finished ones so far."
@@ -853,14 +866,12 @@ label _tutorial_conclusion:
     
     "Louis noted mentally as he prepared to take flight again."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game highlights the 'map' option, allowing the player to travel to three locations: AVES COURIER CENTER, CORNFIELD CITY (currently standing), ACORN STREET.{/color}"
-    "{color=#f00}The map should highlight the 'ACORN STREET' location to guide the player where they need to be in order to finish the task.{/color}"
-    "{color=#f00}The player will be transported in front of rows of tree houses - indicating local bird's houses.{/color}"
-    #############################################
+    #The game highlights the 'map' option, allowing the player to travel to three locations: AVES COURIER CENTER, CORNFIELD CITY (currently standing), ACORN STREET.
+    #The map should highlight the 'ACORN STREET' location to guide the player where they need to be in order to finish the task.
+    #The player will be transported in front of rows of tree houses - indicating local bird's houses.
     
     scene streetview
+    with dissolve3
 
     "Louis arrives at his final destination shortly, the rows of bird houses filling his view as the familiar area is felt under his talons."
     
@@ -1001,8 +1012,9 @@ label day_1_concluded:
     $ renpy.pause(3.0)
     
     #DAY 1 CONCLUDED
-    scene avian care hallway
+    scene avian care room
     with dissolve3
+    $ is_daytime = False
 
     stop music fadeout 2.0
     
@@ -1110,19 +1122,28 @@ label day_1_concluded:
     
     "Safely returning to the comforts of his home, and ending the day off with a successful delivery- and an interesting day with new faces."
 
+    stop music fadeout 3
     scene black
-    with dissolve3
+    with Dissolve(10.0)
+    $ quick_menu = False
+    show interview2 at truecenter
+    $ renpy.pause(90.0, hard=True)
+    stop movie
+    $ quick_menu = True
+
     $ day = 2
 
     jump day_2
 
 
 label day_2:
+    $ day = 2
+    $ is_daytime = True
 
-    play music "music/CC Main Story Dialogue Theme.wav" fadein 3 fadeout 3
+    play music "music/CC Main Story Dialogue Theme.wav" fadein 5 fadeout 3
 
-    scene aves courier center
-    with dissolve3
+    scene aves courier center inside
+    with Dissolve(10.0)
 
     show louis normal at shadow3
     show aven neutral at shadow2
@@ -1144,11 +1165,11 @@ label day_2:
     hide aven thinking
     hide louis normal
     "Louis hums in thought, being left to his own devices- he might as well explore what the room has to offer for a bit."
+
+    "There are several things lying around."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The 'Cornfield Mail Post' background will have some interactable items to note: 'A Newspaper Bulletin Board', 'A Stack of Boxes at the far end right', and some 'Mail scattered on the ground.'{/color}"
-    "{color=#f00}The character 'Louis' will be able to move around this room, and the player may hover over items that should highlight the interactable items.{/color}"
+    #The 'Cornfield Mail Post' background will have some interactable items to note: 'A Newspaper Bulletin Board', 'A Stack of Boxes at the far end right', and some 'Mail scattered on the ground.
+    #The character 'Louis' will be able to move around this room, and the player may hover over items that should highlight the interactable items.
 
     menu:
         "A Newspaper Bulletin Board":
@@ -1157,7 +1178,6 @@ label day_2:
             jump _a_stack_of_boxes
         "A Letter Mail Scattered on the Floor":
             jump _a_letter_mail_scattered_on_the_floor
-    #############################################    
 
 
 label _a_newspaper_bulletin_board:
@@ -1170,7 +1190,8 @@ label _a_newspaper_bulletin_board:
     
     "The headline covered mostly the paper with layers of text, what caught Louis' eye mostly was the rectangular drawn picture that took up most of the space next to the contents of the newspaper."
     
-    # SHOW PICTURE
+    show post clipping
+    with dissolve1
 
     "It showed the drawing of a young mockingbird chick, or from the looks of what he could observe."
 
@@ -1182,6 +1203,7 @@ label _a_newspaper_bulletin_board:
     "Was that this mockingbird passed early, mysteriously so- in the hands of the local hospital where his mother resides in, if that wasn't in the tiniest bit concerning then he wasn't sure what is."
     
     "Not wanting to let his thoughts run south even more, he places the newspaper clipping to where he found it, leaving it be."
+    hide post clipping
     
     jump _bellbirds_suspicion
 
@@ -1192,6 +1214,9 @@ label _a_stack_of_boxes:
 
     "But there his eyes catches the opposite, picking up the rectangular box on the top of the stack, he immediately recognizes the names tagged on the box as it reads:"
     
+    show post package
+    with dissolve1
+
     "TO: AZIEL, FROM: AVEN"
     
     "His brow muscles knot together as his curiosity piques, there was a bit of scratching damage on the box itself, but it wasn't enough for him to see entirely what it was inside..."
@@ -1201,6 +1226,7 @@ label _a_stack_of_boxes:
     "Louis wasn't one to pry so much more, look through the personal belongings of others unless he was explicitly told so that he was allowed, killing the part that made him wonder-"
     
     "He puts the box back at the top of the stack, leaving it be there without another thought of it."
+    hide post package
     
     jump _bellbirds_suspicion
 
@@ -1215,6 +1241,9 @@ label _a_letter_mail_scattered_on_the_floor:
     
     "As he opened the letter curiously, the familiar doctor came to his view as the letter came from Doctor Aziel. He piqued a bit as he read out a bit of the contents of the letter:"
     
+    show post letter
+    with dissolve1
+
     "To Aven,\nAves Courier Center"
     
     "While I hope this letter finds you in good health, this is an urgent warning to whoever this letter may cross, Aven or not,  there has been a new patient placed under my wing, an alarming one at that."
@@ -1232,6 +1261,7 @@ label _a_letter_mail_scattered_on_the_floor:
     "Stepping back as he tried to recollect his composure, he wasn't sure how recent that letter was, but he wasn't supposed to be seeing it."
 
     "While it'll be hard to erase the contents of that letter from his memory, he was best not touching anything else before it cost him."
+    hide post letter
     
     jump _bellbirds_suspicion
 
@@ -1404,38 +1434,40 @@ label _new_task_shopping_spree_:
     
     "He takes note of what's listed, simple instructions he knows he'll be able to follow through."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game opens up the Louis' checklist, reading the contents it spells out to the player exactly what is expected to be done.{/color}"
-    "{color=#f00}DELIVERY FOR LILY{/color}"
-    "{color=#f00}Lily has sent in an evening task she wishes to be fulfilled before '6:00 PM EVENING'{/color}"
-    "{color=#f00}The task- though plenty, is pretty simple enough, she just needs '5 supermarket items' delivered to her doorstep, baking ingredients for the cake she'll be making before her roommate, Sierra, return home.{/color}"
-    "{color=#f00}* Visit 'Flyway Superstore' Supermarket in 'Cornfield City'{/color}"
-    "{color=#f00}* Pick the required grocery items from the Supermarket:{/color}"
-    "{color=#f00}    * A Dozen of Eggs{/color}"
-    "{color=#f00}    * A Pack of Sugar{/color}"
-    "{color=#f00}    * A Pack of Flour{/color}"
-    "{color=#f00}    * A Berry Branch{/color}"
-    "{color=#f00}    * Two (2) Cartons of Milk{/color}"
-    "{color=#f00}* Talk with the 'cashier': 'Ivory'{/color}"
-    "{color=#f00}* Check-out the pastries from Ivory{/color}"
-    "{color=#f00}* Leave 'Flyway Superstore' Supermarket and go to 'Acorn Street'{/color}"
-    "{color=#f00}* Find the 'blue  house'  on 'Acorn Street'{/color}"
-    "{color=#f00}* Deliver the groceries to Lily's doorstep{/color}"
-    "{color=#f00}* Mark the task as: 'DELIVERED'{/color}"
-    "{color=#f00}The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Cornfield Mail Post{/color}"
-    "{color=#f00}The game automatically opens the 'Map' for this section, and the player can choose to only access the town street: 'Cornfield City'{/color}"
-    "{color=#f00}The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in 'Cornfield City',{/color}"
-    "{color=#f00}the player may interact with the character 'Catcher' or go straight to 'Flyway Superstore' for this section{/color}"
-    #############################################
+    #The game opens up the Louis' checklist, reading the contents it spells out to the player exactly what is expected to be done.
+    "The checklist reads:"
+
+    "{color=#8b593c}DELIVERY FOR LILY{/color}"
+    "{color=#8b593c}Lily has sent in an evening task she wishes to be fulfilled before '6:00 PM EVENING'."
+    "{color=#8b593c}The task- though plenty, is pretty simple enough, she just needs 5 supermarket items delivered to her doorstep, baking ingredients for the cake she'll be making before her roommate, Sierra, return home.{/color}"
+    "{color=#8b593c}Visit 'Flyway Superstore' Supermarket in 'Cornfield City'{/color}"
+    "{color=#8b593c}Pick the required grocery items from the Supermarket:{/color}"
+    "{color=#8b593c}- A Dozen of Eggs{/color}"
+    "{color=#8b593c}- A Pack of Sugar{/color}"
+    "{color=#8b593c}- A Pack of Flour{/color}"
+    "{color=#8b593c}- A Berry Branch{/color}"
+    "{color=#8b593c}- Two (2) Cartons of Milk{/color}"
+    "{color=#8b593c}Talk with the 'cashier': 'Ivory'{/color}"
+    "{color=#8b593c}Check-out the pastries from Ivory{/color}"
+    "{color=#8b593c}Leave 'Flyway Superstore' Supermarket and go to 'Acorn Street'{/color}"
+    "{color=#8b593c}Find the 'blue  house'  on 'Acorn Street'{/color}"
+    "{color=#8b593c}Deliver the groceries to Lily's doorstep{/color}"
+    "{color=#8b593c}Mark the task as: 'DELIVERED'{/color}"
+    #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) Cornfield Mail Post
+    #The game automatically opens the 'Map' for this section, and the player can choose to only access the town street: 'Cornfield City'
+    #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in 'Cornfield City'
+    #the player may interact with the character 'Catcher' or go straight to 'Flyway Superstore' for this section
     
-    scene acorn street
-    show lightoverlay
+    scene cornfield town
+    with dissolve2
+    #show lightoverlay
+
+    "As he makes his way out, he sees someone familiar in the distance."
     
     menu:
-        "PEREGRINE INTERACTION 2":
+        "GO UP TO HIM":
             jump peregrine_interaction_2
-        "FLYWAY SUPERSTORE":
+        "ENTER THE FLYAWAY SUPERSTORE":
             jump flyway_superstore
 
 label peregrine_interaction_2:
@@ -1490,8 +1522,7 @@ label peregrine_interaction_2:
 
 label flyway_superstore:
 
-    #scene supermarket
-    scene streetview
+    scene flyaway superstore
     
     "Louis finds himself inside the all familiar sign of the supermarket that read: 'Flyway Superstore' wherein he gets his own deal of supplies for daily living himself, pushing past the other birds in his way."
     
@@ -1499,16 +1530,20 @@ label flyway_superstore:
     
     "Louis easily browsed through the 'general goods' section of the rows of shelves, each aisle containing different items."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game showcases a packed grocery shelf aisle in full view- it shows there are four (5) hoverable choices to pick from:{/color}"
-    "{color=#f00}An Egg Tray / A Carton of Milk / A Bag of Sugar / A Bag of Flour / A Branch of Berries.{/color}"
-    "{color=#f00}Louis- the player, has to pick two (6) grocery items to be dragged into their inventory: (1) An Egg Tray / (2) A Carton of Milk / (1) A Bag of Sugar / (1) A Bag of Flour / (1) A Branch of Berries.{/color}"
-    "{color=#f00}The player can choose if they are done or not with buttons that read: CONTINUE BROWSING / FINISH BROWSING.{/color}"
+    #The game showcases a packed grocery shelf aisle in full view- it shows there are four (5) hoverable choices to pick from:{/color}"
+    #An Egg Tray / A Carton of Milk / A Bag of Sugar / A Bag of Flour / A Branch of Berries.{/color}"
+    #Louis- the player, has to pick two (6) grocery items to be dragged into their inventory: (1) An Egg Tray / (2) A Carton of Milk / (1) A Bag of Sugar / (1) A Bag of Flour / (1) A Branch of Berries.{/color}"
+    #The player can choose if they are done or not with buttons that read: CONTINUE BROWSING / FINISH BROWSING.{/color}"
+
+    "Referencing his checklist, he picked up what his client needed."
+
+    show supermarket items
+    with dissolve1
+    "An egg tray, two cartons of milk, some sugar, flour, and some berries."
     #############################################
     
     "Louis hums satisfied as he begins to walk towards the cashier after getting all the stuff he needed to get for his customer."
-    
+    hide supermarket items
     show louis normal at tint4
     l "This should be all Miss Lily needs..."
     
@@ -1790,10 +1825,8 @@ label _peregrine_int_2_conclusion:
 
 label _lily_task_conclusion:
 
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the town street of 'Cornfield City'{/color}"
-    #############################################
+    #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the town street of 'Cornfield City'
+    scene cornfield city
     
     "Louis finds himself on the main street of the city again, huffing lightly with the heavy items he carried in his bag, he opens his map again to see where he should be headed."
     
@@ -1802,11 +1835,8 @@ label _lily_task_conclusion:
     
     "Louis noted mentally as he prepared to take flight again."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game highlights the 'map' option, allowing the player to travel to three locations: AVES COURIER CENTER, CORNFIELD CITY (currently standing), ACORN STREET.{/color}"
-    "{color=#f00}The player will be transported in front of rows of tree houses - indicating local bird's houses.{/color}"
-    #############################################
+    #The game highlights the 'map' option, allowing the player to travel to three locations: AVES COURIER CENTER, CORNFIELD CITY (currently standing), ACORN STREET.
+    #The player will be transported in front of rows of tree houses - indicating local bird's houses.
     
     scene acorn street
     show lightoverlay
@@ -1817,18 +1847,15 @@ label _lily_task_conclusion:
     
     "But before he continues- something else catches his eyes, just at the end of the road, by the white house- a figure stands idle."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The player will be able to hover their mouse and walk around the area to choose which house they will be able to go to-{/color}"
-    "{color=#f00}for this section, they may choose to access the blue house or the strange figure.{/color}"
-    "{color=#f00}The player will be transported in front of rows of tree houses - indicating local bird's houses.{/color}"
-    #############################################
+    #The player will be able to hover their mouse and walk around the area to choose which house they will be able to go to-
+    #for this section, they may choose to access the blue house or the strange figure.
+    #The player will be transported in front of rows of tree houses - indicating local bird's houses.
     
     menu:
         "INVESTIGATE THE FIGURE":
             jump investigate_the_figure
-        "DELIVER TO LILY":
-            jump deliver_to_lily
+        "CONTINUE DELIVERING TO LILY":
+            jump _deliver_to_lily_02
 
 label investigate_the_figure:
 
@@ -1965,28 +1992,29 @@ label investigate_the_figure:
     
     "The Canary leaves promptly- hurriedly on his talons, as if something in him clicks; an understanding he had not connected the dots before."
     
-    #############################################
-    #FUNCTIONALITY HERE - Ale (me) can take care of this
-    "{color=#f00}The 'INVESTIGATE THE FIGURE' option approach will still be available if the player chooses the 'DELIVER TO LILY' interaction first, the only difference?{/color}"
-    "{color=#f00}'Louis' won't be able to mention it to Lily and have extra dialogue accessed.{/color}"
-    #############################################
+    #The 'INVESTIGATE THE FIGURE' option approach will still be available if the player chooses the 'DELIVER TO LILY' interaction first, the only difference?
+    #'Louis' won't be able to mention it to Lily and have extra dialogue accessed.
 
     play music "music/CC Main Story Dialogue Theme.wav" fadein 3 fadeout 3
-    
-    menu:
-        "LILY TASK CONCLUSION":
-            jump _lily_task_conclusion
-        "DELIVER TO LILY":
-            jump deliver_to_lily
-        "DELIVER TO LILY 0.1":
-            jump _deliver_to_lily_01
 
-label deliver_to_lily:
     menu:
-        "DELIVER TO LILY 0.1":
+        "DELIVER TO LILY":
             jump _deliver_to_lily_01
-        "DELIVER TO LILY 0.2":
-            jump _deliver_to_lily_02
+    
+    # menu:
+    #     "LILY TASK CONCLUSION":
+    #         jump _lily_task_conclusion
+    #     "DELIVER TO LILY":
+    #         jump deliver_to_lily
+    #     "DELIVER TO LILY 0.1":
+    #         jump _deliver_to_lily_01
+
+# label deliver_to_lily:
+#     menu:
+#         "DELIVER TO LILY 0.1":
+#             jump _deliver_to_lily_01
+#         "DELIVER TO LILY 0.2":
+#             jump _deliver_to_lily_02
 
 label _deliver_to_lily_01:
     
@@ -1994,7 +2022,7 @@ label _deliver_to_lily_01:
     show lightoverlay
     with dissolve3
 
-    "Louis recollects himself first before continuing, after that interaction with the Crow- he needed a moment to breath and refocus."
+    "Louis recollects himself first before continuing, after that interaction with the Crow- he needed a moment to breathe and refocus."
     
     "Standing at the front door of the blue house, Louis raised his wing and knocked, softly at the wood."
     
@@ -2144,10 +2172,6 @@ label _deliver_to_lily_01:
 
 label _deliver_to_lily_02:
     
-    #############################################
-    #FUNCTIONALITY HERE - Ale (me) can take care of this
-    "{color=#f00}This is the written segment wherein IF the player DID NOT choose to do the 'INVESTIGATE THE FIGURE' option before the 'DELIVER TO LILY' option{/color}"
-    #############################################
     show lightoverlay
 
     "Louis recollects himself first before continuing, after that interaction with the Crow- he needed a moment to breath and refocus."
@@ -2253,6 +2277,7 @@ label day_2_concluded:
     #DAY 1 CONCLUDED
     scene avian care hallway
     with dissolve3
+    $ is_daytime = False
 
     stop music fadeout 2.0
 
@@ -2356,24 +2381,27 @@ label day_2_concluded:
     
     "With that, Louis leaves the hospital, flying off back to the silent sanctuary of his home to end the day."
     
+    stop music fadeout 3
     scene black
-    with dissolve3
+    with Dissolve(10.0)
+    $ quick_menu = False
+    show devlog01 at truecenter
+    $ renpy.pause(91.0, hard=True)
+    stop movie
+    $ quick_menu = True
 
     $ day = 3
     jump day_3
 
 
 label day_3:
-
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game transitions into the 2D platform view of the world, wherein the character 'Louis' is shown inside of  Aves Courier Center{/color}"
-    #############################################
+    $ is_daytime = True
+    #The game transitions into the 2D platform view of the world, wherein the character 'Louis' is shown inside of  Aves Courier Center
     
     play music "music/CC Main Story Dialogue Theme.wav" fadein 3 fadeout 3
 
-    scene acorn street
-    show lightoverlay
+    scene aves courier center
+    #show lightoverlay
     with dissolve3
     
     "Louis is perched quietly at the side next to the wall, away from the rest of the bustling birds of Aves Courier Center, no... he was waiting."
@@ -2507,20 +2535,19 @@ label _new_task_caught_on_camera_finale:
     
     "Louis only bows in goodbye with that, knowing he won't be acknowledged any longer- he turns to leave, setting to fly off towards the city again."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game opens up the Louis' checklist, reading the contents it spells out to the player exactly what is expected to be done.{/color}"
-    "{color=#f00}DELIVERY FOR AVEN{/color}"
-    "{color=#f00}Aven has assigned a very special task just for Louis to complete, while for this task-{/color}"
-    "{color=#f00}there is no time requirement to fulfill, he is tasked to help out 'Maverick' from the 'Feathered Fixer' Hardware to restore 'one (1) broken video recorder' back to it's new and working state.{/color}"
-    "{color=#f00}* Visit 'Feathered Fixer' Hardware in 'Cornfield City'{/color}"
-    "{color=#f00}* Talk with 'the repairman': 'Maverick'{/color}"
-    "{color=#f00}* Fix the 'broken video recorder' with Maverick{/color}"
-    "{color=#f00}* Check-out the 'fixed video recorder' from Maverick{/color}"
-    "{color=#f00}* Leave 'Feathered Fixer' Hardware and go to 'Aves Courier Center'{/color}"
-    "{color=#f00}* Find 'Aven'{/color}"
-    "{color=#f00}* Deliver the fixed video recorder back to Aven{/color}"
-    "{color=#f00}* Mark the task as: 'DELIVERED'{/color}"
+    "This time, the list reads:"
+    #The game opens up the Louis' checklist, reading the contents it spells out to the player exactly what is expected to be done.
+    "{color=#8b593c}'DELIVERY FOR AVEN'{/color}"
+    "{color=#8b593c}Aven has assigned a very special task just for Louis to complete, while for this task-{/color}"
+    "{color=#8b593c}there is no time requirement to fulfill, he is tasked to help out 'Maverick' from the 'Feathered Fixer' Hardware to restore 'one (1) broken video recorder' back to it's new and working state.{/color}"
+    "{color=#8b593c}- Visit 'Feathered Fixer' Hardware in 'Cornfield City'{/color}"
+    "{color=#8b593c}- Talk with 'the repairman': 'Maverick'{/color}"
+    "{color=#8b593c}- Fix the 'broken video recorder' with Maverick{/color}"
+    "{color=#8b593c}- Check-out the 'fixed video recorder' from Maverick{/color}"
+    "{color=#8b593c}- Leave 'Feathered Fixer' Hardware and go to 'Aves Courier Center'{/color}"
+    "{color=#8b593c}- Find 'Aven'{/color}"
+    "{color=#8b593c}- Deliver the fixed video recorder back to Aven{/color}"
+    "{color=#8b593c}- Mark the task as: 'DELIVERED'{/color}"
     #############################################
     
     jump _the_fix_the_recorder
@@ -2530,14 +2557,12 @@ label _the_fix_the_recorder:
     
     #THE FIX THE RECORDER
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game automatically opens the 'Map' for this section, and the player can choose to only access the town street: 'Cornfield City'{/color}"
-    "{color=#f00}The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) 'Feathered Fixer' Hardware in 'Cornfield City'.{/color}"
-    #############################################
+    #The game automatically opens the 'Map' for this section, and the player can choose to only access the town street: 'Cornfield City'
+    #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the (front) 'Feathered Fixer' Hardware in 'Cornfield City'.
     
-    scene acorn street
-    show lightoverlay
+    scene cornfield town
+    with dissolve3
+    #show lightoverlay
 
     "Louis' eyes gazes offer the familiar pavement he finds himself standing on almost everyday on his job."
     
@@ -2545,11 +2570,10 @@ label _the_fix_the_recorder:
     
     "While it felt odd for Louis, he didn't dwell on it much. Focusing more on the task at hand instead."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The player may only interact with 'Feathered Fixer' Hardware for this section{/color}"
-    #############################################
+    #The player may only interact with 'Feathered Fixer' Hardware for this section
 
+    scene feathered fixer
+    with dissolve3
     #THE SMOKING EAGLE
     
     "Louis enters the Feathered Fixer Hardware with the box of the broken recorder in his wing, glancing around the store, searching for someone who might be named Maverick."
@@ -2678,19 +2702,21 @@ label _the_fix_the_recorder:
 label _patch_it_up:
     
     #PATCH IT UP
+
+    scene feathered fixer
+    with dissolve3
+    show broken camera
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game will now guide the player on how the parts of the video recorder will be fixed, the following choices below will dictate what part is added onto the video recorder,{/color}"
-    "{color=#f00}the mechanic will mostly be drag and drop.{/color}"
-    "{color=#f00}Use the anatomy of the video recorder file hardware_camera_separated.png and hardware_camera_broken.png{/color}"
-    #############################################
+    #The game will now guide the player on how the parts of the video recorder will be fixed, the following choices below will dictate what part is added onto the video recorder,
+    #the mechanic will mostly be drag and drop.
+    #Use the anatomy of the video recorder file hardware_camera_separated.png and hardware_camera_broken.png
 
     "With the broken video recorder set flat on the table, all wings were on deck as both Louis and Maverick oversaw the on-going operation."
     
     "The Eagle picks up the video recorder, inspecting the front before removing the broken camera lenses."
-    
-    show maverick smile
+    hide broken camera
+
+    show maverick smile at slightright
     m "Alright, kid. You'll just help me disassemble the parts and I can handle the rest of the heavy work."
     
     "The Eagle instructs Louis bluntly."
@@ -2719,8 +2745,8 @@ label _you_look_like_youve_been_doing_this_for_a_long_time:
     
     "The Canary clears his throat, making the Eagle glance up at him."
     
-    show louis normal
-    l "You...You look like you've been doing this for a long time."
+    show louis normal at slightleft
+    l "You... You look like you've been doing this for a long time."
     
     "Louis initiates, choosing his words carefully."
     
@@ -2740,11 +2766,8 @@ label _you_look_like_youve_been_doing_this_for_a_long_time:
     show maverick neutral
     m "Wrench."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The player should drag and drop the 'wrench' item to Maverick, in which he will continue to remove from the video recorder's anatomy.{/color}"
-    "{color=#f00}The previous item should return to where it was previously dragged from.{/color}"
-    #############################################
+    #The player should drag and drop the 'wrench' item to Maverick, in which he will continue to remove from the video recorder's anatomy.
+    #The previous item should return to where it was previously dragged from.
     
     "Louis hands the wrench to Maverick."
     
@@ -2814,37 +2837,34 @@ label _you_look_like_youve_been_doing_this_for_a_long_time:
     m "Now kid, all you gotta do is re-assemble the parts, and it should be good to go."
     
     "The Eagle turns the parts to Louis expectantly."
+
+    "Louis takes his time to put the parts together in the right order."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The player is presented with the individually 'fixed' parts of the broken video recorder, the game will guide the player which part goes where first by highlighting{/color}"
-    "{color=#f00}(either by simple glow or circled)  the individual parts lightly.{/color}"
-    "{color=#f00}Use the anatomy of the video recorder file hardware_camera_separated.png{/color}"
-    "{color=#f00}In the order of application: the camera lens structure is the main foundation.{/color}"
-    "{color=#f00}The player must first connect the microphone handle to the microphone, then the player will be able to connect the microphone to the camera lens.{/color}"
-    "{color=#f00}Afterwards, the player should connect the display panel to the camera lens body, then connect the last two 'red' and 'green' wires to finish.{/color}"
-    #############################################
+    #The player is presented with the individually 'fixed' parts of the broken video recorder, the game will guide the player which part goes where first by highlighting
+    #(either by simple glow or circled)  the individual parts lightly.
+    #Use the anatomy of the video recorder file hardware_camera_separated.png
+    #In the order of application: the camera lens structure is the main foundation.
+    #The player must first connect the microphone handle to the microphone, then the player will be able to connect the microphone to the camera lens.
+    #Afterwards, the player should connect the display panel to the camera lens body, then connect the last two 'red' and 'green' wires to finish.
     
     show maverick smile
     m "Good work kid, now give it to me and I'll do some final touches."
     
-    "The player should drag and drop the assembled video recorder to 'Maverick'."
+    #The player should drag and drop the assembled video recorder to 'Maverick'
     
+    hide maverick
+    with dissolve1
     "The Eagle hums pleasingly, standing up from the previously perched off spot behind the counter and heading towards the back, exiting Louis' view."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game showcases the hardware store without the table, putting the counter/cashier background back in view.{/color}"
-    #############################################
-    
+    #The game showcases the hardware store without the table, putting the counter/cashier background back in view.
+    show maverick smile at slightright
+    with dissolve1
     "The Eagle comes back with the video recorder in his wing."
     
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}Use the art of the video recorder file hardware_camera_final_fix{/color}"
-    #############################################
+    scene feathered fixer
+    show camera fixed
+    with dissolve1
     
-    show maverick smile
     m "Here you go kid."
     
     "Maverick places the fixed video recorder into Louis' wings, he didn't touch any of the cracked parts as he said:"
@@ -2854,8 +2874,9 @@ label _you_look_like_youve_been_doing_this_for_a_long_time:
     "So most of the model was still, quite broken with the exception it can still power-up with batteries it requires."
     
     "The Canary inspects the video recorder in his wing, watching the display panel booth up as he pushes the power button to open it."
-    
-    show louis happy
+    hide camera fixed
+    with dissolve2
+    show louis happy at slightleft
     l "Wow!"
     
     l "It's still rough looking, but it works!"
@@ -2864,7 +2885,7 @@ label _you_look_like_youve_been_doing_this_for_a_long_time:
     
     "The Eagle nods knowingly, polishing his wings with a clean rag, removing the spilled oil that got in his feathers as he looks at the Canary."
     
-    show maverick smile
+    show maverick smile at slightright
     m "Of course it works, I fixed it."
     
     show maverick neutral
@@ -2883,7 +2904,6 @@ label _you_look_like_youve_been_doing_this_for_a_long_time:
 
 
 label _peregrine_interaction_3:
-    #PEREGRINE INTERACTION 3
     
     scene streetview
 
@@ -2946,7 +2966,6 @@ label _peregrine_interaction_3:
             jump give_in
 
 label resist:
-    #RESIST
     
     "Louis nods firmly, standing his ground as he keeps Catcher's eyes on him." 
     
@@ -2975,7 +2994,6 @@ label resist:
 
 
 label give_in:
-    #GIVE IN
     
     "Louis sighs in defeat, knowing himself that he can never truly keep up a white lie for his own good, too honest and a bird true to his morals."
     
@@ -3026,8 +3044,6 @@ label give_in:
 
 label _peregrine_int_3_continuation:
     
-    #PEREGRINE INT. 3 CONTINUATION
-    
     show catcher anxious
     c "I'll catch you around, Louis. Something... came up."
     
@@ -3041,15 +3057,10 @@ label _peregrine_int_3_continuation:
 
 
 label _aven_task_conclusion:
-    
-    #AVEN TASK CONCLUSION
-    
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game transitions into the 2D platform view of the world, wherein the character 'Louis' is shown inside of Aves Courier Center.{/color}"
-    #############################################
 
-    scene aves courier center
+    #The game transitions into the 2D platform view of the world, wherein the character 'Louis' is shown inside of Aves Courier Center.
+
+    scene aves courier center inside
 
     "Louis paces around the office room, waiting for his boss, Aven, to show up for the video recorder he was tasked to fulfill."
     
@@ -3153,8 +3164,6 @@ label _aven_task_conclusion:
     
     "Setting his mind on a new object, he leaves the premises of Aves Courier Center, flying off to a new location."
     
-    
-    
     jump day_3_concluded
 
 label day_3_concluded:
@@ -3171,6 +3180,7 @@ label day_3_concluded:
 
     scene avian care hallway
     with dissolve3
+    $ is_daytime = False
 
     stop music fadeout 2.0
     
@@ -3242,11 +3252,12 @@ label day_3_concluded:
     "......"
     "..."
     
-    "The game transitions to the 'Acorn Street' Background, wherein the 'yellow house' is the character 'Louis' home."
-    
-    "The player will be transported in front of rows of tree houses - indicating local bird's houses"
-    
-    "Use the art of Day_3_Concluded_BG.png for background."
+    #The game transitions to the 'Acorn Street' Background, wherein the 'yellow house' is the character 'Louis' home.
+    #The player will be transported in front of rows of tree houses - indicating local bird's houses
+    #Use the art of Day_3_Concluded_BG.png for background."
+
+    scene acorn street day 3
+    with dissolve3
     
     "Louis has a sing-song chirp in his step as he stops right in front of his home, sighing in relief, he composes himself again, making sure to contain his flowing joy over the good news."
     
@@ -3255,23 +3266,38 @@ label day_3_concluded:
     
     "Louis says to himself with a happy chirp."
 
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}As the player approaches and clicks on the 'yellow house', the game fades to black, signifying the end of the first half.{/color}"
-    #############################################
+    #As the player approaches and clicks on the 'yellow house', the game fades to black, signifying the end of the first half.
     
+    stop music fadeout 3
+    scene black
+    with Dissolve(10.0)
+    $ quick_menu = False
+    show evangeline at truecenter
+    $ renpy.pause(82.0, hard=True)
+    stop movie
+
     scene black
     with Dissolve(9.0)
+
+    jump itch
+
+label itch:
+
+    scene itch
+    with dissolve1
+    call screen itchpage
 
     jump transitioning
 
 label transitioning:
 
+    scene black
     call screen contentwarning
 
     $ half = 1.5
 
     scene black
+    with dissolve3
     no "The sound of rustling leaves from outside fills the silence that consumed the void. A deep humming mixes in with the creaking of an open door, the clamor of a distant murder echoes to nowhere."
 
     no "Breathing heavily as the prattling sound of birds is in earshot, focusing on nothing yet it induces a sinking, anxious feeling inside."
@@ -3284,7 +3310,7 @@ label catcher_day_one:
     $ day = 1
     $ quick_menu = True
 
-    scene basement2
+    scene bedroom blur
     with dissolve3
     # faded bedroom
 
@@ -3296,7 +3322,8 @@ label catcher_day_one:
 
     no "The small switch is almost missed by the Falcon, with a firm grasp on the walls, Catcher flickers the switch open, revealing the scene to be... a bedroom?"
 
-    #bedroom
+    scene bedroom
+    with dissolve3
 
     ca "Where the... shit am I...?"
 
@@ -3317,6 +3344,7 @@ label catcher_day_one:
     jump attic_basement_choice
 
 label attic_basement_choice:
+    scene bedroom
     menu:
         "THE ATTIC":
             jump attic_exploration
@@ -3326,8 +3354,8 @@ label attic_basement_choice:
 
 label attic_exploration:
 
-    scene attic
-    with dissolve3
+    scene bedroom attic
+    with dissolve1
 
     no "The Falcon chooses to go up."
 
@@ -3340,6 +3368,9 @@ label attic_exploration:
     no "Still he persists, climbing up the staircase slowly, his hesitance creeps in."
 
     no "He peeks his head through the hatch, eyes scanning around the dark room before ascending further."
+
+    scene attic
+    with dissolve3
 
     no "The dim lighting from below and the lone window on the end of the room  barely provides any solid clearance on what Catcher is looking at when he steps his talon in the attic, his eyes gazing around."
 
@@ -3369,6 +3400,9 @@ label attic_exploration:
 
 
 label basement_exploration:
+
+    scene bedroom basement
+    with dissolve1
 
     no "The Falcon chooses to go down, an exhale of a deep breath follows as he isn't so fond of the complete darkness he knows will greet him."
 
@@ -3426,9 +3460,11 @@ label basement_proceed2:
 
     call screen tape
 
-    show argument at truecenter
+    $ quick_menu = False
+    show arguement at truecenter
     $ renpy.pause(139.0, hard=True)
     stop movie
+    $ quick_menu = True
 
     scene black
     with dissolve3
@@ -3471,12 +3507,9 @@ label go_outside:
 
     no "At a final glance around the area leading him to no bird in sight, he settles to fly somewhere else, where he'll know he can have a bird to chirp with."
 
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}The game transitions back into the 2D platform view of the world, wherein the character 'Catcher' is shown in front of the main 'Acorn Street' background.{/color}"
-    "{color=#f00}The game should highlight the 'Map' for this section, and the player can choose to only access the town street: 'Cornfield City'{/color}"
-    "{color=#f00}Travel to: A ghost town{/color}"
-    #############################################
+    #The game transitions back into the 2D platform view of the world, wherein the character 'Catcher' is shown in front of the main 'Acorn Street' background.
+    #The game should highlight the 'Map' for this section, and the player can choose to only access the town street: 'Cornfield City'
+    #Travel to: A ghost town
 
     no "Catcher glances at his surroundings taking it in as something he is all too familiar with, he wanders around aimlessly with no direction, feeling alone."
 
@@ -3486,13 +3519,10 @@ label go_outside:
 
     no "He decides to go to the Flyway Superstore first."
 
-    #############################################
-    #FUNCTIONALITY HERE
-    "{color=#f00}While the game allows the player to explore 'Cornfield City', but a text or dialogue should pop up (Catcher: No, I don't want to go here.){/color}"
-    "{color=#f00}if the player chooses to go to the other locations not stated in the choices.{/color}"
+    #While the game allows the player to explore 'Cornfield City', but a text or dialogue should pop up (Catcher: No, I don't want to go here.){/color}"
+    #if the player chooses to go to the other locations not stated in the choices.{/color}"
 
     jump corrupted_superstore
-    #############################################
 
 label corrupted_superstore:
 
@@ -4017,6 +4047,15 @@ label the_hospital:
 
     stop music fadeout 3
 
+    stop music fadeout 3
+    scene black
+    with Dissolve(10.0)
+    $ quick_menu = False
+    show HAHA at truecenter
+    $ renpy.pause(73.0, hard=True)
+    stop movie
+    $ quick_menu = True
+
     jump new_day_2_begin
 
 label new_day_2_begin:
@@ -4252,5 +4291,12 @@ label farewell_father_dearest:
     no "The Falcon leaves."
 
     stop music fadeout 3
+    scene black
+    with Dissolve(10.0)
+    $ quick_menu = False
+    show evangeline at truecenter
+    $ renpy.pause(82.0, hard=True)
+    stop movie
+    $ quick_menu = True
 
     return

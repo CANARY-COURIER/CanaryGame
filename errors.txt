@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/other_screens.rpy", line 235: style statement expects a non-empty block.
-    style help_side:
-                    ^
+File "game/special_labels.rpy", line 54: 'with' is not a keyword argument or valid child of the frame statement.
+    with Dissolve(10.0)
+        ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Mon Sep 30 05:23:07 2024
+Mon Sep 30 01:43:39 2024

@@ -22,8 +22,6 @@ define config.check_conflicting_properties = True
 ## You may add more back if you need to adjust them, or find-and-replace
 ## any instances where they are used directly with their value.
 
-
-
 # The text font for dialogue and choice menus
 define gui.text_font = gui.preference("font", "fonts/WalterTurncoat.ttf")
 # The text font for buttons

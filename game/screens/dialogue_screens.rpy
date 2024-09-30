@@ -80,14 +80,14 @@ style window1:
 style window2:
     xalign 0.5
     yalign 1.0
-    xysize (1231, 277)
-    padding (40, 10, 100, 40)
+    xysize (1250, 290)
+    padding (10, 10, 10, 10)
 
 style window3:
     xalign 0.5
     yalign 1.0
-    xysize (1231, 277)
-    padding (40, 10, 100, 40)
+    xysize (1250, 290)
+    padding (10, 10, 10, 10)
     background Image("gui/Creepyframe.png", xalign=0.5, yalign=1.0)
 
 # Style for the dialogue
@@ -143,8 +143,8 @@ image clock_img_light:
     rotate 180 xanchor 0.5 yanchor 0.5
     linear 2.0 rotate 360
 
-default is_daytime = False
-image clock_current = ConditionSwitch("is_daytime==True", 'clock_img_light', "is_daytime==False", 'clock_img_dark')
+default is_daytime = True
+image clock_current = ConditionSwitch("is_daytime==False", 'clock_img_light', "is_daytime==True", 'clock_img_dark')
 
 default inventory_opened = False
 
@@ -171,13 +171,13 @@ screen quick_menu():
                 auto 'gui/Backpack_%s.png'
                 pos(210, 806)
                 focus_mask True
-                at transform:
-                    outline_transform(3, "#fff", 3.0)
-                    on idle:
-                        drop_shadow(offset=(5.0, 5.0))
-                    on hover:
-                        ease 0.3 outline_transform(3, "#fff", 4.0)
-                action [ToggleVariable('is_daytime', true_value=True, false_value=False), ToggleScreen("drag_and_drop_inventory"), ToggleVariable('inventory_opened')]
+                # at transform:
+                #     outline_transform(3, "#fff", 3.0)
+                #     on idle:
+                #         drop_shadow(offset=(5.0, 5.0))
+                #     on hover:
+                #         ease 0.3 outline_transform(3, "#fff", 4.0)
+                # action [ToggleVariable('is_daytime', true_value=True, false_value=False), ToggleScreen("drag_and_drop_inventory"), ToggleVariable('inventory_opened')]
 
             ### MAP ###
             imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
@@ -211,27 +211,23 @@ screen quick_menu():
             imagebutton auto "gui/creepysettingsbutton_%s.png" xpos 1317 ypos 1004 focus_mask True action ShowMenu('preferences')
             imagebutton auto "gui/creepyskipbutton_%s.png" xpos 1424 ypos 1004 focus_mask True action Skip(fast=True, confirm=True)
             add "gui/creepybutton4.png" xpos 1532 ypos 1004
-
-            ### MAP ###
-            imagebutton auto "gui/MapGUIbutton_%s.png" xpos 245 ypos 30 focus_mask True
-
             ### CLOCK ###
 
             if day == 1:
                 fixed:
-                    pos (1300, 20)
+                    pos (1480, 20)
                     xsize 200
                     ysize 74
                     image 'gui/Day1creepy.png'
             elif day == 2:
                 fixed:
-                    pos (1300, 20)
+                    pos (1480, 20)
                     xsize 200
                     ysize 74
                     image 'gui/Day2creepy.png'
             elif day == 3:
                 fixed:
-                    pos (1300, 20)
+                    pos (1480, 20)
                     xsize 200
                     ysize 74
                     image 'gui/Day3creepy.png'
