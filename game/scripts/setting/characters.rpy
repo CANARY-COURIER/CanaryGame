@@ -21,6 +21,5 @@ define b = Character('Benny',  callback = name_callback, cb_name='crow',
                             what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")
 
 
-define av = Character('Aven', callback = name_callback, cb_name='aven', \
-                                what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")
+define av = Character('Aven', callback = name_callback, cb_name='aven', what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")
 define p = Character('Pieter', what_font="/fonts/AveriaSerifLibre-Regular.ttf", who_font="/fonts/AveriaSerifLibre-Regular.ttf", color="#ffffff")

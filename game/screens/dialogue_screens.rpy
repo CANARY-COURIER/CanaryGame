@@ -19,7 +19,20 @@ screen say(who, what):
     style_prefix "say"
 
     if inventory_opened is not True:
-        if half == 1:
+        if half == 0.5:
+            window:
+                id "window0"
+                style "window0"
+
+                if who is not None:
+
+                    window:
+                        id "namebox2"
+                        style "namebox2"
+                        text who id "who"
+
+                text what id "what"
+        elif half == 1:
             window:
                 id "window1"
                 style "window1"
@@ -70,6 +83,13 @@ init python:
     config.character_id_prefixes.append('namebox')
 
 # Style for the dialogue window
+style window0:
+    xalign 0.5
+    yalign 1.0
+    xysize (1231, 277)
+    padding (40, 10, 100, 40)
+    background Image("gui/WhiteGradient.png", xalign=0.5, yalign=1.0)
+
 style window1:
     xalign 0.5
     yalign 1.0

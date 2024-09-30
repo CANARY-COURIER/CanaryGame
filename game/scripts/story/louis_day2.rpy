@@ -14,7 +14,7 @@
 label _lily_task_conclusion:
 
     #The game transitions back into the 2D platform view of the world, wherein the character 'Louis' is shown in front of the town street of 'Cornfield City'
-    scene cornfield city
+    scene cornfield town
     
     "Louis finds himself on the main street of the city again, huffing lightly with the heavy items he carried in his bag, he opens his map again to see where he should be headed."
     
@@ -176,15 +176,18 @@ label flyway_superstore:
     
     show louis normal
     l "I know, I know- you know what I mean..."
-    
+
+    scene flyaway superstore
+    show grocerybag
     "Louis received the newly packaged bag of groceries from Ivory as she placed the receipt in with a clap of her wings, satisfied with her neat work."
+    hide grocerybag
     
-    show ivory happy
+    show ivory happy at slightright
+    show louis happy at slightleft
     i "That should be all of it!"
     
     "Louis hums as he nods."
     
-    show louis happy
     l "Thank you, Miss Ivory, I'll make sure to give your cinnamon roll back, if you don't want it then for your sibling, at least?"
     
     show louis normal
@@ -244,7 +247,7 @@ label _a_newspaper_bulletin_board:
     "Not wanting to let his thoughts run south even more, he places the newspaper clipping to where he found it, leaving it be."
     hide post clipping
     
-    jump _bellbirds_suspicion
+    jump post_choice
 
 
 # Player interacts with a stack of boxes in the room, making decisions based on what Louis finds.
@@ -268,7 +271,7 @@ label _a_stack_of_boxes:
     "He puts the box back at the top of the stack, leaving it be there without another thought of it."
     hide post package
     
-    jump _bellbirds_suspicion
+    jump post_choice
 
 
 # Player interacts with scattered mail to pick up and read a letter.
@@ -348,6 +351,9 @@ label day_2:
     #The 'Cornfield Mail Post' background will have some interactable items to note: 'A Newspaper Bulletin Board', 'A Stack of Boxes at the far end right', and some 'Mail scattered on the ground.
     #The character 'Louis' will be able to move around this room, and the player may hover over items that should highlight the interactable items.
 
+    jump post_choice
+
+label post_choice:
     menu:
         "A Newspaper Bulletin Board":
             jump _a_newspaper_bulletin_board
@@ -386,12 +392,12 @@ label day_2_concluded:
 
     $ renpy.pause(3.0)
     
-    #DAY 1 CONCLUDED
     scene avian care hallway
     with dissolve3
     $ is_daytime = False
 
     stop music fadeout 2.0
+    play music "music/CC Somber Hospital Theme.wav" fadein 2 fadeout 2
 
     #DAY 2 CONCLUDED
     
@@ -495,7 +501,7 @@ label day_2_concluded:
     
     stop music fadeout 3
     scene black
-    with Dissolve(10.0)
+    with dissolve3
     $ quick_menu = False
     show devlog01 at truecenter
     $ renpy.pause(91.0, hard=True)
@@ -652,6 +658,8 @@ label deny_deny_deny:
     
     "Aven reaches his hold on Louis again, almost dragging him on his feet when he ushers him out."
 
+    jump jump day_2_continuation
+
 
 label peregrine_interaction_2:
     
@@ -725,6 +733,7 @@ label mention_what_you_saw:
     show louis anxious
     l "Something about a... peculiar patient- but I can't say for sure."
     
+    show catcher neutral
     "........."
     "......"
     "..."
@@ -740,7 +749,6 @@ label mention_what_you_saw:
     
     "Louis feels Catcher's watchful gaze on him, but he knows- the Falcon knows better than to probe."
     
-    show catcher neutral
     c "I see."
     
     "Catcher only comments, staring at Louis- his eyes are unreadable."
@@ -925,6 +933,7 @@ label investigate_the_figure:
     
     "The crow tilts its head at him, confusingly as it takes a quick step towards him."
     
+    show louis anxious
     l "O-Oh! W-We were? My-My apologies..."
     
     "A part of Louis thought to himself, was this an evil spirit his mother spoke of? He had never interacted with them before, an unfamiliar face so to say- but then again he's assuming again."

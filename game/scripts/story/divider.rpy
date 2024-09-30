@@ -22,3 +22,4 @@ label transitioning:
     no "Breathing heavily as the prattling sound of birds is in earshot, focusing on nothing yet it induces a sinking, anxious feeling inside."
 
     no "{color=#f00}Wake up.{/color}"
+    jump catcher_day_one
