@@ -321,7 +321,7 @@ label corrupted_superstore:
 
     iv "Don't mistake my consideration for kindness, Catcher."
 
-    no "The mockingbird defense, her stance weary and guarded."
+    no "The mockingbird defends, her stance weary and guarded."
 
     show catcher angry 2
     ca "Oh {i}come on{/i}, you don't mean that."

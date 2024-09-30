@@ -109,7 +109,7 @@ screen game_menu(title):
 
 style return_button:
     idle_color "#332221"
-    hover_color "#a5a5a5"
+    hover_color "#645d5d"
     xpos 320
     yalign 1.0
     yoffset -60

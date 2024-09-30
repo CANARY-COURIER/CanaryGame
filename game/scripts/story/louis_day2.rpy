@@ -1113,14 +1113,6 @@ label _deliver_to_lily_01:
     show lily neutral
     li "This should be everything I needed, thank you, dear."
     
-    hide lily neutral
-    hide louis happy
-    show bouquet
-    "Louis watches as Lily sets the bag elsewhere for now."
-    
-    hide bouquet
-    show louis happy at tint3
-    show lily neutral at tintlily
     li "The ingredients, it's for my roommate, Sierra."
     
     show lily anxious
@@ -1157,10 +1149,14 @@ label _deliver_to_lily_01:
     l "Well- it- he was crying, but I'd figure it was just face paint..."
     
     "Louis rambles rather unsurely."
-    
+    hide lily confused
+    hide louis anxious
+    show bouquet
     "Louis watches as Lily thought quietly to herself, a light humming from her beak as she kept her gaze at him before trailing off towards outside."
     
-    show lily neutral
+    hide bouquet
+    show louis anxious at tint3
+    show lily confused at tintlily
     li "There's a saying from the past... you look pretty young so you probably weren't told."
     
     "Lily started as her eyes met the Canary's again."
