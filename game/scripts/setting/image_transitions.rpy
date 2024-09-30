@@ -34,11 +34,14 @@ image bennykane 6 = "/benny kane/006.png"
 
 image hospital = "/Backgrounds/hospital hall.jpg"
 image hospital blur = "/Backgrounds/hospital hall blurry.png"
+image hospital dark = "/Backgrounds/hospital hall dark.png"
+image hospital dark blur = "/Backgrounds/hospital hall dark blur.png"
 image basement = "/Backgrounds/basement.png"
 image basement2 = "/Backgrounds/basement2.png"
 image attic = "/Backgrounds/attic.jpg"
-image corrupted outside = "/Backgrounds/Acorn Street UPDATED.png"
+image corrupted outside = "/Backgrounds/Cornfield Town UPDATED.png"
 image corrupted store = "/Backgrounds/Flyaway Superstore UPDATED.png"
+image corrupted store dark = "/Backgrounds/Flyaway Superstore UPDATED dark.png"
 image corrupted store blur = "/Backgrounds/Flyaway Superstore UPDATED Blurry.png"
 image corrupted hospital = "/Backgrounds/Avian Care Patient Room UPDATED.png"
 image daycare 1 = "/Backgrounds/Daycare Room 1.png"
@@ -63,6 +66,7 @@ image camera fixed = "/images/items/fixed camera.png"
 image itch = "/gui/itch page.png"
 image cinnamonroll = "/images/items/hospital rewards/hospital_cinnaroll.png"
 image grocerybag = "/images/items/supermarket items/grocery_paperbag.png"
+image bouquet = "/images/items/hospital rewards/hospital_bouquet.png"
 
 image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (225,200)) #image="/images/last_frame.png"
 image interview2 = Movie(channel="movie_dp", play="images/interview2.webm", size = (1300,1200), loop=False)
@@ -73,6 +77,15 @@ image HAHA = Movie(channel="movie_dp", play="images/HAHA.webm", size = (1300,120
 image static = Movie(play="images/tvstatic.webm", loop=False, size = (1920,1080))
 
 image lightoverlay = "/gui/Light_Overlay.png"
+
+transform magicpos:
+    yoffset -50
+    xalign 0.5
+    zoom 0.82
+
+transform aven2pos:
+    xoffset 1000
+    yalign 1.0
 
 transform slightleft:
     xalign 0.18
@@ -109,6 +122,11 @@ transform tint5:
 transform tint6:
     matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
     slightleft
+
+transform tintlily:
+    matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)
+    xalign 0.8
+    yalign 1.0
 
 transform tinthospital:
     matrixcolor TintMatrix("#adb2bb")*SaturationMatrix(0.9630)*ContrastMatrix(1.0370)

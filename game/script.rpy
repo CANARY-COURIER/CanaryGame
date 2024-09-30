@@ -6,9 +6,4 @@ label start:
     stop music fadeout 2.0
     $quick_menu = False
     jump start_scene
-
-    # jump test
-
-
-# label test:
-#     call screen credits_display
+    #jump _patch_it_up
