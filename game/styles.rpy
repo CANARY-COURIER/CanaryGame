@@ -59,8 +59,7 @@ init offset = -1
 style default:
     font gui.text_font
     size gui.text_size
-    language gui.language
-    
+    language gui.language 
 
 style input:
     adjust_spacing False
