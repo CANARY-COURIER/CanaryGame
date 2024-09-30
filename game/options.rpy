@@ -20,7 +20,7 @@ define config.name = _("Canary Courier")
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "Canary Courier"
+define build.name = "CanaryCourier"
 
 ## Save directory ##############################################################
 ##
