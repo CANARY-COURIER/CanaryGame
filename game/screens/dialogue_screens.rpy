@@ -184,7 +184,7 @@ screen quick_menu():
         if half == 1:
             imagebutton auto "gui/SettingsGUIbutton_%s.png" xpos 1507 ypos 842 focus_mask True action ShowMenu('preferences')
             imagebutton auto "gui/MenuGUIbutton_%s.png" xpos 1468 ypos 695 focus_mask True action ShowMenu('save')
-            imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1586 ypos 564 focus_mask True action Skip(fast=True, confirm=True)
+            imagebutton auto "gui/SkipGUIbutton_%s.png" xpos 1586 ypos 564 focus_mask True action Rollback()
 
             ### BACKPACK ###
             imagebutton:

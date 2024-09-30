@@ -8,6 +8,7 @@
 # ===== Start Scene: Introduction and Tutorial =====
 label start_scene:
     #""" Intro to the tutorial """
+    play music "music/CC Main Story Dialogue Theme.wav" fadein 3 fadeout 3
     $ half = 0.5
 
     # Scene starts, and we introduce the player to the world
@@ -66,7 +67,6 @@ label opening_sequence:
     """ Start of Day 1 """
     $ half = 1
     # Environment setup, music, and player intro to Aves Courier Center
-    play music "music/CC Main Story Dialogue Theme.wav" fadein 3 fadeout 3
 
     $quick_menu = True
 
@@ -427,7 +427,7 @@ label youre_not_wrong:
     "Elio chuckles a hearty and rumbly one from his chest."
     
     show elio neutral
-    e "Unfortunately so, but it shows that I'm all making these delicious things by the wing!"
+    e "Unfortunately so, but it shows that I'm making all these delicious things by the wing!"
     
     show elio anxious
     e "I'm running the whole thing by myself, a sort of, one bird show, y'know? Sometimes it takes a while for everything to be in order!"
