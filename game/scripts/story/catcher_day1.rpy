@@ -227,6 +227,7 @@ label corrupted_superstore:
     scene corrupted store
     with dissolve3
 
+    stop music fadeout 3
     show BlackBars zorder 10
 
     no "The Falcon approaches Flyway Superstore, with the buzzing lights of the signage above greeting him eerily, entering the building as the glass doors with chimes close behind him."
@@ -399,6 +400,7 @@ label corrupted_superstore:
     no "The mockingbird's talons claw at the Falcon's chest, grabbing- begging, trying to release the sorrow in her voice."
 
     scene corrupted store dark
+    show benny video zorder 11 at stretchedpos
     show ivory sad sad sad
     voice "voice/i3.wav" 
     iv "{b}YOU TOOK HIM AWAY.{/b}"
@@ -418,7 +420,7 @@ label corrupted_superstore:
     no "Ivory repeats, unresponsive to whatever else the Falcon chooses to say or do, with her woes echoing through the building- he leaves quickly."
 
     no "Exiting the vicinity with nothing but a mortal reminder of her sorrow."
-
+    hide benny video
     stop music fadeout 3
 
     jump the_crow
@@ -969,8 +971,10 @@ label farewell_father_dearest:
     show catcher angry 2 at slightleft
     show aven burnt at aven2pos
     show BlackBars zorder 10
+    show burning zorder 10 at stretchedpos2
     no "The {color=#f00}burnt face{/color} of the Bellbird warps his vision."
     #scared text + functionality FIX THIS LATER ALE ALSO GLITCHED
+    hide burning
 
     show aven confused 2
     no "Adrenaline builds through his body, the Falcon's jaw clenches as he feels the ends of his talon sharpen."

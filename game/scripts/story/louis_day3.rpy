@@ -650,7 +650,7 @@ label _you_look_like_youve_been_doing_this_for_a_long_time:
     else:
         jump wrong_choice2
     
-    "Louis continues to watch as the Eagle takes the tube glue and begins to  meticulously put glue on the tip of the toothpick he had previously handed over."
+    "Louis continues to watch as the Eagle takes the tube glue and begins to  meticulously apply the glue."
     
     show louis normal at slightleft
     show maverick confused at slightright
