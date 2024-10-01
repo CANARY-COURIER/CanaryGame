@@ -52,10 +52,23 @@ transform show_hide_dissolve:
         alpha 1.0
         linear .5 alpha .0
 
+init
+    default credit_img_path = "./images/credit"
+
+    image credit_bg:
+        "[credit_img_path]credit_bg.png"
+        xalign 0.5
+
+    image icon_x = "[credit_img_path]x.png"
+    image icon_insta = "[credit_img_path]insta.png"
+    image icon_itch = "[credit_img_path]itch.png"
+    image icon_link = "[credit_img_path]link.png"
+    
+    
 screen credits_display():
     tag menu
     window at show_hide_dissolve:
-        add "./images/Backgrounds/credit_bg.png" xalign 0.5
+        add 'credit_bg'
         vbox:
             yoffset 140
             # Scrollable area for credits
