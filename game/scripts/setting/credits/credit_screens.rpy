@@ -1,13 +1,17 @@
+
+init -1:
+    default credit_data_path = "./scripts/setting/credits/credit_data.json" 
+
 init:
     default credits_data = get_credits_data()
     default duration = 44
-
+    
 init python:
     import json
 
     # Function to load the credits data from the JSON file
     def load_credits():
-        json_file_path = "./scripts/credits/credit_data.json" 
+        json_file_path = renpy.store.credit_data_path
         try:
             with renpy.loader.load(json_file_path) as f:
                 json_data = f.read().decode("utf-8")
@@ -65,6 +69,8 @@ init:
     image icon_link = "[credit_img_path]/link.png"
     image icon_carrd = "[credit_img_path]/carrd.png"
     
+# label test_credit:
+#     call screen credits_display
     
 screen credits_display():
     tag menu

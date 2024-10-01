@@ -9,4 +9,4 @@ label start:
     jump start_scene
 
     #jump _patch_it_up
-    # jump test
+    # jump test_credit
