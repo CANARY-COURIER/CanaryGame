@@ -52,7 +52,7 @@ transform show_hide_dissolve:
         alpha 1.0
         linear .5 alpha .0
 
-init
+init:
     default credit_img_path = "./images/credit"
 
     image credit_bg:
