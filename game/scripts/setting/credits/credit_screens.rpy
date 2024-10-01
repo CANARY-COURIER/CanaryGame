@@ -56,13 +56,14 @@ init:
     default credit_img_path = "./images/credit"
 
     image credit_bg:
-        "[credit_img_path]credit_bg.png"
+        "[credit_img_path]/credit_bg.png"
         xalign 0.5
 
-    image icon_x = "[credit_img_path]x.png"
-    image icon_insta = "[credit_img_path]insta.png"
-    image icon_itch = "[credit_img_path]itch.png"
-    image icon_link = "[credit_img_path]link.png"
+    image icon_x = "[credit_img_path]/x.png"
+    image icon_insta = "[credit_img_path]/insta.png"
+    image icon_itch = "[credit_img_path]/itch.png"
+    image icon_link = "[credit_img_path]/link.png"
+    image icon_carrd = "[credit_img_path]/carrd.png"
     
     
 screen credits_display():
