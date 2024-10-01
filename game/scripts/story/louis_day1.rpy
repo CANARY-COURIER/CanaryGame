@@ -595,7 +595,7 @@ label peregrine_int_continuation_1:
     "Louis notices Catcher's eyes dart from his gaze to the familiar bag he carried around for deliveries."
     
     show louis normal
-    l "I'm just about to wrap up a delivery actually,  some pastries for aMiss Ivory."
+    l "I'm just about to wrap up a delivery actually,  some pastries for a Miss Ivory."
     
     "Louis mentions his task in passing, hearing a light hum from the Falcon."
     
