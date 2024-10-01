@@ -73,6 +73,8 @@ image checklist ivory = "/gui/ivory's checklist.png"
 image checklist aven = "/gui/aven's checklist.png"
 
 image deadanim = Movie(channel="movie_dp", play="images/dead video.webm", loop=False, size = (225,200)) #image="/images/last_frame.png"
+image benny video = Movie(channel="movie_dp", play="images/bennyvideo.webm", loop=False, size = (210,1080)) #image="/images/last_frame.png"
+image burning = Movie(channel="movie_dp", play="images/burning.webm", loop=False, size = (210,1080)) #image="/images/last_frame.png"
 image interview2 = Movie(channel="movie_dp", play="images/interview2.webm", size = (1300,1200), loop=False)
 image devlog01 = Movie(channel="movie_dp", play="images/devlog 01.webm", size = (1300,1200), loop=False)
 image evangeline = Movie(channel="movie_dp", play="images/Evangelineknows.webm", size = (1300,1200), loop=False)
@@ -107,6 +109,16 @@ transform slightright:
 transform scarypos:
     xpos 1700
     ypos 895
+
+transform stretchedpos:
+    xpos 1710
+    ypos -1500
+    ysize 4000
+
+transform stretchedpos2:
+    xpos 1710
+    ypos -1500
+    ysize 4300
 
 transform tint1:
     matrixcolor TintMatrix("#feeabb")*SaturationMatrix(1.0000)*ContrastMatrix(1.0370)

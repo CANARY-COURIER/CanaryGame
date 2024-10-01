@@ -42,7 +42,7 @@ define config.save_directory = "CanaryCourier-1725422790"
 
 ## The version of the game.
 
-define config.version = "1.1"
+define config.version = "1.2"
 
 
 ## Sounds and music ############################################################
