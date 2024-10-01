@@ -448,3 +448,11 @@ init 999 python:
             if self.enter_callback:
                 self.enter_callback()
             raise renpy.IgnoreEvent()
+
+################################################################################
+## Code to remove these files for a distributed game. Do not remove.
+init python:
+    build.classify("**layout_tool.rpy", None)
+    build.classify("**layout_tool.rpyc", None)
+    
+################################################################################
