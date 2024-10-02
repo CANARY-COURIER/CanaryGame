@@ -1,3 +1,4 @@
+
 *.rpyc
 game/**/*.rpyc
 game/*/*/*/*.rpyc
@@ -14,3 +15,4 @@ errors.txt
 traceback.txt
 log.txt
 *.rpyb
+
